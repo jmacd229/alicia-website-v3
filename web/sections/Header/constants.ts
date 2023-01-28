@@ -1,0 +1,1 @@
+export const SCROLL_HEIGHT_FOR_BACK_TO_TOP = 500;
