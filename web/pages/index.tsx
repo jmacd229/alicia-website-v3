@@ -1,11 +1,16 @@
 import getContent from "network/getContent";
 import { BaseQuery, SectionQueries } from "network/getContent/constants";
 import { InferGetStaticPropsType, GetStaticProps } from "next";
+import Banner from "sections/Banner";
 import Header from "sections/Header";
 import GlobalStyle from "styles/GlobalStyle";
 import { SECTION_DEFINITIONS } from "./constants";
 
-const App = ({sections, header}: InferGetStaticPropsType<typeof getStaticProps>) => (
+const App = ({
+  sections,
+  header,
+  banner,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
     <GlobalStyle />
     <Header
@@ -14,6 +19,7 @@ const App = ({sections, header}: InferGetStaticPropsType<typeof getStaticProps>)
       )}
       contactMethods={header}
     />
+    <Banner banner={banner} />
   </>
 );
 

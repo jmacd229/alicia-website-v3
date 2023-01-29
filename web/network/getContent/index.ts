@@ -3,7 +3,7 @@ import { values, mapValues, pick } from "lodash-es";
 
 import { BASE_QUERY, SANITY_CLIENT_CONFIG, SectionQueries, SECTION_QUERIES } from "./constants";
 
-const client = sanityClient(SANITY_CLIENT_CONFIG);
+export const client = sanityClient(SANITY_CLIENT_CONFIG);
 
 const getVisibleSections = async (): Promise<string[]> => [
   "header",

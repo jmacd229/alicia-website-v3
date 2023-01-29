@@ -1,3 +1,4 @@
+import BANNER_QUERY, { Banner } from "sections/Banner/query";
 import HEADER_QUERY, { ContactMethods } from "sections/Header/query";
 
 export const SANITY_CLIENT_CONFIG = {
@@ -14,10 +15,12 @@ export type BaseQuery = string[];
 
 export const SECTION_QUERIES = {
   header: HEADER_QUERY,
+  banner: BANNER_QUERY,
   // banner: 'banner query goes here',
   // aboutMe: 'aboutMe query goes here',
 };
 
 export type SectionQueries = {
-  header: ContactMethods[]
+  header: ContactMethods[],
+  banner: Banner
 }
