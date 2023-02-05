@@ -1,11 +1,12 @@
-import { createGlobalStyle } from 'styled-components';
-import { fontSize, fontStyle } from './font';
-import colors from './palette';
+import { createGlobalStyle } from "styled-components";
+import { fontSize, fontStyle } from "./font";
+import media from "./media";
+import colors from "./palette";
 
 export default createGlobalStyle`
 :root {
 	font-size: 8px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Calibri', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -17,18 +18,27 @@ export default createGlobalStyle`
     background-color: transparent;
     border: none;
     padding: 0;
-	font-size: inherit;
-	border-radius: 0px;
+    font-size: inherit;
+    border-radius: 0px;
+  }
+
+  p {
+    font-size: ${fontSize("sm")};
+    font-weight: 200;
+    
+    ${media.medium}{
+      font-size: ${fontSize("regular")};
+    }
   }
 
   body {
-	font-weight: 400;
+    font-weight: 400;
     height: 100%;
-    font-size: ${fontSize('regular')};
+    font-size: ${fontSize("regular")};
     background-color: ${colors.white};
     color: ${colors.black};
-	overflow-x: hidden;
-  margin: 0;
+    overflow-x: hidden;
+    margin: 0;
   }
 
   @font-face {
