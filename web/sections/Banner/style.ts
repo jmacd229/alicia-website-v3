@@ -121,6 +121,10 @@ export const Title = styled.h2`
 `;
 
 export const TextBoxContent = styled.div`
-  padding: ${spacing(1)} ${spacing(4)};
+  padding: ${spacing(1)} ${spacing(2)};
   font-size: ${fontSize("sm")};
+
+  ${media.medium} {
+    padding: ${spacing(1)} ${spacing(4)};
+  }
 `;

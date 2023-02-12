@@ -1,8 +1,10 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import colors from "styles/palette";
 
 const MyDocument = () => (
   <Html lang="en">
     <Head title="Dr. Alicia MacDougall">
+    <meta name="theme-color" content={colors.grey.a}/>
       <link
         rel="preload"
         href="/fonts/eratolig-webfont.woff2"

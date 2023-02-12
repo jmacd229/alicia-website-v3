@@ -26,6 +26,7 @@ const Banner = ({ banner }: BannerProps) => {
           <StyledImage
             {...imageProps}
             alt={banner.image.alt}
+            priority
           />
         ) : (
           <div>{/* TODO: Implement Video*/}</div>

@@ -9,7 +9,7 @@ import { underline } from 'styles/animations/underline';
 import Button from 'components/Button';
 
 const NAV_HEIGHT = { EXPANDED: `125px`, COLLAPSED: '75px' };
-const MOBILE_NAV_HEIGHT = { EXPANDED: `75px`, COLLAPSED: '28px' };
+const MOBILE_NAV_HEIGHT = { EXPANDED: `75px`, COLLAPSED: '34px' };
 
 const COLLAPSE_ANIMATION = 'ease-in-out 150ms';
 const FLIP_ANIMATION = 'ease-in-out 250ms';
