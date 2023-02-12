@@ -6,6 +6,7 @@ import spacing from "styles/spacing";
 
 export const TitleContainer = styled.h3`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   font-size: ${fontSize("xxl")};

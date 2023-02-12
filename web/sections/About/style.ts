@@ -16,6 +16,7 @@ export const AboutMeContainer = styled.div.attrs({ id: "aboutMe" })`
 `;
 
 export const AboutMeContent = styled.div`
+  width: 100%;
   ${media.medium} {
     max-width: 900px;
   }
@@ -36,5 +37,8 @@ export const TextContainer = styled.div`
 export const StyledImage = styled(Image)`
   max-width: 300px;
   height: auto;
-  margin-left: ${spacing(5)};
+
+  ${media.large} {
+    margin-left: ${spacing(5)};
+  }
 `;
