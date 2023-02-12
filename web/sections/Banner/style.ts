@@ -6,7 +6,7 @@ import colors, { rgbColors } from "styles/palette";
 import { DEFAULT_SHADOW } from "styles/shadows";
 import spacing from "styles/spacing";
 
-const BANNER_HEIGHT = "550px";
+const BANNER_HEIGHT = "750px";
 const TEXT_BOX_BORDER_RADIUS = spacing(4);
 
 const BORDER_STYLE = (color: string) => css`
@@ -38,6 +38,8 @@ export const ImageContainer = styled.div`
   width: 100%;
   height: auto;
 
+  background-color: ${colors.jade.c};
+
   ${media.medium} {
     flex: 50%;
     margin-left: ${spacing(3)};
@@ -56,6 +58,7 @@ export const StyledImage = styled(Image)`
   width: 100%;
   height: auto;
   border-radius: 0;
+  opacity: 0.8;
 
   ${media.medium} {
     border-radius: ${spacing(3)};
@@ -68,7 +71,7 @@ export const StyledImage = styled(Image)`
 
 export const TextBoxContainer = styled.div`
   flex: 50%;
-  top: 4vw;
+  top: 8vw;
   right: ${spacing(4)};
   display: flex;
   max-width: 700px;
@@ -108,7 +111,6 @@ export const Title = styled.h2`
   border-radius: ${TEXT_BOX_BORDER_RADIUS};
   margin: ${spacing(3)};
   margin-bottom: 0;
-  line-height: ${fontSize("3xl")};
   ${media.large} {
     margin: 0;
     border-top: 8px solid ${colors.tan.a};

@@ -1,5 +1,5 @@
 import sanityClient from "@sanity/client";
-import { values, mapValues, pick } from "lodash-es";
+import { mapValues, pick } from "lodash-es";
 
 import { BASE_QUERY, SANITY_CLIENT_CONFIG, SectionQueries, SECTION_QUERIES } from "./constants";
 

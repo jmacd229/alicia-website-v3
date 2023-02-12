@@ -15,6 +15,18 @@ const MyDocument = () => (
         as="font"
         crossOrigin=""
       />
+      <link
+        rel="preload"
+        href="/fonts/RobotoSlab-Black.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/DancingScript-Medium.ttf"
+        as="font"
+        crossOrigin=""
+      />
     </Head>
     <body>
       <Main />

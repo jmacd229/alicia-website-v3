@@ -8,6 +8,7 @@ import resource from "./resource";
 import link from "./link";
 import contact from "./contact";
 import contact_method from "./contact_method";
+import font_text from "./font_text";
 import mixed_font_text from "./mixed_font_text";
 import privacy from "./privacy";
 import location from "./location";
@@ -26,6 +27,7 @@ export default [
   link,
   contact,
   contact_method,
+  font_text,
   mixed_font_text,
   privacy,
   location,

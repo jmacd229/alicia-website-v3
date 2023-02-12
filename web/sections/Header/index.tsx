@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { animateScroll } from 'react-scroll';
 import Logo from "images/alicia_naturopathic_doctor_logo.svg";
 import lottie, { AnimationItem } from "lottie-web";
 import chevron from "animations/chevron.json";
@@ -24,8 +25,9 @@ import Icon from "components/Icon";
 import { ICONS, IconString } from "components/Icon/constants";
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  animateScroll.scrollToTop();
 }
+
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (el) {
@@ -93,7 +95,6 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
 
   function playAnimation(name: string) {
     if (animations[name]?.isPaused) {
-      console.log(animations[name]);
       animations[name].play();
       animations[name].resetSegments(true);
     }
@@ -104,7 +105,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
       <HeaderContainer>
         <NavContainer collapsed={isNavCollapsed}>
           <Title collapsed={isNavCollapsed}>
-            <Logo title="Dr. Alicia - Naturopathic Doctor" />
+            <Logo height="110px" title="Dr. Alicia - Naturopathic Doctor" />
           </Title>
           <NavList>
             {sections
@@ -161,7 +162,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
           </Socials>
         </NavContainer>
       </HeaderContainer>
-      <Anchor collapsed={isNavCollapsed} />
+      <Anchor />
     </>
   );
 };

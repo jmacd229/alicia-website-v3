@@ -1,8 +1,7 @@
+import React from "react";
 import { PortableText } from "@portabletext/react";
 import { client } from "network/getContent";
 import { useNextSanityImage } from "next-sanity-image";
-import Image from "next/image";
-import React from "react";
 import { Banner } from "./query";
 import {
   BannerContainer,

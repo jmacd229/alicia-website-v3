@@ -37,7 +37,7 @@ const navPadding = css<{ collapsed: boolean }>`
   }
 `;
 
-export const Anchor = styled.div<{ collapsed: boolean }>`
+export const Anchor = styled.div<{ collapsed?: boolean }>`
   background-color: ${colors.blue.c};
   ${titleHeight}
   ${navPadding}

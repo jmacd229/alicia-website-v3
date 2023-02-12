@@ -6,7 +6,7 @@ import colors from "./palette";
 export default createGlobalStyle`
 :root {
 	font-size: 8px;
-    font-family: 'Calibri', sans-serif;
+    font-family: 'Source Sans Pro Light', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -23,9 +23,9 @@ export default createGlobalStyle`
   }
 
   p {
-    font-size: ${fontSize("sm")};
-    font-weight: 200;
-    
+    font-size: ${fontSize("regular")};
+    /* font-weight: 200; */
+
     ${media.medium}{
       font-size: ${fontSize("regular")};
     }
@@ -49,8 +49,29 @@ export default createGlobalStyle`
 }
 
 @font-face {
+    font-family: 'Roboto Slab Black';
+    src: url('/fonts/RobotoSlab-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Roboto Slab';
     src: url('/fonts/RobotoSlab.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('/fonts/DancingScript-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro Light';
+    src: url('/fonts/SourceSansPro-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -62,7 +83,8 @@ export default createGlobalStyle`
 
 h2 {
   ${fontStyle.IMPACT_THIN};
-  letter-spacing: unset;
+  font-size: ${fontSize('xl')};
+  letter-spacing: -1px !important;
   word-spacing: unset;
   text-transform: none;
   color: ${colors.black};
