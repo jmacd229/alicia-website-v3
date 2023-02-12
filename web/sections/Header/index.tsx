@@ -18,7 +18,7 @@ import {
   Anchor,
 } from "./style";
 import { AnimationConfig } from "types/animation";
-import { Section } from "pages/types";
+import { Section } from "../types";
 import { ContactMethods } from "./query";
 import { SCROLL_HEIGHT_FOR_BACK_TO_TOP } from "./constants";
 import Icon from "components/Icon";

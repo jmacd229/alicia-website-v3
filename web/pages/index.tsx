@@ -5,7 +5,7 @@ import About from "sections/About";
 import Banner from "sections/Banner";
 import Header from "sections/Header";
 import GlobalStyle from "styles/GlobalStyle";
-import { SECTION_DEFINITIONS } from "./constants";
+import { SECTION_DEFINITIONS } from "../sections/constants";
 
 const App = ({
   sections,
