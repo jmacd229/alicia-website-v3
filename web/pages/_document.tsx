@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 const MyDocument = () => (
   <Html lang="en">
-    <Head>
+    <Head title="Dr. Alicia MacDougall">
       <link
         rel="preload"
         href="/fonts/eratolig-webfont.woff2"
