@@ -17,7 +17,7 @@ const FLIP_ANIMATION = 'ease-in-out 250ms';
 const calculateBackToTopPosition = (isMobile?: boolean) =>
   `calc(calc(-${
     isMobile ? MOBILE_NAV_HEIGHT.COLLAPSED : NAV_HEIGHT.COLLAPSED
-  } / 2) - ${spacing(isMobile ? 3 : 2)})`;
+  } / 2) - ${spacing(2)})`;
 
 const titleHeight = css<{ collapsed: boolean }>`
   height: ${({ collapsed }) =>
@@ -38,9 +38,13 @@ const navPadding = css<{ collapsed: boolean }>`
 `;
 
 export const Anchor = styled.div<{ collapsed?: boolean }>`
-  background-color: ${colors.blue.c};
+  background-color: ${colors.grey.a};
   ${titleHeight}
   ${navPadding}
+
+  ${media.large} {
+    background-color: ${colors.grey.c};
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -203,9 +207,12 @@ export const WorkButton = styled(Button)`
     width: 100%;
     z-index: 1;
   }
+  svg * {
+      stroke: ${colors.blue.a};
+    }
   &:hover {
     svg * {
-      stroke: #71dedf;
+      stroke: ${colors.blue.b};
       transition: stroke linear 100ms;
     }
   }

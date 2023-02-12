@@ -25,6 +25,7 @@ export const Cursive = styled.span`
   ${fontStyle.CURSIVE};
   display: inline-block;
   line-height: ${fontSize("xxl")};
+  color: ${colors.blue.c};
   border-bottom: 3px solid ${colors.blue.c};
   padding: 0 ${spacing(4)};
 

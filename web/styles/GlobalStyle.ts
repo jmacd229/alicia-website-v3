@@ -78,7 +78,7 @@ export default createGlobalStyle`
 
 *:focus {
   box-shadow: none !important;
-  outline: 3px solid ${colors.tan.c};
+  outline: 3px solid ${colors.highlight};
 }
 
 h2 {

@@ -8,7 +8,7 @@ import spacing from 'styles/spacing';
 const buttonStyle = css`
   border: 2px solid ${colors.white};
   color: ${colors.black};
-  background-color: ${colors.blue.a};
+  background-color: ${colors.blue.b};
   padding: 0 ${spacing(0.5)};
   border-radius: ${spacing(4)};
   ${fontStyle.IMPACT};
@@ -16,7 +16,7 @@ const buttonStyle = css`
   ${DEFAULT_SHADOW}
   transition: background-color 100ms ease-in-out;
   &:hover {
-    background-color: ${colors.blue.b};
+    background-color: ${colors.blue.c};
   }
 
   ${media.medium} {

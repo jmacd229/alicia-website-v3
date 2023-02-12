@@ -7,11 +7,11 @@ import { DEFAULT_SHADOW } from "styles/shadows";
 import spacing from "styles/spacing";
 
 const BANNER_HEIGHT = "750px";
-const TEXT_BOX_BORDER_RADIUS = spacing(4);
+const getTextBorderRadius = (scale = 0) => spacing(5 - scale);
 
 const BORDER_STYLE = (color: string) => css`
-  border-top: 12px solid ${color};
-  border-bottom: 8px solid ${color};
+  border-top: 6px solid ${color};
+  border-bottom: 6px solid ${color};
 `;
 
 export const BannerContainer = styled.div`
@@ -21,30 +21,33 @@ export const BannerContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: ${colors.tan.a};
+  background-color: ${colors.grey.a};
+  border-bottom: ${spacing(8)} solid ${colors.blue.a};
+
   ${media.medium} {
-    ${BORDER_STYLE(colors.tan.b)};
     flex-direction: row;
   }
+
   ${media.large} {
     height: ${BANNER_HEIGHT};
     flex-direction: row;
-    border: none;
+    align-items: flex-start;
   }
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 120%;
   height: auto;
-
   background-color: ${colors.jade.c};
+  border-bottom: 6px solid ${colors.blue.b};
 
   ${media.medium} {
+    width: 100%;
+    ${BORDER_STYLE(colors.blue.b)}
     flex: 50%;
     margin-left: ${spacing(3)};
-    border-radius: ${spacing(4)};
-    border: 8px solid ${colors.tan.b};
+    border-radius: ${spacing(3)};
   }
 
   ${media.large} {
@@ -77,12 +80,13 @@ export const TextBoxContainer = styled.div`
   max-width: 700px;
   z-index: 1;
   justify-content: center;
+
   ${media.large} {
     position: absolute;
-    width: 40%;
+    width: 45%;
     ${DEFAULT_SHADOW}
     border-radius: ${spacing(8)};
-    ${BORDER_STYLE(`rgba(${rgbColors.tan.c},0.6)`)}
+    ${BORDER_STYLE(`rgba(${rgbColors.blue.c},0.6)`)}
   }
 `;
 
@@ -90,16 +94,17 @@ export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 95%;
-  background-color: ${colors.tan.a};
-  ${BORDER_STYLE(colors.tan.b)}
+  background-color: ${colors.grey.a};
+  padding: ${spacing(4)} 0;
 
   ${media.medium} {
     border: none;
+    padding: 0;
   }
 
   ${media.large} {
-    ${BORDER_STYLE(colors.tan.b)};
-    border-radius: ${TEXT_BOX_BORDER_RADIUS};
+    ${BORDER_STYLE(colors.blue.b)};
+    border-radius: ${getTextBorderRadius()};
     width: 100%;
   }
 `;
@@ -108,13 +113,12 @@ export const Title = styled.h2`
   background-color: ${colors.white};
   text-align: center;
   padding: ${spacing(2)} ${spacing(2)};
-  border-radius: ${TEXT_BOX_BORDER_RADIUS};
+  border-radius: ${getTextBorderRadius(1)};
   margin: ${spacing(3)};
   margin-bottom: 0;
   ${media.large} {
     margin: 0;
-    border-top: 8px solid ${colors.tan.a};
-    border-bottom: 8px solid ${colors.tan.b};
+    border-bottom: 1px solid ${colors.blue.b};
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }

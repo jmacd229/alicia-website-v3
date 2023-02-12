@@ -8,7 +8,7 @@ export const AboutMeContainer = styled.div.attrs({ id: "aboutMe" })`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${spacing(3)};
+  padding:  ${spacing(6)} ${spacing(3)};
 
   ${media.medium} {
     padding: ${spacing(15)};
@@ -26,11 +26,12 @@ export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${spacing(3)} 0;
+  padding: ${spacing(1)} 0;
   border-bottom: 3px solid ${colors.blue.c};
 
   ${media.large} {
     flex-direction: row;
+    padding: ${spacing(3)} 0;
   }
 `;
 
