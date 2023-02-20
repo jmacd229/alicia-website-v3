@@ -10,6 +10,7 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   display: flex;
   flex-direction: column;
   margin: ${spacing(5)} 0;
+  overflow: hidden;
 `;
 
 export const WorkTitle = styled.h3`
@@ -29,7 +30,7 @@ export const WorkContent = styled.div`
 `;
 
 export const StyledImage = styled(Image)`
-  width: 100%;
+  width: 150%;
   height: auto;
   margin-top: -${spacing(6)};
   opacity: 0.6;
@@ -45,6 +46,9 @@ export const ButtonContainer = styled.div`
 `;
 
 export const ButtonAndImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
 `;
 
