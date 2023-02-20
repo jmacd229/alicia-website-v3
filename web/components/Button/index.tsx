@@ -1,13 +1,18 @@
-import { FC, ReactElement, ReactNode } from 'react';
-import { StyledButton, StyledLink } from './style';
+import { FC, ReactElement, ReactNode } from "react";
+import { StyledButton, StyledLink } from "./style";
+import { ButtonVariant } from "./types";
+
+const DEFAULT_VARIANT = 'primary';
 
 const BaseButton: FC<{
+  variant?: ButtonVariant
   children: ReactNode;
   href?: string;
   onMouseEnter?: () => void;
   onFocus?: () => void;
   onClick?: () => void;
 }> = ({
+  variant,
   href,
   children,
   onMouseEnter,
@@ -19,20 +24,26 @@ const BaseButton: FC<{
     return (
       <StyledLink
         href={href}
-        {...rest}
+        target="_blank"
+        rel="noreferrer"
         onMouseEnter={onMouseEnter}
         onFocus={onFocus}
-        onClick={onClick}>
+        onClick={onClick}
+        variant={variant ?? DEFAULT_VARIANT}
+        {...rest}
+      >
         {children}
       </StyledLink>
     );
   } else {
     return (
       <StyledButton
-        {...rest}
         onMouseEnter={onMouseEnter}
         onFocus={onFocus}
-        onClick={onClick}>
+        onClick={onClick}
+        variant={variant ?? DEFAULT_VARIANT}
+        {...rest}
+      >
         {children}
       </StyledButton>
     );

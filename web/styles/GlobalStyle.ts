@@ -83,11 +83,21 @@ export default createGlobalStyle`
 
 h2 {
   ${fontStyle.IMPACT_THIN};
-  font-size: ${fontSize('xl')};
+  font-size: ${fontSize("xl")};
   letter-spacing: -1px !important;
   word-spacing: unset;
   text-transform: none;
   color: ${colors.black};
   font-weight: 400;
+}
+
+h3 {
+  font-size: ${fontSize("xxl")};
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 `;

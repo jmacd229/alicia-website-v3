@@ -9,7 +9,6 @@ export const TitleContainer = styled.h3`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  font-size: ${fontSize("xxl")};
   white-space: nowrap;
 
   ${media.medium} {

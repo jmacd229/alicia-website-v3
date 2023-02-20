@@ -1,18 +1,18 @@
-import styled, { css } from 'styled-components';
-import colors from 'styles/palette';
-import { fontSize, fontStyle } from 'styles/font';
-import spacing from 'styles/spacing';
-import media from 'styles/media';
-import { DEFAULT_SHADOW } from 'styles/shadows';
-import zIndex from 'styles/zIndex';
-import { underline } from 'styles/animations/underline';
-import Button from 'components/Button';
+import styled, { css } from "styled-components";
+import colors from "styles/palette";
+import { fontSize, fontStyle } from "styles/font";
+import spacing from "styles/spacing";
+import media from "styles/media";
+import { shadow } from "styles/shadows";
+import zIndex from "styles/zIndex";
+import { underline } from "styles/animations/underline";
+import Button from "components/Button";
 
-const NAV_HEIGHT = { EXPANDED: `125px`, COLLAPSED: '75px' };
-const MOBILE_NAV_HEIGHT = { EXPANDED: `75px`, COLLAPSED: '34px' };
+const NAV_HEIGHT = { EXPANDED: `125px`, COLLAPSED: "75px" };
+const MOBILE_NAV_HEIGHT = { EXPANDED: `75px`, COLLAPSED: "34px" };
 
-const COLLAPSE_ANIMATION = 'ease-in-out 150ms';
-const FLIP_ANIMATION = 'ease-in-out 250ms';
+const COLLAPSE_ANIMATION = "ease-in-out 150ms";
+const FLIP_ANIMATION = "ease-in-out 250ms";
 
 const calculateBackToTopPosition = (isMobile?: boolean) =>
   `calc(calc(-${
@@ -55,25 +55,25 @@ export const HeaderContainer = styled.div`
 
 export const NavContainer = styled.div<{ collapsed: boolean }>`
   display: grid;
-  grid-template-areas: 'logo links';
-  grid-template-columns: ${({ collapsed }) => (collapsed ? '15%' : '35%')} auto;
+  grid-template-areas: "logo links";
+  grid-template-columns: ${({ collapsed }) => (collapsed ? "15%" : "35%")} auto;
   grid-template-rows: auto;
   align-items: center;
   top: 0;
   ${navPadding}
   background-color: ${colors.grey.a};
   border-bottom: 2px solid ${colors.blue.b};
-  height: ${({ collapsed }) => (collapsed ? '110%' : '100%')};
-  ${DEFAULT_SHADOW}
+  height: ${({ collapsed }) => (collapsed ? "110%" : "100%")};
+  ${shadow(1)}
   transition: height ${COLLAPSE_ANIMATION}, padding ${COLLAPSE_ANIMATION};
 
   ${media.medium} {
-    grid-template-areas: 'logo links socials';
-    grid-template-columns: ${({ collapsed }) => (collapsed ? '20%' : '35%')} auto 10%;
+    grid-template-areas: "logo links socials";
+    grid-template-columns: ${({ collapsed }) => (collapsed ? "20%" : "35%")} auto 10%;
   }
 `;
 
-export const NavList = styled.div.attrs({ role: 'navigation' })`
+export const NavList = styled.div.attrs({ role: "navigation" })`
   grid-area: links;
   display: flex;
   align-items: center;
@@ -91,10 +91,10 @@ export const NavList = styled.div.attrs({ role: 'navigation' })`
 
 export const NavItem = styled.button<{ collapsed: boolean }>`
   color: ${colors.black};
-  font-size: ${({ collapsed }) => fontSize(collapsed ? 'xs' : 'sm')};
+  font-size: ${({ collapsed }) => fontSize(collapsed ? "xs" : "sm")};
   ${fontStyle.IMPACT_THIN};
   padding: 0 ${spacing(0.5)};
-  ${underline('jade-a', `font-size ${COLLAPSE_ANIMATION}`)}
+  ${underline("jade-a", `font-size ${COLLAPSE_ANIMATION}`)}
   margin: 0;
 
   &:hover {
@@ -103,19 +103,19 @@ export const NavItem = styled.button<{ collapsed: boolean }>`
 
   ${media.medium} {
     padding: ${spacing(0.5)} ${spacing(1)};
-    font-size: ${({ collapsed }) => fontSize(collapsed ? 'regular' : 'lg')};
+    font-size: ${({ collapsed }) => fontSize(collapsed ? "regular" : "lg")};
   }
 `;
 
 export const BackToTopButton = styled.button.attrs<{ collapsed: boolean }>(
   ({ collapsed }) => ({
     disabled: !collapsed,
-    'aria-hidden': !collapsed,
+    "aria-hidden": !collapsed,
   })
 )<{ collapsed: boolean }>`
   position: absolute;
   bottom: ${calculateBackToTopPosition(true)};
-  ${DEFAULT_SHADOW}
+  ${shadow(1)}
   color: ${colors.white};
   background-color: ${colors.jade.b};
   padding: 0 ${spacing(0.5)};
@@ -167,11 +167,10 @@ export const Title = styled.h1<{ collapsed: boolean }>`
   overflow: hidden;
   ${titleHeight}
   > svg {
-    height: ${({ collapsed }) => (collapsed ? '110%' : '100%')};
+    height: ${({ collapsed }) => (collapsed ? "110%" : "100%")};
     width: auto;
     transition: height ${COLLAPSE_ANIMATION};
   }
-
 `;
 
 export const Socials = styled.div<{ collapsed: boolean }>`
@@ -194,32 +193,29 @@ export const Socials = styled.div<{ collapsed: boolean }>`
   }
 `;
 
-export const WorkButton = styled(Button)`
+export const WorkButton = styled(Button).attrs({ variant: "secondary" })`
   display: flex;
   align-items: center;
   height: 32px;
   margin-left: ${spacing(1)};
+  font-size: ${fontSize("sm")};
+  line-height: ${fontSize("sm")};
+  padding: 0 ${spacing(1)};
   cursor: pointer;
   overflow: hidden;
   transform: translateZ(0); // Fix for Safari
-  line-height: ${fontSize('sm')};
+  border-width: 2px;
   > span {
     width: 100%;
     z-index: 1;
-  }
-  svg * {
-      stroke: ${colors.blue.a};
-    }
-  &:hover {
-    svg * {
-      stroke: ${colors.blue.b};
-      transition: stroke linear 100ms;
-    }
   }
 
   ${media.medium} {
     height: 48px;
     margin-left: 0;
+    font-size: ${fontSize("regular")};
+    padding: ${spacing(1)} ${spacing(2)};
+    border-width: 3px;
   }
 `;
 

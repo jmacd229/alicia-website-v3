@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 import media from "./media";
 
 const FONT_SIZES = {
@@ -28,7 +28,6 @@ export const fontStyle = {
   `,
   IMPACT_THIN: css`
     font-family: "eratolig";
-    text-transform: uppercase;
     word-spacing: 2px;
 
     ${media.medium} {
@@ -37,3 +36,7 @@ export const fontStyle = {
     }
   `,
 };
+
+export const Cursive = styled.span`
+  ${fontStyle.CURSIVE};
+`;

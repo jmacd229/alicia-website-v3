@@ -1,38 +1,57 @@
-import styled, { css } from 'styled-components';
-import { fontSize, fontStyle } from 'styles/font';
-import media from 'styles/media';
-import colors from 'styles/palette';
-import { DEFAULT_SHADOW } from 'styles/shadows';
-import spacing from 'styles/spacing';
+import styled, { css } from "styled-components";
+import { fontStyle } from "styles/font";
+import media from "styles/media";
+import colors from "styles/palette";
+import { shadow } from "styles/shadows";
+import spacing from "styles/spacing";
+import { ButtonState, ButtonVariant } from "./types";
 
-const buttonStyle = css`
-  border: 2px solid ${colors.white};
-  color: ${colors.black};
-  background-color: ${colors.blue.b};
-  padding: 0 ${spacing(0.5)};
-  border-radius: ${spacing(4)};
-  ${fontStyle.IMPACT};
-  font-size: ${fontSize('sm')};
-  ${DEFAULT_SHADOW}
-  transition: background-color 100ms ease-in-out;
-  &:hover {
-    background-color: ${colors.blue.c};
-  }
+const VARIANT_COLOR_MAPPING: Record<
+  ButtonState,
+  Record<ButtonVariant, string>
+> = {
+  regular: { primary: colors.blue.b, secondary: colors.blue.a },
+  hover: { primary: colors.blue.a, secondary: colors.blue.b },
+};
 
-  ${media.medium} {
+const SVG_COLOR_MAPPING: Record<ButtonState, Record<ButtonVariant, string>> = {
+  regular: { primary: colors.blue.a, secondary: colors.grey.a },
+  hover: { primary: colors.grey.a, secondary: colors.blue.a },
+};
+
+const buttonStyle = css<{ variant: ButtonVariant }>`
+  ${({ variant }) => css`
+    border: 3px solid ${colors.white};
+    color: ${colors.black};
+    background-color: ${VARIANT_COLOR_MAPPING.regular[variant]};
     padding: ${spacing(1)} ${spacing(2)};
-    font-size: ${fontSize('regular')};
-    border-width: 3px;
-  }
+    border-radius: ${spacing(4)};
+    ${fontStyle.IMPACT};
+    text-decoration: none;
+    z-index: 1;
+    ${shadow(1)}
+    transition: background-color 100ms ease-in-out,  stroke linear 100ms;
+
+    svg * {
+      stroke: ${SVG_COLOR_MAPPING.regular[variant]};
+    }
+
+    &:hover {
+      background-color: ${VARIANT_COLOR_MAPPING.hover[variant]};
+      svg * {
+        stroke: ${SVG_COLOR_MAPPING.hover[variant]};
+      }
+    }
+  `}
 `;
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<{ variant: ButtonVariant }>`
   ${buttonStyle}
 `;
 
 export const StyledLink = styled.a.attrs({
-  target: '_blank',
-  rel: 'noreferrer',
-})`
+  target: "_blank",
+  rel: "noreferrer",
+})<{ variant: ButtonVariant }>`
   ${buttonStyle}
 `;

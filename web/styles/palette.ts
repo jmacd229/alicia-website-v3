@@ -5,7 +5,7 @@ const themePalette: Record<ThemePalette, Record<Shade, string>> = {
     c: "#818181",
   },
   blue: {
-    a: "#7bdfe3",
+    a: "#96e5e8",
     b: "#00C2CB",
     c: "#00A5AC",
   },

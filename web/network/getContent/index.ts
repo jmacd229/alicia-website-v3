@@ -1,5 +1,5 @@
 import sanityClient from "@sanity/client";
-import { mapValues, pick } from "lodash-es";
+import { mapValues, pick } from "lodash";
 
 import { BASE_QUERY, SANITY_CLIENT_CONFIG, SectionQueries, SECTION_QUERIES } from "./constants";
 
@@ -22,7 +22,6 @@ const getContent = async () => {
       visibleSectionQueries[key]
     );
   }
-
   const response = await client.fetch(mergedQuery) as SectionQueries;
   return { sections, ...response };
 };

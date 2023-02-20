@@ -4,6 +4,7 @@ import { InferGetStaticPropsType, GetStaticProps } from "next";
 import About from "sections/About";
 import Banner from "sections/Banner";
 import Header from "sections/Header";
+import Work from "sections/Work";
 import GlobalStyle from "styles/GlobalStyle";
 import { SECTION_DEFINITIONS } from "../sections/constants";
 
@@ -12,6 +13,7 @@ const App = ({
   header,
   banner,
   aboutMe,
+  work,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <>
     <GlobalStyle />
@@ -22,7 +24,8 @@ const App = ({
       contactMethods={header}
     />
     <Banner banner={banner} />
-    {aboutMe && <About about={aboutMe} />}
+    <About about={aboutMe} />
+    <Work work={work} />
   </>
 );
 

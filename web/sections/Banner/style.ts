@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { fontSize } from "styles/font";
 import media from "styles/media";
 import colors, { rgbColors } from "styles/palette";
-import { DEFAULT_SHADOW } from "styles/shadows";
+import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
 
 const BANNER_HEIGHT = "750px";
@@ -22,7 +22,7 @@ export const BannerContainer = styled.div`
   align-items: center;
   overflow: hidden;
   background-color: ${colors.grey.a};
-  border-bottom: ${spacing(8)} solid ${colors.blue.a};
+  border-bottom: ${spacing(8)} solid ${colors.blue.b};
 
   ${media.medium} {
     flex-direction: row;
@@ -84,7 +84,7 @@ export const TextBoxContainer = styled.div`
   ${media.large} {
     position: absolute;
     width: 45%;
-    ${DEFAULT_SHADOW}
+    ${shadow(1)}
     border-radius: ${spacing(8)};
     ${BORDER_STYLE(`rgba(${rgbColors.blue.c},0.6)`)}
   }

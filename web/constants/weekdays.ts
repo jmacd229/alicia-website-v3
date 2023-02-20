@@ -1,4 +1,4 @@
-const weekdays = {
+const WEEKDAYS = {
   mon: { full: "Monday", shortenedLetters: 3 },
   tue: { full: "Tuesday", shortenedLetters: 4 },
   wed: { full: "Wednesday", shortenedLetters: 3 },
@@ -8,4 +8,6 @@ const weekdays = {
   sun: { full: "Sunday", shortenedLetters: 3 },
 };
 
-export default weekdays;
+export type WeekDayKey = keyof typeof WEEKDAYS;
+
+export default WEEKDAYS;
