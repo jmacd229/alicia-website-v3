@@ -103,7 +103,6 @@ export const Underline = styled.span`
 
 export const AnimationContainer = styled.div<{size: ButtonSize}>`
   width: 0;
-  /* margin-top: ${({size}) => size === 'large' ? '0' : '26%'}; */
   margin-left: ${({size}) => size === 'large' ? '-24%' : '-36%'};
   > div {
     width: 96px;

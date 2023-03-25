@@ -2,13 +2,11 @@ import React from "react";
 import { PortableText } from "@portabletext/react";
 import BaseButton from "components/Button";
 import { client } from "network/getContent";
-import { Location, Work } from "./query";
+import { Work } from "./query";
 import { useNextSanityImage } from "next-sanity-image";
-import WEEKDAYS from "../../constants/weekdays";
 import brain from "animations/brain.json";
 import {
   BookButtonContainer,
-  ButtonAndImageWrapper,
   ButtonContainer,
   DesktopTitle,
   StyledImage,
@@ -16,6 +14,7 @@ import {
   WorkContent,
   WorkContentContainer,
   MobileTitle,
+  ImageContainer,
 } from "./style";
 import WorkSchedule from "./components/WorkSchedule";
 
@@ -64,7 +63,9 @@ const Work = ({ work }: WorkProps) => {
             ))}
           </ButtonContainer>
         </WorkContent>
-        <StyledImage {...imageProps} alt={work.image.alt} />
+        <ImageContainer>
+          <StyledImage {...imageProps} alt={work.image.alt} />
+        </ImageContainer>
       </WorkContentContainer>
     </WorkContainer>
   );

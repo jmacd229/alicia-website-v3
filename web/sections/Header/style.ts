@@ -17,7 +17,7 @@ const FLIP_ANIMATION = "ease-in-out 250ms";
 const calculateBackToTopPosition = (isMobile?: boolean) =>
   `calc(calc(-${
     isMobile ? MOBILE_NAV_HEIGHT.COLLAPSED : NAV_HEIGHT.COLLAPSED
-  } / 2) - ${spacing(2)})`;
+  } / 2) - ${spacing(isMobile ? 2 : 4)})`;
 
 const titleHeight = css<{ collapsed: boolean }>`
   height: ${({ collapsed }) =>
@@ -115,6 +115,8 @@ export const BackToTopButton = styled.button.attrs<{ collapsed: boolean }>(
 )<{ collapsed: boolean }>`
   position: absolute;
   bottom: ${calculateBackToTopPosition(true)};
+  border-bottom-left-radius: ${spacing(2)};
+  border-bottom-right-radius: ${spacing(2)};
   ${shadow(1)}
   color: ${colors.white};
   background-color: ${colors.jade.b};
@@ -146,7 +148,7 @@ export const BackToTopButton = styled.button.attrs<{ collapsed: boolean }>(
 
   ${media.medium} {
     bottom: ${calculateBackToTopPosition()};
-    padding: 0 ${spacing(2)};
+    padding: ${spacing(1)} ${spacing(3)};
     span {
       display: block;
     }

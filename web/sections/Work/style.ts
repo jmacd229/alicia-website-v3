@@ -13,6 +13,7 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   flex-direction: column;
   align-items: center;
   margin: ${spacing(5)} 0;
+  margin-bottom: 10000px;
   &::after {
     content: "";
     display: block;
@@ -41,12 +42,12 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
 
 export const WorkTitle = styled.h3`
   position: relative;
-  padding: 0 ${spacing(5)};
+  text-align: center;
   ${fontStyle.IMPACT_THIN};
 `;
 
 export const MobileTitle = styled(WorkTitle)`
-  ${media.large} {
+  ${media.medium} {
     display: none;
   }
 `;
@@ -57,10 +58,10 @@ export const DesktopTitle = styled(WorkTitle)`
   top: 5%;
   left:0;
   padding: 0;
-  text-align: center;
   width: 100%;
+  white-space: nowrap;
   z-index: 1;
-  ${media.large} {
+  ${media.medium} {
     display: block;
   }
 `;
@@ -70,9 +71,8 @@ export const WorkContentContainer = styled.div`
   flex-direction: column;
   position: relative;
   max-height: 750px;
-  overflow: hidden;
 
-  ${media.large} {
+  ${media.medium} {
     flex-direction: row;
   }
 `;
@@ -88,14 +88,14 @@ export const WorkContent = styled.div`
   border-bottom-right-radius: ${spacing(10)};
   ${shadow(1)};
   z-index: 1;
-  ${media.large} {
+  ${media.medium} {
     position: absolute;
 	justify-content: center;
 	text-align: center;
-    width: 45%;
+	width: 450px;
     height: 50%;
     top: 10%;
-    left: 5%;
+    left: 0%;
     padding: ${spacing(6)} ${spacing(8)};
     border-radius: ${spacing(10)};
     background-color: ${colors.grey.a};
@@ -104,19 +104,27 @@ export const WorkContent = styled.div`
       font-size: ${fontSize("lg")};
     }
   }
+
+  ${media.large} {
+	width: 45%;
+	left: 5%;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  overflow: hidden;
+  margin-top: -${spacing(6)};
+  ${media.medium} {
+    margin-top: 0;
+    border-top: ${spacing(2)} solid ${colors.blue.b};
+  }
 `;
 
 export const StyledImage = styled(Image)`
   position: relative;
   width: 120%;
-  height: 100%;
-  margin-top: -${spacing(6)};
+  height: auto;
   opacity: 0.7;
-
-  ${media.large} {
-    margin-top: 0;
-    border-top: ${spacing(2)} solid ${colors.blue.b};
-  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -124,10 +132,10 @@ export const ButtonContainer = styled.div`
   flex-direction: column;
   position: absolute;
   top: 110%;
-  left: 10%;
+  left: 2.5%;
   gap: ${spacing(2)};
 
-  ${media.large} {
+  ${media.medium} {
     flex-direction: row-reverse;
     position: absolute;
     top: 75%;

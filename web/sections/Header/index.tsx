@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { animateScroll } from "react-scroll";
 import Logo from "images/alicia_naturopathic_doctor_logo.svg";
-import lottie, { AnimationItem } from "lottie-web";
+import { AnimationItem } from "lottie-web";
 import chevron from "animations/chevron.json";
 import brain from "animations/brain.json";
 import {
@@ -16,7 +16,6 @@ import {
   WorkButton,
   Anchor,
 } from "./style";
-import { AnimationConfig } from "types/animation";
 import { Section } from "../types";
 import { ContactMethods } from "./query";
 import { SCROLL_HEIGHT_FOR_BACK_TO_TOP } from "./constants";
