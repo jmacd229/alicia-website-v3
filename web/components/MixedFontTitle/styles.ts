@@ -10,10 +10,6 @@ export const TitleContainer = styled.h3`
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-
-  ${media.medium} {
-    font-size: ${fontSize("3xl")};
-  }
 `;
 
 export const Regular = styled.span`

@@ -1,36 +1,77 @@
 import styled, { css } from "styled-components";
-import { fontStyle } from "styles/font";
+import { fontSize, fontStyle } from "styles/font";
 import media from "styles/media";
 import colors from "styles/palette";
 import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
-import { ButtonState, ButtonVariant } from "./types";
+import { ButtonSize, ButtonState, ButtonStyleProperties, ButtonVariant } from "./types";
 
 const VARIANT_COLOR_MAPPING: Record<
   ButtonState,
   Record<ButtonVariant, string>
 > = {
-  regular: { primary: colors.blue.b, secondary: colors.blue.a },
-  hover: { primary: colors.blue.a, secondary: colors.blue.b },
+  regular: {
+    primary: colors.blue.b,
+    secondary: colors.blue.a,
+    tertiary: colors.jade.a,
+  },
+  hover: {
+    primary: colors.blue.a,
+    secondary: colors.blue.b,
+    tertiary: colors.blue.c,
+  },
 };
 
 const SVG_COLOR_MAPPING: Record<ButtonState, Record<ButtonVariant, string>> = {
-  regular: { primary: colors.blue.a, secondary: colors.grey.a },
-  hover: { primary: colors.grey.a, secondary: colors.blue.a },
+  regular: {
+    primary: colors.blue.a,
+    secondary: colors.grey.a,
+    tertiary: colors.blue.c,
+  },
+  hover: {
+    primary: colors.grey.a,
+    secondary: colors.blue.a,
+    tertiary: colors.jade.a,
+  },
 };
 
-const buttonStyle = css<{ variant: ButtonVariant }>`
-  ${({ variant }) => css`
+const buttonStyle = css<ButtonStyleProperties>`
+  ${({ variant, size }) => css`
+    display: flex;
+    align-items: center;
     border: 3px solid ${colors.white};
-    color: ${colors.black};
+    color: ${variant === "tertiary" ? colors.white : colors.black};
     background-color: ${VARIANT_COLOR_MAPPING.regular[variant]};
     padding: ${spacing(1)} ${spacing(2)};
     border-radius: ${spacing(4)};
-    ${fontStyle.IMPACT};
     text-decoration: none;
+    transform: translateZ(0); // Fix for Safari
+    cursor: pointer;
+    overflow: hidden;
     z-index: 1;
     ${shadow(1)}
     transition: background-color 100ms ease-in-out,  stroke linear 100ms;
+
+    ${size === "regular"
+      ? css`
+          height: 32px;
+          ${fontStyle.IMPACT};
+          padding: 0 ${spacing(1)};
+          ${media.medium} {
+            padding: ${spacing(1)} ${spacing(4)};
+            height: 64px;
+          }
+        `
+      : css`
+          height: 64px;
+          ${fontStyle.IMPACT_THIN};
+          padding: 0 ${spacing(4)};
+        `}
+
+    > span {
+      width: 100%;
+      z-index: 1;
+    }
 
     svg * {
       stroke: ${SVG_COLOR_MAPPING.regular[variant]};
@@ -45,13 +86,26 @@ const buttonStyle = css<{ variant: ButtonVariant }>`
   `}
 `;
 
-export const StyledButton = styled.button<{ variant: ButtonVariant }>`
+export const StyledButton = styled.button<ButtonStyleProperties>`
   ${buttonStyle}
 `;
 
 export const StyledLink = styled.a.attrs({
   target: "_blank",
   rel: "noreferrer",
-})<{ variant: ButtonVariant }>`
+})<ButtonStyleProperties>`
   ${buttonStyle}
+`;
+
+export const Underline = styled.span`
+  border-bottom: 1px solid ${colors.white};
+`;
+
+export const AnimationContainer = styled.div<{size: ButtonSize}>`
+  width: 0;
+  /* margin-top: ${({size}) => size === 'large' ? '0' : '26%'}; */
+  margin-left: ${({size}) => size === 'large' ? '-24%' : '-36%'};
+  > div {
+    width: 96px;
+  }
 `;

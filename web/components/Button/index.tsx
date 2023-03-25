@@ -1,50 +1,103 @@
-import { FC, ReactElement, ReactNode } from "react";
-import { StyledButton, StyledLink } from "./style";
-import { ButtonVariant } from "./types";
+import Lottie, { AnimationItem } from "lottie-web";
+import {
+  FC,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { AnimationConfig } from "types/animation";
+import {
+  AnimationContainer,
+  StyledButton,
+  StyledLink,
+  Underline,
+} from "./style";
+import { ButtonSize, ButtonVariant, ButtonStyleProperties } from "./types";
 
-const DEFAULT_VARIANT = 'primary';
+const DEFAULTS: ButtonStyleProperties = {
+  variant: "primary",
+  size: "regular",
+};
 
 const BaseButton: FC<{
-  variant?: ButtonVariant
+  variant?: ButtonVariant;
+  size?: ButtonSize;
   children: ReactNode;
   href?: string;
-  onMouseEnter?: () => void;
-  onFocus?: () => void;
+  animationConfig?: Omit<AnimationConfig, "container">;
   onClick?: () => void;
 }> = ({
   variant,
+  size,
   href,
   children,
-  onMouseEnter,
-  onFocus,
   onClick,
+  animationConfig,
   ...rest
 }): ReactElement => {
+  const animationContainer = useRef<HTMLDivElement>();
+  const [animation, setAnimation] = useState<AnimationItem>();
+  useEffect(() => {
+    if (animationConfig && animationContainer.current && !animation) {
+      setAnimation(
+        Lottie.loadAnimation({
+          name: animationConfig.name,
+          container: animationContainer.current,
+          renderer: "svg",
+          loop: false,
+          autoplay: false,
+          animationData: animationConfig.data,
+        })
+      );
+    }
+  }, [animationConfig, animationContainer.current]);
+
+  function playAnimation() {
+    if (animation?.isPaused) {
+      animation?.play();
+      animation?.resetSegments(true);
+    }
+  }
+
   if (href) {
     return (
       <StyledLink
         href={href}
         target="_blank"
         rel="noreferrer"
-        onMouseEnter={onMouseEnter}
-        onFocus={onFocus}
+        onMouseEnter={playAnimation}
+        onFocus={playAnimation}
         onClick={onClick}
-        variant={variant ?? DEFAULT_VARIANT}
+        size={size ?? DEFAULTS.size}
+        variant={variant ?? DEFAULTS.variant}
         {...rest}
       >
-        {children}
+        <Underline>{children}</Underline>
+        {animationConfig && (
+          <AnimationContainer size={size ?? DEFAULTS.size}>
+            <div ref={animationContainer} />
+          </AnimationContainer>
+        )}
       </StyledLink>
     );
   } else {
     return (
       <StyledButton
-        onMouseEnter={onMouseEnter}
-        onFocus={onFocus}
+        onMouseEnter={playAnimation}
+        onFocus={playAnimation}
         onClick={onClick}
-        variant={variant ?? DEFAULT_VARIANT}
+        size={size ?? DEFAULTS.size}
+        variant={variant ?? DEFAULTS.variant}
         {...rest}
       >
-        {children}
+        <span>{children}</span>
+        {animationConfig && (
+          <AnimationContainer size={size ?? DEFAULTS.size}>
+            <div ref={animationContainer} />
+          </AnimationContainer>
+        )}
       </StyledButton>
     );
   }

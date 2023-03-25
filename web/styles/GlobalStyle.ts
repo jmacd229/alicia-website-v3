@@ -6,7 +6,7 @@ import colors from "./palette";
 export default createGlobalStyle`
 :root {
 	font-size: 8px;
-    font-family: 'Source Sans Pro Light', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -24,7 +24,6 @@ export default createGlobalStyle`
 
   p {
     font-size: ${fontSize("regular")};
-    /* font-weight: 200; */
 
     ${media.medium}{
       font-size: ${fontSize("regular")};
@@ -70,8 +69,8 @@ export default createGlobalStyle`
 }
 
 @font-face {
-    font-family: 'Source Sans Pro Light';
-    src: url('/fonts/SourceSansPro-Light.ttf') format('truetype');
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/SourceSansPro.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -93,6 +92,10 @@ h2 {
 
 h3 {
   font-size: ${fontSize("xxl")};
+  
+  ${media.medium} {
+    font-size: ${fontSize("3xl")};
+  }
 }
 
 ul {

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { animateScroll } from 'react-scroll';
+import { animateScroll } from "react-scroll";
 import Logo from "images/alicia_naturopathic_doctor_logo.svg";
 import lottie, { AnimationItem } from "lottie-web";
 import chevron from "animations/chevron.json";
@@ -9,7 +9,6 @@ import {
   NavList,
   NavItem,
   BackToTopButton,
-  BrainAnimationContainer,
   ChevronAnimationContainer,
   Title,
   Socials,
@@ -23,6 +22,7 @@ import { ContactMethods } from "./query";
 import { SCROLL_HEIGHT_FOR_BACK_TO_TOP } from "./constants";
 import Icon from "components/Icon";
 import { ICONS, IconString } from "components/Icon/constants";
+import Lottie from "lottie-web";
 
 function scrollToTop() {
   animateScroll.scrollToTop();
@@ -42,46 +42,26 @@ type HeaderProps = {
 
 const Header = ({ sections, contactMethods }: HeaderProps) => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(false);
-  const [animations, setAnimations] = useState<{
-    [name: string]: AnimationItem;
-  }>();
-
-  const animationConfigs: { [name: string]: AnimationConfig } = {
-    chevron: {
-      name: "chevron",
-      container: useRef<HTMLDivElement>(),
-      data: chevron,
-    },
-    brain: {
-      name: "brain",
-      container: useRef<HTMLDivElement>(),
-      data: brain,
-    },
-  };
-
-  const workSection = sections.find((section) => section.id === "work");
+  const [animation, setAnimation] = useState<AnimationItem>();
+  const animationContainer = useRef<HTMLDivElement>();
 
   useEffect(() => {
-    Object.entries(animationConfigs).forEach(([key, animationConfig]) => {
-      if (animationConfig.container.current && !animations?.[key]) {
-        setAnimations((animations) => ({
-          ...animations,
-          [key]: lottie.loadAnimation({
-            name: animationConfig.name,
-            container: animationConfig.container.current,
-            renderer: "svg",
-            loop: false,
-            autoplay: false,
-            animationData: animationConfig.data,
-          }),
-        }));
-      }
-    });
-    return () =>
-      Object.keys(animationConfigs).forEach((animationName) =>
-        lottie.destroy(animationName)
+    if (animationContainer.current) {
+      setAnimation(
+        Lottie.loadAnimation({
+          name: "chevron",
+          container: animationContainer.current,
+          renderer: "svg",
+          loop: false,
+          autoplay: false,
+          animationData: chevron,
+        })
       );
-  }, []);
+    }
+    return () => Lottie.destroy("chevron");
+  }, [ animationContainer.current]);
+
+  const workSection = sections.find((section) => section.id === "work");
 
   useEffect(() => {
     const onScroll = (e) =>
@@ -93,10 +73,10 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  function playAnimation(name: string) {
-    if (animations[name]?.isPaused) {
-      animations[name].play();
-      animations[name].resetSegments(true);
+  function playAnimation() {
+    if (animation?.isPaused) {
+      animation?.play();
+      animation?.resetSegments(true);
     }
   }
 
@@ -121,24 +101,23 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
               ))}
             {workSection && (
               <WorkButton
-                onMouseEnter={() => playAnimation("brain")}
-                onFocus={() => playAnimation("brain")}
                 onClick={() => scrollToSection(workSection.id)}
+                animationConfig={{
+                  name: "brain",
+                  data: brain,
+                }}
               >
-                <span>{workSection.link}</span>
-                <BrainAnimationContainer>
-                  <div ref={animationConfigs.brain.container} />
-                </BrainAnimationContainer>
+                {workSection.link}
               </WorkButton>
             )}
             <BackToTopButton
               collapsed={isNavCollapsed}
-              onMouseEnter={() => playAnimation("chevron")}
-              onFocus={() => playAnimation("chevron")}
+              onMouseEnter={playAnimation}
+              onFocus={playAnimation}
               onClick={scrollToTop}
             >
               <ChevronAnimationContainer
-                ref={animationConfigs.chevron.container}
+                ref={animationContainer}
               />
               <span>Back to top</span>
             </BackToTopButton>

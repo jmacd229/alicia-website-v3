@@ -194,21 +194,12 @@ export const Socials = styled.div<{ collapsed: boolean }>`
 `;
 
 export const WorkButton = styled(Button).attrs({ variant: "secondary" })`
-  display: flex;
-  align-items: center;
   height: 32px;
   margin-left: ${spacing(1)};
   font-size: ${fontSize("sm")};
   line-height: ${fontSize("sm")};
   padding: 0 ${spacing(1)};
-  cursor: pointer;
-  overflow: hidden;
-  transform: translateZ(0); // Fix for Safari
   border-width: 2px;
-  > span {
-    width: 100%;
-    z-index: 1;
-  }
 
   ${media.medium} {
     height: 48px;
@@ -216,14 +207,5 @@ export const WorkButton = styled(Button).attrs({ variant: "secondary" })`
     font-size: ${fontSize("regular")};
     padding: ${spacing(1)} ${spacing(2)};
     border-width: 3px;
-  }
-`;
-
-export const BrainAnimationContainer = styled.div`
-  width: 0;
-  margin-top: 26%;
-  margin-left: -42%;
-  > div {
-    width: 96px;
   }
 `;

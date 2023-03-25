@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-const SHADOW_COLOR = "0deg 0% 63%";
+const SHADOW_COLOR = "0deg 0% 43%";
 
 export const shadow = (level: 1 | 2 | 3) => css`
   ${level === 1 &&
