@@ -37,10 +37,6 @@ const Work = ({ work }: WorkProps) => {
                 href={work.virtualLink.url}
                 size="large"
                 variant="tertiary"
-                animationConfig={{
-                  name: "brain",
-                  data: brain,
-                }}
               >
                 {work.virtualLink.text}
               </BaseButton>

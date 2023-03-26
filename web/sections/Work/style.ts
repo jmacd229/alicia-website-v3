@@ -12,32 +12,7 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   position: relative;
   flex-direction: column;
   align-items: center;
-  margin: ${spacing(5)} 0;
-  margin-bottom: 10000px;
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: -75px;
-    right: 0;
-    height: 150px;
-    width: 33%;
-    background-color: ${colors.blue.b};
-    border-top-left-radius: ${spacing(20)};
-    border-bottom-left-radius: ${spacing(20)};
-    z-index: -1;
-
-    ${media.large} {
-      right: unset;
-      left: 0;
-      width: 66%;
-      height: 250px;
-      border-top-right-radius: ${spacing(20)};
-      border-bottom-right-radius: ${spacing(20)};
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
+  margin-top: ${spacing(5)};
 `;
 
 export const WorkTitle = styled.h3`
@@ -56,7 +31,7 @@ export const DesktopTitle = styled(WorkTitle)`
   display: none;
   position: absolute;
   top: 5%;
-  left:0;
+  left: 0;
   padding: 0;
   width: 100%;
   white-space: nowrap;
@@ -83,22 +58,19 @@ export const WorkContent = styled.div`
   align-self: flex-start;
   position: relative;
   padding: ${spacing(3)} ${spacing(4)};
-  background-color: ${colors.blue.a};
-  border-top-right-radius: ${spacing(10)};
-  border-bottom-right-radius: ${spacing(10)};
+  background-color: ${colors.grey.a};
   ${shadow(1)};
   z-index: 1;
   ${media.medium} {
     position: absolute;
-	justify-content: center;
-	text-align: center;
-	width: 450px;
+    justify-content: center;
+    text-align: center;
+    width: 450px;
     height: 50%;
     top: 10%;
     left: 0%;
     padding: ${spacing(6)} ${spacing(8)};
     border-radius: ${spacing(10)};
-    background-color: ${colors.grey.a};
     ${shadow(2)};
     p {
       font-size: ${fontSize("lg")};
@@ -106,8 +78,8 @@ export const WorkContent = styled.div`
   }
 
   ${media.large} {
-	width: 45%;
-	left: 5%;
+    width: 45%;
+    left: 5%;
   }
 `;
 
@@ -125,6 +97,7 @@ export const StyledImage = styled(Image)`
   width: 120%;
   height: auto;
   opacity: 0.7;
+  border-bottom: ${spacing(15)} solid ${colors.blue.b};
 `;
 
 export const ButtonContainer = styled.div`

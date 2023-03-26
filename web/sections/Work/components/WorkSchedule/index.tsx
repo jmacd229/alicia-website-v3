@@ -7,7 +7,7 @@ const WorkSchedule: FC<{ location: Location }> = ({ location }) => (
   <ScheduleContainer>
     {Object.entries(WEEKDAYS).map(([key, value]) => {
       if (location.daysVirtual.includes(key as WeekDayKey)) {
-		return (<li>{value.full}s <Virtual>Virtual</Virtual></li>)
+		return (<li>{value.full}s <Virtual>Virtually</Virtual></li>)
       } else if (location.days.includes(key as WeekDayKey)) {
 		return (<li>{value.full}s</li>)
 	  }

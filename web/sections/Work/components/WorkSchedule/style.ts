@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Cursive, fontSize, fontStyle } from "styles/font";
+import { fontSize, fontStyle } from "styles/font";
 import colors from "styles/palette";
 import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
@@ -33,9 +33,7 @@ export const ScheduleContainer = styled.ul`
 
 export const Virtual = styled.span`
   ${fontStyle.IMPACT_THIN};
-  padding: ${spacing(0.5)} ${spacing(1)};
   font-size: ${fontSize("sm")};
-  background-color: ${colors.blue.a};
-  border-radius: ${spacing(2)};
-  margin-left: ${spacing(1)};
+  color: ${colors.blue.c};
+  font-style: italic;
 `;

@@ -17,7 +17,7 @@ const FLIP_ANIMATION = "ease-in-out 250ms";
 const calculateBackToTopPosition = (isMobile?: boolean) =>
   `calc(calc(-${
     isMobile ? MOBILE_NAV_HEIGHT.COLLAPSED : NAV_HEIGHT.COLLAPSED
-  } / 2) - ${spacing(isMobile ? 2 : 4)})`;
+  } / 2) - ${spacing(isMobile ? 2.5 : 4)})`;
 
 const titleHeight = css<{ collapsed: boolean }>`
   height: ${({ collapsed }) =>
@@ -183,10 +183,10 @@ export const Socials = styled.div<{ collapsed: boolean }>`
   gap: ${({ collapsed }) => spacing(collapsed ? 0 : 0.5)};
   transition: gap ${COLLAPSE_ANIMATION};
   svg {
-    fill: ${colors.blue.a};
+    fill: ${colors.blue.b};
     transition: fill 500ms;
     &:hover {
-      fill: ${colors.blue.c};
+      fill: ${colors.jade.b};
     }
   }
 
