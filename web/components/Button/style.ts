@@ -97,10 +97,6 @@ export const StyledLink = styled.a.attrs({
   ${buttonStyle}
 `;
 
-export const Underline = styled.span`
-  border-bottom: 1px solid ${colors.white};
-`;
-
 export const AnimationContainer = styled.div<{size: ButtonSize}>`
   width: 0;
   margin-left: ${({size}) => size === 'large' ? '-24%' : '-36%'};

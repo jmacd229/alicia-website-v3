@@ -8,12 +8,7 @@ import {
   useState,
 } from "react";
 import { AnimationConfig } from "types/animation";
-import {
-  AnimationContainer,
-  StyledButton,
-  StyledLink,
-  Underline,
-} from "./style";
+import { AnimationContainer, StyledButton, StyledLink } from "./style";
 import { ButtonSize, ButtonVariant, ButtonStyleProperties } from "./types";
 
 const DEFAULTS: ButtonStyleProperties = {
@@ -74,7 +69,7 @@ const BaseButton: FC<{
         variant={variant ?? DEFAULTS.variant}
         {...rest}
       >
-        <Underline>{children}</Underline>
+        <span>{children}</span>
         {animationConfig && (
           <AnimationContainer size={size ?? DEFAULTS.size}>
             <div ref={animationContainer} />

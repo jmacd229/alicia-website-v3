@@ -5,6 +5,7 @@ import { client } from "network/getContent";
 import { Work } from "./query";
 import { useNextSanityImage } from "next-sanity-image";
 import brain from "animations/brain.json";
+import virtual from "animations/virtual.json";
 import {
   BookButtonContainer,
   ButtonContainer,
@@ -36,7 +37,11 @@ const Work = ({ work }: WorkProps) => {
               <BaseButton
                 href={work.virtualLink.url}
                 size="large"
-                variant="tertiary"
+                variant="secondary"
+                animationConfig={{
+                  name: "virtual",
+                  data: virtual,
+                }}
               >
                 {work.virtualLink.text}
               </BaseButton>
@@ -47,9 +52,13 @@ const Work = ({ work }: WorkProps) => {
                   href={booking.url}
                   key={booking.location.id}
                   size="large"
-                  variant="tertiary"
+                  variant="secondary"
+                  animationConfig={{
+                    name: "brain",
+                    data: brain,
+                  }}
                 >
-                  {booking.location.title}
+                  {booking.location.title}*
                 </BaseButton>
                 {(booking.location.days.length ||
                   booking.location.daysVirtual.length) && (

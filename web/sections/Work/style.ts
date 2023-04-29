@@ -19,6 +19,7 @@ export const WorkTitle = styled.h3`
   position: relative;
   text-align: center;
   ${fontStyle.IMPACT_THIN};
+  font-weight: 200;
 `;
 
 export const MobileTitle = styled(WorkTitle)`
@@ -30,7 +31,7 @@ export const MobileTitle = styled(WorkTitle)`
 export const DesktopTitle = styled(WorkTitle)`
   display: none;
   position: absolute;
-  top: 5%;
+  top: 8%;
   left: 0;
   padding: 0;
   width: 100%;
@@ -38,6 +39,18 @@ export const DesktopTitle = styled(WorkTitle)`
   z-index: 1;
   ${media.medium} {
     display: block;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    bottom: 5%;
+    border-radius: 50%;
+    height: 3px;
+    background-color: ${colors.blue.b};
   }
 `;
 
@@ -57,7 +70,7 @@ export const WorkContent = styled.div`
   flex-direction: column;
   align-self: flex-start;
   position: relative;
-  padding: ${spacing(3)} ${spacing(4)};
+  padding: ${spacing(2)} ${spacing(4)};
   background-color: ${colors.grey.a};
   ${shadow(1)};
   z-index: 1;
@@ -70,7 +83,7 @@ export const WorkContent = styled.div`
     top: 10%;
     left: 0%;
     padding: ${spacing(6)} ${spacing(8)};
-    border-radius: ${spacing(10)};
+    border-radius: ${spacing(5)};
     ${shadow(2)};
     p {
       font-size: ${fontSize("lg")};
@@ -88,7 +101,6 @@ export const ImageContainer = styled.div`
   margin-top: -${spacing(6)};
   ${media.medium} {
     margin-top: 0;
-    border-top: ${spacing(2)} solid ${colors.blue.b};
   }
 `;
 
