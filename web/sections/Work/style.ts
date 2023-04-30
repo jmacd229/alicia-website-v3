@@ -98,10 +98,6 @@ export const WorkContent = styled.div`
 
 export const ImageContainer = styled.div`
   overflow: hidden;
-  margin-top: -${spacing(6)};
-  ${media.medium} {
-    margin-top: 0;
-  }
 `;
 
 export const StyledImage = styled(Image)`
@@ -109,7 +105,7 @@ export const StyledImage = styled(Image)`
   width: 120%;
   height: auto;
   opacity: 0.7;
-  border-bottom: ${spacing(15)} solid ${colors.blue.b};
+  border-bottom: ${spacing(2)} solid ${colors.blue.a};
 `;
 
 export const ButtonContainer = styled.div`

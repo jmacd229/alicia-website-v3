@@ -6,7 +6,7 @@ import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
 
 export const ScheduleContainer = styled.div`
-  max-width: 20rem;
+  max-width: 17rem;
   display: flex;
   overflow: visible;
   margin-top: -${spacing(2)};

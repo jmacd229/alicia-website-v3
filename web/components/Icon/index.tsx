@@ -6,9 +6,9 @@ const Icon: FC<{
   icon: IconString;
   alt: string;
   size?: number;
-}> = ({ icon, alt, size = 16 }): ReactElement => {
+}> = ({ icon, alt, size = 16, ...rest }): ReactElement => {
   const Element = ICONS[icon];
-  return <Element alt={alt} width={size} height={size} />;
+  return <Element alt={alt} width={size} height={size} {...rest}/>;
 };
 
 export default Icon;

@@ -2,6 +2,7 @@ import ABOUT_QUERY, { About } from "sections/About/query";
 import BANNER_QUERY, { Banner } from "sections/Banner/query";
 import HEADER_QUERY, { ContactMethods } from "sections/Header/query";
 import WORK_QUERY, { Work } from "sections/Work/query";
+import CONTACT_QUERY, { Contact } from "sections/Contact/query";
 
 export const SANITY_CLIENT_CONFIG = {
   projectId: "qfrilqbt",
@@ -19,7 +20,8 @@ export const SECTION_QUERIES = {
   header: HEADER_QUERY,
   banner: BANNER_QUERY,
   aboutMe: ABOUT_QUERY,
-  work: WORK_QUERY
+  work: WORK_QUERY,
+  contact: CONTACT_QUERY
 };
 
 export type SectionQueries = {
@@ -27,4 +29,5 @@ export type SectionQueries = {
   banner: Banner,
   aboutMe: About,
   work: Work
+  contact: Contact
 }

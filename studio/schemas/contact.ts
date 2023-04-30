@@ -16,6 +16,11 @@ export default {
         type: "mixed_font_text",
       },
       {
+        name: "map",
+        title: "Map Image",
+        type: "alt_image",
+      },
+      {
         name: "methods",
         title: "Contact Methods",
         type: "array",

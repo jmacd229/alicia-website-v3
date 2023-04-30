@@ -47,10 +47,9 @@ const Work = ({ work }: WorkProps) => {
               </BaseButton>
             ) : null}
             {work.bookLink.map((booking) => (
-              <BookButtonContainer>
+              <BookButtonContainer key={booking.location.id}>
                 <BaseButton
                   href={booking.url}
-                  key={booking.location.id}
                   size="large"
                   variant="secondary"
                   animationConfig={{
@@ -69,7 +68,7 @@ const Work = ({ work }: WorkProps) => {
           </ButtonContainer>
         </WorkContent>
         <ImageContainer>
-          <StyledImage {...imageProps} alt={work.image.alt} />
+          <StyledImage {...imageProps} alt={work.image.alt ?? ""} />
         </ImageContainer>
       </WorkContentContainer>
     </WorkContainer>

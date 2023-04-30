@@ -17,4 +17,6 @@ export type Location = {
   title: string;
   days: WeekDayKey[];
   daysVirtual: WeekDayKey[];
+  label?: string[];
+  url?: string;
 };

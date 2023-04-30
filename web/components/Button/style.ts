@@ -58,14 +58,18 @@ const buttonStyle = css<ButtonStyleProperties>`
           ${fontStyle.IMPACT};
           padding: 0 ${spacing(1)};
           ${media.medium} {
-            padding: ${spacing(1)} ${spacing(4)};
+            padding: 0 ${spacing(4)};
             height: 64px;
           }
         `
       : css`
-          height: 64px;
+          height: 48px;
           ${fontStyle.IMPACT_THIN};
-          padding: 0 ${spacing(4)};
+          padding: 0 ${spacing(3)};
+          ${media.medium} {
+            padding: 0 ${spacing(4)};
+            height: 64px;
+          }
         `}
 
     > span {
@@ -98,9 +102,14 @@ export const StyledLink = styled.a.attrs({
 `;
 
 export const AnimationContainer = styled.div<{size: ButtonSize}>`
+  display: none;
   width: 0;
   margin-left: ${({size}) => size === 'large' ? '-24%' : '-36%'};
   > div {
     width: 96px;
+  }
+
+  ${media.medium} {
+    display: block;
   }
 `;
