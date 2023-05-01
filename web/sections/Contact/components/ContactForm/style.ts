@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { fontSize, fontStyle } from "styles/font";
+import media from "styles/media";
 import colors from "styles/palette";
 import spacing from "styles/spacing";
 
@@ -11,18 +12,27 @@ export const FormContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   background-color: ${colors.grey.a};
-  padding: ${spacing(4)}  ${spacing(8)};
+  padding: ${spacing(8)} ${spacing(4)};
+  
+  ${media.medium} {
+    padding: ${spacing(4)}  ${spacing(8)};
+  }
 `;
 
 export const FormTitle = styled.h4`
   display: flex;
   align-items: center;
-  gap: ${spacing(2)};
+  gap: ${spacing(1)};
   ${fontStyle.IMPACT_THIN};
   font-size: ${fontSize("xl")};
-
+  margin-bottom: ${spacing(4)};
   svg {
     fill: ${colors.blue.c};
+  }
+
+  ${media.medium} {
+    gap: ${spacing(2)};
+    margin-bottom: 0;
   }
 `;
 

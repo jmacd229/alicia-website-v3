@@ -55,6 +55,7 @@ export const TitleContainer = styled.div`
 `;
 export const MethodsContainer = styled.div`
   padding-top: ${spacing(4)};
+  padding-bottom: ${spacing(4)};
   padding-left: ${spacing(5)};
   grid-area: methods;
   display: flex;
@@ -77,27 +78,6 @@ export const Method = styled.a.attrs({ target: "__blank" })`
   &:hover {
     svg {
       background-color: ${colors.blue.a};
-    }
-  }
-`;
-
-export const Map = styled.div`
-  grid-area: image;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  max-height: 40rem;
-  > img {
-    height: auto;
-    width: 100%;
-  }
-
-  ${media.medium} {
-    max-height: unset;
-    > img {
-      width: auto;
-      height: 100%;
     }
   }
 `;

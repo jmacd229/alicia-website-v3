@@ -5,14 +5,10 @@ import {
   TitleContainer,
   MethodsContainer,
   Method,
-  Map,
   StyledIcon,
   MethodTitle,
 } from "./style";
 import { Contact } from "./query";
-import { client } from "network/getContent";
-import { useNextSanityImage } from "next-sanity-image";
-import Image from "next/image";
 import { IconString } from "components/Icon/constants";
 import ContactForm from "./components/ContactForm";
 
