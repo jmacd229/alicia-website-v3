@@ -1,6 +1,7 @@
 import Lottie, { AnimationItem } from "lottie-web";
 import {
   FC,
+  HTMLProps,
   ReactElement,
   ReactNode,
   useEffect,
@@ -16,14 +17,18 @@ const DEFAULTS: ButtonStyleProperties = {
   size: "regular",
 };
 
-const BaseButton: FC<{
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  children: ReactNode;
-  href?: string;
-  animationConfig?: Omit<AnimationConfig, "container">;
-  onClick?: () => void;
-}> = ({
+const BaseButton: FC<
+  {
+    variant?: ButtonVariant;
+    size?: ButtonSize;
+    children: ReactNode;
+    href?: string;
+    animationConfig?: Omit<AnimationConfig, "container">;
+    onClick?: () => void;
+    type?: 'submit';
+    disabled?: boolean;
+  } 
+> = ({
   variant,
   size,
   href,

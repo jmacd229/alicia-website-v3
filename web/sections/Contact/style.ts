@@ -9,15 +9,15 @@ import spacing from "styles/spacing";
 export const ContactContainer = styled.div`
   display: grid;
   position: relative;
-  min-height: 80rem;
+  min-height: 70rem;
   overflow: hidden;
   grid-template-areas:
     "title"
-    "image"
-    "methods";
+    "methods"
+    "form";
   border-top: ${spacing(10)} solid ${colors.blue.b};
   ${media.medium} {
-    grid-template-areas: "image methods title";
+    grid-template-areas: "form methods title";
     grid-template-columns: 1fr 1fr 15rem;
   }
 `;
@@ -28,6 +28,7 @@ export const TitleContainer = styled.div`
   position: relative;
   pointer-events: none;
   padding: ${spacing(5)} 0;
+  background-color: ${colors.grey.a};
   ${media.medium} {
     min-height: 100%;
     position: absolute;
@@ -35,6 +36,7 @@ export const TitleContainer = styled.div`
     width: 15rem;
     transform: rotate(90deg);
     padding: 0;
+    background-color: transparent;
     > * {
       flex-wrap: nowrap;
     }
@@ -52,7 +54,7 @@ export const TitleContainer = styled.div`
   }
 `;
 export const MethodsContainer = styled.div`
-  padding-top:${spacing(4)};
+  padding-top: ${spacing(4)};
   padding-left: ${spacing(5)};
   grid-area: methods;
   display: flex;
@@ -62,11 +64,12 @@ export const MethodsContainer = styled.div`
     padding-left: ${spacing(10)};
   }
 `;
-export const Method = styled.a.attrs({target: '__blank'})`
-  display: flex;
-  flex-direction: column;
-  gap: ${spacing(2)};
-  align-items: flex-start;
+export const Method = styled.a.attrs({ target: "__blank" })`
+  display: grid;
+  grid-template-areas:
+    "icon title"
+    "icon label";
+  column-gap: ${spacing(2)};
   padding: ${spacing(4)} ${spacing(2)};
   color: ${colors.black};
   text-decoration: none;
@@ -100,6 +103,7 @@ export const Map = styled.div`
 `;
 
 export const StyledIcon = styled(Icon).attrs({ size: 48 })`
+  grid-area: icon;
   padding: ${spacing(0.5)};
   background-color: ${colors.blue.b};
   fill: ${colors.white};
@@ -108,6 +112,7 @@ export const StyledIcon = styled(Icon).attrs({ size: 48 })`
 `;
 
 export const MethodTitle = styled.h4`
+  grid-area: title;
   display: flex;
   align-items: center;
   gap: ${spacing(2)};
