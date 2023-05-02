@@ -1,12 +1,12 @@
 import Image from "next/image";
 import styled, { css } from "styled-components";
-import { fontSize } from "styles/font";
+import { fontSize, fontStyle } from "styles/font";
 import media from "styles/media";
 import colors, { rgbColors } from "styles/palette";
 import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
 
-const BANNER_HEIGHT = "750px";
+const BANNER_HEIGHT = "650px";
 const getTextBorderRadius = (scale = 0) => spacing(5 - scale);
 
 const BORDER_STYLE = (color: string) => css`
@@ -74,7 +74,7 @@ export const StyledImage = styled(Image)`
 
 export const TextBoxContainer = styled.div`
   flex: 50%;
-  top: 8vw;
+  top: 6vw;
   right: ${spacing(4)};
   display: flex;
   max-width: 700px;
@@ -116,9 +116,10 @@ export const Title = styled.h2`
   border-radius: ${getTextBorderRadius(1)};
   margin: ${spacing(3)};
   margin-bottom: 0;
+  ${fontStyle.IMPACT};
+  color: ${colors.grey.c};
   ${media.large} {
     margin: 0;
-    border-bottom: 1px solid ${colors.blue.b};
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }

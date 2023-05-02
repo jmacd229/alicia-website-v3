@@ -4,32 +4,47 @@ import { useForm as useFormSpree } from "@formspree/react";
 import BaseButton from "components/Button";
 import { useForm } from "react-hook-form";
 import submit from "animations/submit.json";
+import { FC } from "react";
+import { ContactFormData } from "sections/Contact/query";
 
-const ContactForm = () => {
+const ContactForm:FC<{form: ContactFormData}> = ({form}) => {
   const [state, onSubmit] = useFormSpree("xlekzdyg");
   const {
     register,
     handleSubmit,
     clearErrors,
     formState: { errors },
-  } = useForm<{ email: string; message: string }>({
+  } = useForm<{ email: string; message: string; name: string }>({
     reValidateMode: "onSubmit",
   });
   return (
     <FormContainer>
       <FormTitle>
         <Icon icon={state.succeeded ? "sent" : "message"} size={64} alt="" />
-        {state.succeeded ? "Thank-you!" : "Leave me a message" }
+        {state.succeeded ? form.formSuccessTitle : form.formTitle}
       </FormTitle>
       {state.succeeded ? (
         <p>
-          Your message has been recorded. I'll get back to you as soon as
-          possible.
+          {form.formSuccess}
         </p>
       ) : (
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Field>
-            Email Address
+            Name
+            <input
+              aria-invalid={Boolean(errors.name)}
+              aria-aria-describedby={Boolean(errors.name) ? "name-error" : null}
+              {...register("name", {
+                onChange: () => clearErrors("name"),
+                required: true,
+              })}
+            />
+            {errors.name && (
+              <FieldError id="name-error">Please enter a name.</FieldError>
+            )}
+          </Field>
+          <Field>
+            Email
             <input
               aria-invalid={Boolean(errors.email)}
               aria-aria-describedby={
@@ -75,7 +90,7 @@ const ContactForm = () => {
             disabled={state.submitting}
             animationConfig={{ name: "submit", data: submit }}
           >
-            Submit
+            {form.formButton}
           </BaseButton>
         </Form>
       )}

@@ -17,6 +17,11 @@ export default {
         type: "string",
       },
       {
+        name: "link",
+        title: "Link Name",
+        type: "string",
+      },
+      {
         name: "body",
         title: "Body text",
         type: "array",

@@ -18,8 +18,10 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
 export const WorkTitle = styled.h3`
   position: relative;
   text-align: center;
-  ${fontStyle.IMPACT_THIN};
+  ${fontStyle.IMPACT};
   font-weight: 200;
+  letter-spacing: -3px;
+  word-spacing: 3px;
 `;
 
 export const MobileTitle = styled(WorkTitle)`

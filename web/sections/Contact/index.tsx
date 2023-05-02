@@ -21,15 +21,8 @@ const Contact = ({ contact }: ContactProps) => (
     <TitleContainer>
       <MixedFontTitle title={contact.title} />
     </TitleContainer>
-    <ContactForm />
+    <ContactForm form={contact} />
     <MethodsContainer>
-      {contact.locations.map((location) => (
-        <Method key={location.id} href={location.url}>
-          <StyledIcon icon="location" alt="" />
-          <MethodTitle>{location.title}</MethodTitle>
-          <div>{location.label.map((label) => <div>{label}</div>)}</div>
-        </Method>
-      ))}
       {contact.methods
         .filter((method) => method.visible)
         .map((method) => (
@@ -46,6 +39,17 @@ const Contact = ({ contact }: ContactProps) => (
             {method.label}
           </Method>
         ))}
+      {contact.locations.map((location) => (
+        <Method key={location.id} href={location.url}>
+          <StyledIcon icon="location" alt="" />
+          <MethodTitle>{location.title}</MethodTitle>
+          <div>
+            {location.label.map((label) => (
+              <div>{label}</div>
+            ))}
+          </div>
+        </Method>
+      ))}
     </MethodsContainer>
   </ContactContainer>
 );

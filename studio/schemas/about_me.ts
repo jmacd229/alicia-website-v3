@@ -16,6 +16,11 @@ export default {
       type: "mixed_font_text",
     },
     {
+      name: "link",
+      title: "Link Name",
+      type: "string",
+    },
+    {
       name: "body",
       title: "Body text",
       type: "array",

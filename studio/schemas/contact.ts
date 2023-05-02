@@ -2,6 +2,7 @@ export default {
     name: "contact",
     title: "Contact",
     type: "document",
+    fieldsets: [{ name: "form", title: "Contact Form" }],
     __experimental_actions: ['update', 'publish'], 
     fields: [
       {
@@ -16,9 +17,33 @@ export default {
         type: "mixed_font_text",
       },
       {
-        name: "map",
-        title: "Map Image",
-        type: "alt_image",
+        name: "link",
+        title: "Link Name",
+        type: "string",
+      },
+      {
+        name: "formTitle",
+        title: "Form Title",
+        type: "string",
+        fieldset: 'form'
+      },
+      {
+        name: "formButton",
+        title: "Form Button",
+        type: "string",
+        fieldset: 'form'
+      },
+      {
+        name: "formSuccessTitle",
+        title: "Success Title",
+        type: "string",
+        fieldset: 'form'
+      },
+      {
+        name: "formSuccess",
+        title: "Success Message",
+        type: "string",
+        fieldset: 'form'
       },
       {
         name: "methods",

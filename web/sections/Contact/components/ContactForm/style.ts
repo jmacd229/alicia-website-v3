@@ -4,7 +4,7 @@ import media from "styles/media";
 import colors from "styles/palette";
 import spacing from "styles/spacing";
 
-const ERROR_COLOR = '#A30000';
+const ERROR_COLOR = "#A30000";
 
 export const FormContainer = styled.div`
   display: flex;
@@ -13,9 +13,9 @@ export const FormContainer = styled.div`
   flex-direction: column;
   background-color: ${colors.grey.a};
   padding: ${spacing(8)} ${spacing(4)};
-  
+
   ${media.medium} {
-    padding: ${spacing(4)}  ${spacing(8)};
+    padding: ${spacing(4)} ${spacing(8)};
   }
 `;
 
@@ -23,7 +23,8 @@ export const FormTitle = styled.h4`
   display: flex;
   align-items: center;
   gap: ${spacing(1)};
-  ${fontStyle.IMPACT_THIN};
+  ${fontStyle.IMPACT};
+  color: ${colors.grey.c};
   font-size: ${fontSize("xl")};
   margin-bottom: ${spacing(4)};
   svg {
@@ -55,16 +56,16 @@ export const Field = styled.label`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: ${spacing(0.5)};
+  font-size: ${fontSize("sm")};
   > input,
   textarea {
+    ${fontStyle.IMPACT};
     padding: ${spacing(1)};
     border-radius: ${spacing(1)};
     resize: none;
     border: 1px solid ${colors.grey.b};
-    ${fontStyle.IMPACT_THIN};
-    &[aria-invalid="true"]{
-      border-color:${ERROR_COLOR};
+    &[aria-invalid="true"] {
+      border-color: ${ERROR_COLOR};
     }
   }
 `;

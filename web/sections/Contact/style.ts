@@ -96,6 +96,6 @@ export const MethodTitle = styled.h4`
   display: flex;
   align-items: center;
   gap: ${spacing(2)};
-  ${fontStyle.IMPACT_THIN}
+  ${fontStyle.IMPACT}
   font-size: ${fontSize("lg")};
 `;
