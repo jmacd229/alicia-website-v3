@@ -27,6 +27,7 @@ export const FormTitle = styled.h4`
   color: ${colors.grey.c};
   font-size: ${fontSize("xl")};
   margin-bottom: ${spacing(4)};
+  letter-spacing: -2px;
   svg {
     fill: ${colors.blue.c};
   }
@@ -34,6 +35,7 @@ export const FormTitle = styled.h4`
   ${media.medium} {
     gap: ${spacing(2)};
     margin-bottom: 0;
+    letter-spacing: normal;
   }
 `;
 

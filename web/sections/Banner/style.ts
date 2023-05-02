@@ -93,19 +93,16 @@ export const TextBoxContainer = styled.div`
 export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 100%;
   background-color: ${colors.grey.a};
-  padding: ${spacing(4)} 0;
 
   ${media.medium} {
     border: none;
-    padding: 0;
   }
 
   ${media.large} {
     ${BORDER_STYLE(colors.blue.b)};
     border-radius: ${getTextBorderRadius()};
-    width: 100%;
   }
 `;
 
@@ -113,15 +110,17 @@ export const Title = styled.h2`
   background-color: ${colors.white};
   text-align: center;
   padding: ${spacing(2)} ${spacing(2)};
-  border-radius: ${getTextBorderRadius(1)};
-  margin: ${spacing(3)};
-  margin-bottom: 0;
   ${fontStyle.IMPACT};
   color: ${colors.grey.c};
+
   ${media.large} {
-    margin: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    background-color: ${colors.grey.a};
+    border-top-right-radius: ${spacing(4)};
+    border-top-left-radius: ${spacing(4)};
+  }
+
+  ${media.medium} {
+    background-color: ${colors.white};
   }
 `;
 
