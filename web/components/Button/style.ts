@@ -51,11 +51,11 @@ const buttonStyle = css<ButtonStyleProperties>`
     z-index: 1;
     ${shadow(1)}
     transition: background-color 100ms ease-in-out,  stroke linear 100ms;
+    ${fontStyle.IMPACT};
 
     ${size === "regular"
       ? css`
           height: 32px;
-          ${fontStyle.IMPACT};
           padding: 0 ${spacing(1)};
           ${media.medium} {
             padding: 0 ${spacing(4)};
@@ -64,7 +64,6 @@ const buttonStyle = css<ButtonStyleProperties>`
         `
       : css`
           height: 48px;
-          ${fontStyle.IMPACT_THIN};
           padding: 0 ${spacing(3)};
           ${media.medium} {
             padding: 0 ${spacing(4)};

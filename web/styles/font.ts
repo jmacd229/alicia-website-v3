@@ -7,7 +7,7 @@ const FONT_SIZES = {
   regular: 2.25,
   lg: 2.5,
   xl: 4,
-  xxl: 6,
+  xxl: 7,
   "3xl": 9,
 };
 

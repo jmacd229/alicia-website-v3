@@ -92,9 +92,11 @@ h2 {
 
 h3 {
   font-size: ${fontSize("xxl")};
+  line-height: ${fontSize("xxl")};
   
   ${media.medium} {
     font-size: ${fontSize("3xl")};
+      line-height: ${fontSize("3xl")};
   }
 }
 

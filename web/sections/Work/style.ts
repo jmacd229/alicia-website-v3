@@ -6,6 +6,7 @@ import colors from "styles/palette";
 import spacing from "styles/spacing";
 import { shadow } from "styles/shadows";
 import media from "styles/media";
+import BaseButton from "components/Button";
 
 export const WorkContainer = styled.div.attrs({ id: "work" })`
   display: flex;
@@ -13,15 +14,19 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   flex-direction: column;
   align-items: center;
   margin-top: ${spacing(5)};
+  max-height: 650px;
+  overflow: hidden;
+
+  ${media.medium} {
+    height: 700px;
+  }
 `;
 
 export const WorkTitle = styled.h3`
-  position: relative;
   text-align: center;
-  ${fontStyle.IMPACT};
+  ${fontStyle.IMPACT_THICK};
   font-weight: 200;
-  letter-spacing: -3px;
-  word-spacing: 3px;
+  color: ${colors.grey.c};
 `;
 
 export const MobileTitle = styled(WorkTitle)`
@@ -32,27 +37,12 @@ export const MobileTitle = styled(WorkTitle)`
 
 export const DesktopTitle = styled(WorkTitle)`
   display: none;
-  position: absolute;
-  top: 8%;
-  left: 0;
-  padding: 0;
-  width: 100%;
-  white-space: nowrap;
-  z-index: 1;
+  background-color: ${colors.white};
+  padding: ${spacing(4)};
+  border-top-right-radius: ${spacing(5)};
+  border-top-left-radius: ${spacing(5)};
   ${media.medium} {
     display: block;
-  }
-
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 10%;
-    width: 80%;
-    bottom: 5%;
-    border-radius: 50%;
-    height: 3px;
-    background-color: ${colors.blue.b};
   }
 `;
 
@@ -60,79 +50,94 @@ export const WorkContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  max-height: 750px;
 
-  ${media.medium} {
-    flex-direction: row;
-  }
-`;
-
-export const WorkContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  position: relative;
-  padding: ${spacing(2)} ${spacing(4)};
-  background-color: ${colors.grey.a};
-  ${shadow(1)};
-  z-index: 1;
   ${media.medium} {
     position: absolute;
-    justify-content: center;
-    text-align: center;
-    width: 450px;
-    height: 50%;
+    left: 5%;
     top: 10%;
-    left: 0%;
-    padding: ${spacing(6)} ${spacing(8)};
-    border-radius: ${spacing(5)};
+    max-width: 60%;
+    background-color: ${colors.blue.c};
     ${shadow(2)};
-    p {
-      font-size: ${fontSize("lg")};
-    }
+    border-radius: ${spacing(5)};
+    z-index: 1;
   }
 
   ${media.large} {
-    width: 45%;
-    left: 5%;
+    max-width: 50%;
+    top: 15%;
+  }
+`;
+
+export const TextContent = styled.div`
+  background-color: ${colors.grey.a};
+  color: ${colors.black};
+  padding: ${spacing(2)} ${spacing(3)};
+  padding-top: 0;
+  border-top: 1px solid ${colors.grey.b};
+  border-bottom: 1px solid ${colors.grey.b};
+  ${shadow(2)};
+
+  ${media.medium} {
+    text-align: center;
+    padding: 0 ${spacing(3)};
+    font-size: ${fontSize("lg")};
+    background-color: ${colors.blue.c};
+    color: ${colors.white};
+    border: none;
+    box-shadow: none;
+  }
+
+  ${media.large} {
+    padding: ${spacing(2)};
+  }
+`;
+
+export const StyledWorkButton = styled(BaseButton)<{ $isMobile: boolean }>`
+  display: ${(props) => (props.$isMobile ? "flex" : "none")};
+  ${media.medium} {
+    display: ${(props) => (props.$isMobile ? "none" : "flex")};
   }
 `;
 
 export const ImageContainer = styled.div`
+  position: relative;
   overflow: hidden;
+
+  ${media.medium} {
+    position: relative;
+  }
 `;
 
 export const StyledImage = styled(Image)`
   position: relative;
   width: 120%;
   height: auto;
-  opacity: 0.7;
-  border-bottom: ${spacing(2)} solid ${colors.blue.a};
+  opacity: 0.6;
+
+  ${media.medium} {
+    opacity: 0.7;
+  }
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 110%;
-  left: 2.5%;
   gap: ${spacing(2)};
+  position: absolute;
+  bottom: -130%;
+  left: 5%;
+  z-index: 1;
 
   ${media.medium} {
-    flex-direction: row-reverse;
-    position: absolute;
-    top: 75%;
-    left: 0;
-    width: 100%;
-    justify-content: center;
+    align-items: flex-start;
+    position: static;
+    padding: 0 ${spacing(3)};
   }
-`;
 
-export const ButtonAndImageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  ${media.large} {
+    justify-content: center;
+    flex-direction: row-reverse;
+  }
 `;
 
 export const BookButtonContainer = styled.div`

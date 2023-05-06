@@ -1,6 +1,5 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { PortableText } from "@portabletext/react";
-import BaseButton from "components/Button";
 import { client } from "network/getContent";
 import { Work } from "./query";
 import { useNextSanityImage } from "next-sanity-image";
@@ -9,13 +8,14 @@ import virtual from "animations/virtual.json";
 import {
   BookButtonContainer,
   ButtonContainer,
-  DesktopTitle,
   StyledImage,
   WorkContainer,
-  WorkContent,
   WorkContentContainer,
-  MobileTitle,
   ImageContainer,
+  TextContent,
+  MobileTitle,
+  DesktopTitle,
+  StyledWorkButton,
 } from "./style";
 import WorkSchedule from "./components/WorkSchedule";
 
@@ -23,54 +23,91 @@ type WorkProps = {
   work: Work;
 };
 
+const animations = {
+  brain,
+  virtual,
+};
+
+const WorkButton = ({
+  url,
+  children,
+  isMobile,
+  animation,
+}: {
+  url: string;
+  children: ReactNode;
+  isMobile: boolean;
+  animation: keyof typeof animations;
+}) => (
+  <StyledWorkButton
+    $isMobile={isMobile}
+    href={url}
+    size="large"
+    variant={isMobile ? "tertiary" : "primary"}
+    animationConfig={{
+      name: animation,
+      data: animations[animation],
+    }}
+  >
+    {children}
+  </StyledWorkButton>
+);
+
 const Work = ({ work }: WorkProps) => {
   const imageProps = useNextSanityImage(client, work.image.asset);
   return (
     <WorkContainer>
       <MobileTitle>{work.title}</MobileTitle>
       <WorkContentContainer>
-        <WorkContent>
-          <DesktopTitle>{work.title}</DesktopTitle>
+        <DesktopTitle>{work.title}</DesktopTitle>
+        <TextContent>
           <PortableText value={work.body}></PortableText>
-          <ButtonContainer>
-            {work.virtualVisible ? (
-              <BaseButton
-                href={work.virtualLink.url}
-                size="large"
-                variant="secondary"
-                animationConfig={{
-                  name: "virtual",
-                  data: virtual,
-                }}
+        </TextContent>
+        <ButtonContainer>
+          {work.virtualVisible ? (
+            <>
+              <WorkButton
+                url={work.virtualLink.url}
+                isMobile={false}
+                animation="virtual"
               >
                 {work.virtualLink.text}
-              </BaseButton>
-            ) : null}
-            {work.bookLink.map((booking) => (
+              </WorkButton>
+              <WorkButton
+                url={work.virtualLink.url}
+                isMobile={true}
+                animation="virtual"
+              >
+                {work.virtualLink.text}
+              </WorkButton>
+            </>
+          ) : null}
+          {work.bookLink.map((booking) => {
+            const hasSchedule = (booking.location.days.length ||
+              booking.location.daysVirtual.length);
+            return (
               <BookButtonContainer key={booking.location.id}>
-                <BaseButton
-                  href={booking.url}
-                  size="large"
-                  variant="secondary"
-                  animationConfig={{
-                    name: "brain",
-                    data: brain,
-                  }}
+                <WorkButton
+                  url={booking.url}
+                  isMobile={false}
+                  animation="brain"
                 >
-                  {booking.location.title}*
-                </BaseButton>
-                {(booking.location.days.length ||
-                  booking.location.daysVirtual.length) && (
+                  {booking.location.title}{hasSchedule && '*'}
+                </WorkButton>
+                <WorkButton url={booking.url} isMobile={true} animation="brain">
+                  {booking.location.title}{hasSchedule && '*'}
+                </WorkButton>
+                {hasSchedule && (
                   <WorkSchedule location={booking.location} />
                 )}
               </BookButtonContainer>
-            ))}
-          </ButtonContainer>
-        </WorkContent>
-        <ImageContainer>
-          <StyledImage {...imageProps} alt={work.image.alt ?? ""} />
-        </ImageContainer>
+            );
+          })}
+        </ButtonContainer>
       </WorkContentContainer>
+      <ImageContainer>
+        <StyledImage {...imageProps} alt={work.image.alt ?? ""} />
+      </ImageContainer>
     </WorkContainer>
   );
 };
