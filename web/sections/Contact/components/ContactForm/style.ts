@@ -26,7 +26,7 @@ export const FormTitle = styled.h4`
   ${fontStyle.IMPACT};
   color: ${colors.grey.c};
   font-size: ${fontSize("xl")};
-  margin-bottom: ${spacing(4)};
+  margin-bottom: ${spacing(3)};
   letter-spacing: -2px;
   svg {
     fill: ${colors.blue.c};
@@ -34,7 +34,6 @@ export const FormTitle = styled.h4`
 
   ${media.medium} {
     gap: ${spacing(2)};
-    margin-bottom: 0;
     letter-spacing: normal;
   }
 `;
@@ -45,10 +44,10 @@ export const Form = styled.form`
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  height: 100%;
   max-width: 75rem;
   gap: ${spacing(2)};
   button {
+    margin-top: ${spacing(2)};
     align-self: center;
     width: 40%;
   }

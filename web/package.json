@@ -1,7 +1,13 @@
 {
+  "name": "alicia-website",
+  "private": true,
+  "description": "A personal website for Alicia MacDougall",
+  "version": "2.0.0",
+  "releaseDate": "2023-05-06",
+  "author": "Jesse MacDougall",
   "scripts": {
+    "build": "sed -i 's|\"releaseDate\": \".*\"|\"releaseDate\": \"'$(date +%Y-%m-%d)'\"|g' package.json && next build",
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },

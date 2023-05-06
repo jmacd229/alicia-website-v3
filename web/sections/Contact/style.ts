@@ -1,5 +1,4 @@
 import Icon from "components/Icon";
-import Image from "next/image";
 import styled from "styled-components";
 import { fontSize, fontStyle } from "styles/font";
 import media from "styles/media";
@@ -9,13 +8,12 @@ import spacing from "styles/spacing";
 export const ContactContainer = styled.div`
   display: grid;
   position: relative;
-  min-height: 70rem;
+  min-height: 90rem;
   overflow: hidden;
   grid-template-areas:
     "title"
     "methods"
     "form";
-  border-top: ${spacing(10)} solid ${colors.blue.b};
   ${media.medium} {
     grid-template-areas: "form methods title";
     grid-template-columns: 1fr 1fr 15rem;
@@ -27,15 +25,15 @@ export const TitleContainer = styled.div`
   justify-content: center;
   position: relative;
   pointer-events: none;
-  padding: ${spacing(5)} 0;
-  background-color: ${colors.grey.a};
+  padding-top: ${spacing(8)};
   ${media.medium} {
+    background-color: ${colors.grey.a};
     min-height: 100%;
     position: absolute;
     right: 0;
     width: 15rem;
     transform: rotate(90deg);
-    padding: 0;
+    padding-top: 0;
     background-color: transparent;
     > * {
       flex-wrap: nowrap;
@@ -61,6 +59,7 @@ export const MethodsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   ${media.medium} {
     padding-left: ${spacing(10)};
   }

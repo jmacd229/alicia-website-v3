@@ -7,8 +7,8 @@ import Contact from "sections/Contact";
 import Header from "sections/Header";
 import Work from "sections/Work";
 import GlobalStyle from "styles/GlobalStyle";
-import { SECTION_DEFINITIONS } from "../sections/constants";
 import mailgo from "mailgo";
+import Footer from "sections/Footer";
 
 const App = ({
   sections,
@@ -19,19 +19,15 @@ const App = ({
   contact,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   mailgo();
-  // console.log(sections);
-  // console.log(header);
   return (
     <>
       <GlobalStyle />
-      <Header
-        sections={sections}
-        contactMethods={header}
-      />
+      <Header sections={sections} contactMethods={header} />
       <Banner banner={banner} />
       <About about={aboutMe} />
       <Work work={work} />
       <Contact contact={contact} />
+      <Footer />
     </>
   );
 };
