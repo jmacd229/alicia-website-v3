@@ -12,22 +12,22 @@ export const SANITY_CLIENT_CONFIG = {
 };
 
 export const BASE_QUERY =
-  '*[_type in ["banner","aboutMe","work","resources","contact"] && visible == true]._type';
+  '*[_type in ["banner","aboutMe","work","resources","contact"] && visible == true]{link,"type":_type}';
 
-export type BaseQuery = string[];
+export type Sections = { type: string; link: string }[];
 
 export const SECTION_QUERIES = {
   header: HEADER_QUERY,
   banner: BANNER_QUERY,
   aboutMe: ABOUT_QUERY,
   work: WORK_QUERY,
-  contact: CONTACT_QUERY
+  contact: CONTACT_QUERY,
 };
 
 export type SectionQueries = {
-  header: ContactMethods[],
-  banner: Banner,
-  aboutMe: About,
-  work: Work
-  contact: Contact
-}
+  header: ContactMethods[];
+  banner: Banner;
+  aboutMe: About;
+  work: Work;
+  contact: Contact;
+};

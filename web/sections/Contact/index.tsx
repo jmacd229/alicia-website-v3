@@ -45,7 +45,7 @@ const Contact = ({ contact }: ContactProps) => (
           <MethodTitle>{location.title}</MethodTitle>
           <div>
             {location.label.map((label) => (
-              <div>{label}</div>
+              <div key={label}>{label}</div>
             ))}
           </div>
         </Method>

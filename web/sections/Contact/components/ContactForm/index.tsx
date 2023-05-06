@@ -33,7 +33,7 @@ const ContactForm:FC<{form: ContactFormData}> = ({form}) => {
             Name
             <input
               aria-invalid={Boolean(errors.name)}
-              aria-aria-describedby={Boolean(errors.name) ? "name-error" : null}
+              aria-describedby={Boolean(errors.name) ? "name-error" : null}
               {...register("name", {
                 onChange: () => clearErrors("name"),
                 required: true,
@@ -47,7 +47,7 @@ const ContactForm:FC<{form: ContactFormData}> = ({form}) => {
             Email
             <input
               aria-invalid={Boolean(errors.email)}
-              aria-aria-describedby={
+              aria-describedby={
                 Boolean(errors.email) ? "email-error" : null
               }
               {...register("email", {
@@ -67,7 +67,7 @@ const ContactForm:FC<{form: ContactFormData}> = ({form}) => {
             Message
             <textarea
               aria-invalid={Boolean(errors.message)}
-              aria-aria-describedby={
+              aria-describedby={
                 Boolean(errors.message) ? "message-error" : null
               }
               {...register("message", {

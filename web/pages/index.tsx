@@ -1,5 +1,5 @@
 import getContent from "network/getContent";
-import { BaseQuery, SectionQueries } from "network/getContent/constants";
+import { Sections, SectionQueries } from "network/getContent/constants";
 import { InferGetStaticPropsType, GetStaticProps } from "next";
 import About from "sections/About";
 import Banner from "sections/Banner";
@@ -19,13 +19,13 @@ const App = ({
   contact,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   mailgo();
+  // console.log(sections);
+  // console.log(header);
   return (
     <>
       <GlobalStyle />
       <Header
-        sections={SECTION_DEFINITIONS.filter((section) =>
-          sections.includes(section.id)
-        )}
+        sections={sections}
         contactMethods={header}
       />
       <Banner banner={banner} />
@@ -40,7 +40,7 @@ export default App;
 
 export const getStaticProps: GetStaticProps<
   {
-    sections: BaseQuery;
+    sections: Sections;
   } & SectionQueries
 > = async () => ({
   props: await getContent(),

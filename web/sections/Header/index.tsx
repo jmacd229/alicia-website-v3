@@ -16,12 +16,12 @@ import {
   WorkButton,
   Anchor,
 } from "./style";
-import { Section } from "../types";
 import { ContactMethods } from "./query";
 import { SCROLL_HEIGHT_FOR_BACK_TO_TOP } from "./constants";
 import Icon from "components/Icon";
 import { ICONS, IconString } from "components/Icon/constants";
 import Lottie from "lottie-web";
+import { Sections } from "network/getContent/constants";
 
 function scrollToTop() {
   animateScroll.scrollToTop();
@@ -35,7 +35,7 @@ function scrollToSection(id: string) {
 }
 
 type HeaderProps = {
-  sections: Section[];
+  sections: Sections
   contactMethods: ContactMethods[];
 };
 
@@ -60,7 +60,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
     return () => Lottie.destroy("chevron");
   }, [ animationContainer.current]);
 
-  const workSection = sections.find((section) => section.id === "work");
+  const workSection = sections.find((section) => section.type === "work");
 
   useEffect(() => {
     const onScroll = (e) =>
@@ -88,11 +88,11 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
           </Title>
           <NavList>
             {sections
-              ?.filter((section) => section.id !== "work")
+              ?.filter((section) => section.link && section.type !== "work")
               .map((section, index) => (
                 <NavItem
                   key={index}
-                  onClick={() => scrollToSection(section.id)}
+                  onClick={() => scrollToSection(section.type)}
                   collapsed={isNavCollapsed}
                 >
                   {section.link}
@@ -100,7 +100,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
               ))}
             {workSection && (
               <WorkButton
-                onClick={() => scrollToSection(workSection.id)}
+                onClick={() => scrollToSection(workSection.type)}
                 animationConfig={{
                   name: "brain",
                   data: brain,
