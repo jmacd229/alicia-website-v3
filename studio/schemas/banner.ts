@@ -13,7 +13,7 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string",
+      type: "mixed_font_text",
     },
     {
       name: "subtitle",

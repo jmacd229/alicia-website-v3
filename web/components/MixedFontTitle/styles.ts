@@ -1,30 +1,58 @@
-import styled from "styled-components";
-import { fontStyle, fontSize } from "styles/font";
+import styled, { css } from "styled-components";
+import { fontStyle, fontSize, FontSize } from "styles/font";
 import media from "styles/media";
 import colors from "styles/palette";
 import spacing from "styles/spacing";
 
-export const TitleContainer = styled.h3`
+export const TitleContainer = styled.h2<{
+  $wrap: boolean;
+}>`
   display: flex;
-  flex-wrap: wrap;
+  position: relative;
+  flex-wrap: ${({ $wrap }) => ($wrap ? "wrap" : "nowrap")};
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
+  text-align: center;
+  ${media.medium} {
+    white-space: nowrap;
+  }
 `;
 
-export const Regular = styled.span`
+const fontSizeStyle = css<{
+  $fontSize: FontSize;
+  $responsive: boolean;
+}>`
+  font-size: ${({ $fontSize, $responsive }) =>
+    fontSize($fontSize, $responsive ? "smaller" : undefined)};
+  line-height: ${({ $fontSize, $responsive }) =>
+    fontSize($fontSize, $responsive ? "smaller" : undefined)};
+  ${media.medium} {
+    font-size: ${({ $fontSize }) => fontSize($fontSize)};
+    line-height: ${({ $fontSize }) => fontSize($fontSize)};
+  }
+`;
+
+export const Regular = styled.span<{
+  $fontSize: FontSize;
+  $responsive: boolean;
+}>`
   ${fontStyle.IMPACT_THICK};
+  ${fontSizeStyle}
 `;
 
-export const Cursive = styled.span`
+export const Cursive = styled.span<{
+  $fontSize: FontSize;
+  $underline: boolean;
+  $responsive: boolean;
+}>`
   ${fontStyle.CURSIVE};
   display: inline-block;
-  line-height: ${fontSize("xxl")};
   color: ${colors.blue.c};
-  border-bottom: 3px solid ${colors.blue.c};
+  ${({ $underline }) =>
+    $underline &&
+    css`
+      border-bottom: 3px solid ${colors.blue.c};
+    `};
   padding: 0 ${spacing(4)};
-
-  ${media.medium} {
-    line-height: ${fontSize("3xl")};
-  }
+  ${fontSizeStyle}
 `;

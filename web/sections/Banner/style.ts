@@ -1,3 +1,4 @@
+import MixedFontTitle from "components/MixedFontTitle";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import { fontSize, fontStyle } from "styles/font";
@@ -38,7 +39,7 @@ export const BannerContainer = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   width: 120%;
-  height: auto;
+  height: 100%;
   background-color: ${colors.jade.c};
   border-bottom: 6px solid ${colors.blue.b};
 
@@ -58,6 +59,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const StyledImage = styled(Image)`
+  top: -10%;
   width: 100%;
   height: auto;
   border-radius: 0;
@@ -68,6 +70,7 @@ export const StyledImage = styled(Image)`
   }
 
   ${media.large} {
+    position: absolute;
     border-radius: 0;
   }
 `;
@@ -84,6 +87,7 @@ export const TextBoxContainer = styled.div`
   ${media.large} {
     position: absolute;
     width: 45%;
+    min-width: 520px;
     ${shadow(1)}
     border-radius: ${spacing(8)};
     ${BORDER_STYLE(`rgba(${rgbColors.blue.c},0.6)`)}
@@ -106,20 +110,12 @@ export const TextBox = styled.div`
   }
 `;
 
-export const Title = styled.h2`
-  background-color: ${colors.white};
-  text-align: center;
-  padding: ${spacing(2)} ${spacing(2)};
-  ${fontStyle.IMPACT};
-  color: ${colors.grey.c};
+export const Title = styled(MixedFontTitle)`
+  padding: ${spacing(3)};
+  border-top-left-radius: ${getTextBorderRadius()};
+  border-top-right-radius: ${getTextBorderRadius()};
 
   ${media.large} {
-    background-color: ${colors.grey.a};
-    border-top-right-radius: ${spacing(4)};
-    border-top-left-radius: ${spacing(4)};
-  }
-
-  ${media.medium} {
     background-color: ${colors.white};
   }
 `;
@@ -130,5 +126,6 @@ export const TextBoxContent = styled.div`
 
   ${media.medium} {
     padding: ${spacing(1)} ${spacing(4)};
+    padding-top: 0;
   }
 `;

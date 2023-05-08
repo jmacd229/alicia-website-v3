@@ -22,7 +22,7 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   }
 `;
 
-export const WorkTitle = styled.h3`
+export const WorkTitle = styled.h2`
   text-align: center;
   ${fontStyle.IMPACT_THICK};
   font-weight: 200;
@@ -110,6 +110,7 @@ export const ImageContainer = styled.div`
 
 export const StyledImage = styled(Image)`
   position: relative;
+  top: -20%;
   width: 120%;
   height: auto;
   opacity: 0.6;

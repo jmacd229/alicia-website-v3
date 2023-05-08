@@ -19,7 +19,7 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const FormTitle = styled.h4`
+export const FormTitle = styled.h3`
   display: flex;
   align-items: center;
   gap: ${spacing(1)};

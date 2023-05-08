@@ -45,6 +45,7 @@ export default createGlobalStyle`
     src: url('/fonts/eratolig-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap
 }
 
 @font-face {
@@ -52,6 +53,7 @@ export default createGlobalStyle`
     src: url('/fonts/RobotoSlab-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
+    font-display: swap
 }
 
 @font-face {
@@ -59,6 +61,7 @@ export default createGlobalStyle`
     src: url('/fonts/RobotoSlab.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap
 }
 
 @font-face {
@@ -66,6 +69,7 @@ export default createGlobalStyle`
     src: url('/fonts/DancingScript-Medium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap
 }
 
 @font-face {
@@ -73,6 +77,7 @@ export default createGlobalStyle`
     src: url('/fonts/SourceSansPro.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap
 }
 
 *:focus {
@@ -80,23 +85,15 @@ export default createGlobalStyle`
   outline: 3px solid ${colors.highlight};
 }
 
-h2 {
-  ${fontStyle.IMPACT_THIN};
-  font-size: ${fontSize("xl")};
-  letter-spacing: -1px !important;
-  word-spacing: unset;
-  text-transform: none;
-  color: ${colors.black};
-  font-weight: 400;
-}
 
-h3 {
+
+h2 {
   font-size: ${fontSize("xxl")};
   line-height: ${fontSize("xxl")};
   
   ${media.medium} {
     font-size: ${fontSize("3xl")};
-      line-height: ${fontSize("3xl")};
+    line-height: ${fontSize("3xl")};
   }
 }
 

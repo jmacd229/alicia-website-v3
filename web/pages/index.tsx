@@ -9,6 +9,7 @@ import Work from "sections/Work";
 import GlobalStyle from "styles/GlobalStyle";
 import mailgo from "mailgo";
 import Footer from "sections/Footer";
+import Head from "next/head";
 
 const App = ({
   sections,
@@ -18,9 +19,21 @@ const App = ({
   work,
   contact,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  mailgo();
+  if (typeof window !== "undefined") {
+    mailgo();
+  }
   return (
     <>
+      <Head>
+        <title>Dr. Alicia MacDougall</title>
+        <meta
+          name="description"
+          content="Dealing with ADHD can feel beyond frustrating, like trying to put
+          together an Ikea bookshelf with instructions in the wrong language and
+          half of the steps missing! What if I told you that it’s possible to
+          create an instruction manual aligned with your uniquely awesome brain?"
+        />
+      </Head>
       <GlobalStyle />
       <Header sections={sections} contactMethods={header} />
       <Banner banner={banner} />

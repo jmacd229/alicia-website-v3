@@ -35,7 +35,7 @@ function scrollToSection(id: string) {
 }
 
 type HeaderProps = {
-  sections: Sections
+  sections: Sections;
   contactMethods: ContactMethods[];
 };
 
@@ -58,7 +58,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
       );
     }
     return () => Lottie.destroy("chevron");
-  }, [ animationContainer.current]);
+  }, [animationContainer.current]);
 
   const workSection = sections.find((section) => section.type === "work");
 
@@ -115,9 +115,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
               onFocus={playAnimation}
               onClick={scrollToTop}
             >
-              <ChevronAnimationContainer
-                ref={animationContainer}
-              />
+              <ChevronAnimationContainer ref={animationContainer} />
               <span>Back to top</span>
             </BackToTopButton>
           </NavList>
@@ -130,11 +128,9 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
                   href={method.url}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={`${method.title} ${method.label}`}
                 >
-                  <Icon
-                    icon={method.sanityId as IconString}
-                    alt={`${method.title} ${method.label}`}
-                  />
+                  <Icon icon={method.sanityId as IconString} alt="" />
                 </a>
               ))}
           </Socials>

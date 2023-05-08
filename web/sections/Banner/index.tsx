@@ -21,24 +21,24 @@ const Banner = ({ banner }: BannerProps) => {
   const imageProps = useNextSanityImage(client, banner.image.asset);
   return (
     <BannerContainer>
-      <ImageContainer data-sal="fade" data-sal-duration="1000">
+      <ImageContainer>
         {banner.backgroundType === "image" ? (
-          <StyledImage
-            {...imageProps}
-            alt={banner.image.alt}
-            priority
-          />
+          <StyledImage {...imageProps} alt={banner.image.alt} priority />
         ) : (
           <div>{/* TODO: Implement Video*/}</div>
         )}
       </ImageContainer>
       <TextBoxContainer
-        data-sal="fade"
-        data-sal-delay="500"
-        data-sal-duration="1000"
       >
         <TextBox>
-          <Title>{banner.title}</Title>
+          <Title
+            fontSize={{cursive: 'xxl', regular: 'xl'}}
+            responsive={false}
+            lineBreak={true}
+            wrap={true}
+            underline={false}
+            title={banner.title}
+          />
           <TextBoxContent>
             <PortableText value={banner.body}></PortableText>
           </TextBoxContent>
