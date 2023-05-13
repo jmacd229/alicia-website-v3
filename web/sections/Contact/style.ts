@@ -25,7 +25,6 @@ export const TitleContainer = styled.div`
   justify-content: center;
   position: relative;
   pointer-events: none;
-  padding-top: ${spacing(8)};
   ${media.medium} {
     background-color: ${colors.grey.a};
     min-height: 100%;
@@ -33,7 +32,6 @@ export const TitleContainer = styled.div`
     right: 0;
     width: 15rem;
     transform: rotate(90deg);
-    padding-top: 0;
     background-color: transparent;
     > * {
       flex-wrap: nowrap;

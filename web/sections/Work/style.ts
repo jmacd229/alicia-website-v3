@@ -14,11 +14,11 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   flex-direction: column;
   align-items: center;
   margin-top: ${spacing(5)};
-  max-height: 650px;
+  height: 700px;
   overflow: hidden;
 
   ${media.medium} {
-    height: 700px;
+    height: 750px;
   }
 `;
 
@@ -30,6 +30,9 @@ export const WorkTitle = styled.h2`
 `;
 
 export const MobileTitle = styled(WorkTitle)`
+  margin-bottom: ${spacing(1)};
+  font-size: ${fontSize("xl")};
+  line-height: ${fontSize("xl")};
   ${media.medium} {
     display: none;
   }
@@ -37,8 +40,10 @@ export const MobileTitle = styled(WorkTitle)`
 
 export const DesktopTitle = styled(WorkTitle)`
   display: none;
+  font-size: ${fontSize("xxl")};
+  line-height: ${fontSize("xxl")};
   background-color: ${colors.white};
-  padding: ${spacing(4)};
+  padding: ${spacing(3)};
   border-top-right-radius: ${spacing(5)};
   border-top-left-radius: ${spacing(5)};
   ${media.medium} {
@@ -110,13 +115,16 @@ export const ImageContainer = styled.div`
 
 export const StyledImage = styled(Image)`
   position: relative;
-  top: -20%;
   width: 120%;
   height: auto;
   opacity: 0.6;
 
   ${media.medium} {
     opacity: 0.7;
+  }
+
+  ${media.large} {
+    top: -20%;
   }
 `;
 

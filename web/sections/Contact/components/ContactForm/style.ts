@@ -25,16 +25,14 @@ export const FormTitle = styled.h3`
   gap: ${spacing(1)};
   ${fontStyle.IMPACT};
   color: ${colors.grey.c};
-  font-size: ${fontSize("xl")};
+  font-size: ${fontSize("lg")};
   margin-bottom: ${spacing(3)};
-  letter-spacing: -2px;
   svg {
     fill: ${colors.blue.c};
   }
 
   ${media.medium} {
     gap: ${spacing(2)};
-    letter-spacing: normal;
   }
 `;
 
