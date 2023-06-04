@@ -11,7 +11,7 @@ export type Contact = {
 } & ContactFormData;
 
 export type ContactFormData = {
-  formTitle:string;
+  formTitle: any;
   formButton: string;
   formSuccessTitle: string;
   formSuccess: string;

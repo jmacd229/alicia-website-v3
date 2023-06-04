@@ -140,12 +140,13 @@ export const ButtonContainer = styled.div`
   ${media.medium} {
     align-items: flex-start;
     position: static;
-    padding: 0 ${spacing(3)};
+    padding: ${spacing(3)};
+    padding-top: 0;
   }
 
   ${media.large} {
     justify-content: center;
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 `;
 

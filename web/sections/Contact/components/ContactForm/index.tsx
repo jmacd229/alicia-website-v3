@@ -1,5 +1,6 @@
 import Icon from "components/Icon";
 import { Field, FieldError, Form, FormContainer, FormTitle } from "./style";
+import { PortableText } from "@portabletext/react";
 import { useForm as useFormSpree } from "@formspree/react";
 import BaseButton from "components/Button";
 import { useForm } from "react-hook-form";
@@ -7,7 +8,7 @@ import submit from "animations/submit.json";
 import { FC } from "react";
 import { ContactFormData } from "sections/Contact/query";
 
-const ContactForm:FC<{form: ContactFormData}> = ({form}) => {
+const ContactForm: FC<{ form: ContactFormData }> = ({ form }) => {
   const [state, onSubmit] = useFormSpree("xlekzdyg");
   const {
     register,
@@ -21,12 +22,14 @@ const ContactForm:FC<{form: ContactFormData}> = ({form}) => {
     <FormContainer>
       <FormTitle>
         <Icon icon={state.succeeded ? "sent" : "message"} size={64} alt="" />
-        {state.succeeded ? form.formSuccessTitle : form.formTitle}
+        {!state.succeeded ? (
+          <PortableText value={form.formTitle} />
+        ) : (
+          form.formSuccessTitle
+        )}
       </FormTitle>
       {state.succeeded ? (
-        <p>
-          {form.formSuccess}
-        </p>
+        <p>{form.formSuccess}</p>
       ) : (
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Field>
@@ -47,9 +50,7 @@ const ContactForm:FC<{form: ContactFormData}> = ({form}) => {
             Email
             <input
               aria-invalid={Boolean(errors.email)}
-              aria-describedby={
-                Boolean(errors.email) ? "email-error" : null
-              }
+              aria-describedby={Boolean(errors.email) ? "email-error" : null}
               {...register("email", {
                 onChange: () => clearErrors("email"),
                 required: true,

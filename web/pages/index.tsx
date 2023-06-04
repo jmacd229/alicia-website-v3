@@ -10,6 +10,7 @@ import GlobalStyle from "styles/GlobalStyle";
 import mailgo from "mailgo";
 import Footer from "sections/Footer";
 import Head from "next/head";
+import { PrivacyPolicy } from "sections/PrivacyPolicy";
 
 const App = ({
   sections,

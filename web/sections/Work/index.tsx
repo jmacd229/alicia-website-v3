@@ -17,7 +17,6 @@ import {
   DesktopTitle,
   StyledWorkButton,
 } from "./style";
-import WorkSchedule from "./components/WorkSchedule";
 
 type WorkProps = {
   work: Work;
@@ -82,27 +81,16 @@ const Work = ({ work }: WorkProps) => {
               </WorkButton>
             </>
           ) : null}
-          {work.bookLink.map((booking) => {
-            const hasSchedule = (booking.location.days.length ||
-              booking.location.daysVirtual.length);
-            return (
-              <BookButtonContainer key={booking.location.id}>
-                <WorkButton
-                  url={booking.url}
-                  isMobile={false}
-                  animation="brain"
-                >
-                  {booking.location.title}{hasSchedule && '*'}
-                </WorkButton>
-                <WorkButton url={booking.url} isMobile={true} animation="brain">
-                  {booking.location.title}{hasSchedule && '*'}
-                </WorkButton>
-                {hasSchedule && (
-                  <WorkSchedule location={booking.location} />
-                )}
-              </BookButtonContainer>
-            );
-          })}
+          {work.bookLink.map((booking) => (
+            <BookButtonContainer key={booking.location.id}>
+              <WorkButton url={booking.url} isMobile={false} animation="brain">
+                {booking.location.title}
+              </WorkButton>
+              <WorkButton url={booking.url} isMobile={true} animation="brain">
+                {booking.location.title}
+              </WorkButton>
+            </BookButtonContainer>
+          ))}
         </ButtonContainer>
       </WorkContentContainer>
       <ImageContainer>

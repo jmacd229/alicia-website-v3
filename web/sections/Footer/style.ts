@@ -22,15 +22,16 @@ export const FooterContainer = styled.div`
     right: ${spacing(2)};
     top: ${spacing(2)};
   }
+
+   a {
+    color: ${colors.white};
+  }
 `;
 
 export const Author = styled.div`
   font-size: ${fontSize("sm")};
   ${fontStyle.IMPACT};
   width: 50%;
-  > a {
-    color: ${colors.white};
-  }
 
   ${media.medium} {
     width: unset;

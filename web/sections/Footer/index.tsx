@@ -1,6 +1,6 @@
 import { Author, FooterContainer } from "./style";
 import Logo from "images/alicia_naturopathic_doctor_logo_light.svg";
-import packageJson from '../../package.json';
+import packageJson from "../../package.json";
 
 const Footer = () => {
   const date = packageJson.releaseDate.split("-");
@@ -16,6 +16,13 @@ const Footer = () => {
           Jesse MacDougall
         </a>
       </Author>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.iubenda.com/privacy-policy/92564402"
+      >
+        Privacy Policy
+      </a>
       <div>
         Last Updated:{" "}
         {new Date(
