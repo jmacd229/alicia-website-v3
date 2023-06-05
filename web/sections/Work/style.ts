@@ -133,7 +133,7 @@ export const ButtonContainer = styled.div`
   flex-direction: column;
   gap: ${spacing(2)};
   position: absolute;
-  bottom: -130%;
+  bottom: -100%;
   left: 5%;
   z-index: 1;
 

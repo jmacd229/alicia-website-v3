@@ -111,11 +111,18 @@ export const TextBox = styled.div`
 `;
 
 export const Title = styled(MixedFontTitle)`
-  padding: ${spacing(3)};
+  padding-top: ${spacing(3)};
   border-top-left-radius: ${getTextBorderRadius()};
   border-top-right-radius: ${getTextBorderRadius()};
 
+  > :first-child {
+    padding: 0;
+    padding-bottom: ${spacing(1)};
+    line-height: ${fontSize('xl')};
+  }
+
   ${media.large} {
+    padding: ${spacing(3)};
     background-color: ${colors.white};
   }
 `;

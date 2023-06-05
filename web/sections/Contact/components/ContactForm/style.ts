@@ -12,7 +12,7 @@ export const FormContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   background-color: ${colors.grey.a};
-  padding: ${spacing(8)} ${spacing(4)};
+  padding: ${spacing(4)};
 
   ${media.medium} {
     padding: ${spacing(4)} ${spacing(8)};
@@ -22,7 +22,9 @@ export const FormContainer = styled.div`
 export const FormTitle = styled.h3`
   display: flex;
   align-items: center;
-  gap: ${spacing(1)};
+  flex-direction: column;
+  text-align: center;
+
   ${fontStyle.IMPACT};
   color: ${colors.grey.c};
   > p {
@@ -35,10 +37,13 @@ export const FormTitle = styled.h3`
   margin-bottom: ${spacing(3)};
   svg {
     fill: ${colors.blue.c};
+    max-width: 48px;
   }
 
   ${media.medium} {
     gap: ${spacing(2)};
+    flex-direction: row;
+    text-align: left;
   }
 `;
 
