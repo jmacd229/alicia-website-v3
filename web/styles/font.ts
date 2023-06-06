@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
 import media from "./media";
+import { Dancing_Script, Roboto_Slab } from "@next/font/google";
+
+const dancingScript = Dancing_Script({ subsets: ["latin"], weight: "700" });
+const robotoSlab = Roboto_Slab({ subsets: ["latin"], weight: ["500","900"]  });
 
 export type FontSize = keyof typeof FONT_SIZES;
 
@@ -32,14 +36,15 @@ export const fontSize = (
 
 export const fontStyle = {
   CURSIVE: css`
-    font-family: "Dancing Script", cursive;
-    font-feature-settings: "kern";
+    font-family: ${dancingScript.style.fontFamily};
   `,
   IMPACT: css`
-    font-family: "Roboto Slab", cursive;
+    font-family: ${robotoSlab.style.fontFamily};
+    font-weight: 500;
   `,
   IMPACT_THICK: css`
-    font-family: "Roboto Slab Black", cursive;
+    font-family: ${robotoSlab.style.fontFamily};
+    font-weight: 900;
   `,
   IMPACT_THIN: css`
     font-family: "eratolig";

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { fontSize, fontStyle } from "./font";
+import { fontSize } from "./font";
 import media from "./media";
 import colors from "./palette";
 
@@ -62,14 +62,6 @@ export default createGlobalStyle`
     font-family: 'Roboto Slab';
     src: url('/fonts/RobotoSlab.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal;
-    font-display: swap
-}
-
-@font-face {
-    font-family: 'Dancing Script';
-    src: url('/fonts/DancingScript-Medium.ttf') format('truetype');
-    font-weight: 400;
     font-style: normal;
     font-display: swap
 }
