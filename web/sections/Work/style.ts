@@ -25,7 +25,6 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
 export const WorkTitle = styled.h2`
   text-align: center;
   ${fontStyle.IMPACT_THICK};
-  font-weight: 200;
   color: ${colors.grey.c};
 `;
 

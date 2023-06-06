@@ -3,7 +3,10 @@ import media from "./media";
 import { Dancing_Script, Roboto_Slab } from "@next/font/google";
 
 const dancingScript = Dancing_Script({ subsets: ["latin"], weight: "700" });
-const robotoSlab = Roboto_Slab({ subsets: ["latin"], weight: ["500","900"]  });
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["200", "400", "900"],
+});
 
 export type FontSize = keyof typeof FONT_SIZES;
 
@@ -40,20 +43,17 @@ export const fontStyle = {
   `,
   IMPACT: css`
     font-family: ${robotoSlab.style.fontFamily};
-    font-weight: 500;
+    font-weight: 400;
   `,
   IMPACT_THICK: css`
     font-family: ${robotoSlab.style.fontFamily};
     font-weight: 900;
   `,
   IMPACT_THIN: css`
-    font-family: "eratolig";
-    word-spacing: 2px;
-
-    ${media.medium} {
-      letter-spacing: 1px;
-      word-spacing: 3px;
-    }
+    font-family: ${robotoSlab.style.fontFamily};
+    font-weight: 200;
+    letter-spacing: 1px;
+    word-spacing: 3px;
   `,
 };
 
