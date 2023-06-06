@@ -33,7 +33,6 @@ export const fontSize = (
 export const fontStyle = {
   CURSIVE: css`
     font-family: "Dancing Script", cursive;
-    font-weight: 600;
   `,
   IMPACT: css`
     font-family: "Roboto Slab", cursive;

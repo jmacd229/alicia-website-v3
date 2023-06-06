@@ -67,7 +67,7 @@ export default createGlobalStyle`
 @font-face {
     font-family: 'Dancing Script';
     src: url('/fonts/DancingScript-Medium.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 300;
     font-style: normal;
     font-display: swap
 }
