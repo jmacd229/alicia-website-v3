@@ -9,6 +9,8 @@ export default createGlobalStyle`
     font-family: 'Source Sans Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-feature-settings: "kern";
+    text-rendering: optimizeLegibility;
 }
   h1,h2,h3,h4,h5,h6 {
     margin: unset;
@@ -67,7 +69,7 @@ export default createGlobalStyle`
 @font-face {
     font-family: 'Dancing Script';
     src: url('/fonts/DancingScript-Medium.ttf') format('truetype');
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
     font-display: swap
 }
