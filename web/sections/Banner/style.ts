@@ -38,10 +38,11 @@ export const BannerContainer = styled.div`
 
 export const ImageContainer = styled.div`
   display: flex;
-  width: 120%;
+  width: 100%;
   height: 100%;
-  background-color: ${colors.jade.c};
+  background-color: ${colors.white};
   border-bottom: 6px solid ${colors.blue.b};
+  overflow: hidden;
 
   ${media.medium} {
     width: 100%;
@@ -59,9 +60,8 @@ export const ImageContainer = styled.div`
 `;
 
 export const StyledImage = styled(Image)`
-  top: -10%;
-  width: 100%;
   height: auto;
+  width: 100%;
   border-radius: 0;
   opacity: 0.8;
 
@@ -72,13 +72,15 @@ export const StyledImage = styled(Image)`
   ${media.large} {
     position: absolute;
     border-radius: 0;
+    width: 120%;
+    top: -20%;
   }
 `;
 
 export const TextBoxContainer = styled.div`
   flex: 50%;
   top: 6vw;
-  right: ${spacing(4)};
+  left: ${spacing(4)};
   display: flex;
   max-width: 700px;
   z-index: 1;
@@ -111,7 +113,7 @@ export const TextBox = styled.div`
 `;
 
 export const Title = styled(MixedFontTitle)`
-  padding-top: ${spacing(3)};
+  padding: ${spacing(3)} ${spacing(2)} 0;
   border-top-left-radius: ${getTextBorderRadius()};
   border-top-right-radius: ${getTextBorderRadius()};
 
