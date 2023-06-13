@@ -14,7 +14,7 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   flex-direction: column;
   align-items: center;
   margin-top: ${spacing(5)};
-  height: 700px;
+  height: 650px;
   overflow: hidden;
 
   ${media.medium} {
@@ -25,7 +25,6 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
 export const WorkTitle = styled.h2`
   text-align: center;
   ${fontStyle.IMPACT_THICK};
-  font-weight: 200;
   color: ${colors.grey.c};
 `;
 
@@ -58,10 +57,10 @@ export const WorkContentContainer = styled.div`
 
   ${media.medium} {
     position: absolute;
-    left: 5%;
+    right: 5%;
     top: 10%;
     max-width: 60%;
-    background-color: ${colors.blue.c};
+    background-color: ${colors.blue.a};
     ${shadow(2)};
     border-radius: ${spacing(5)};
     z-index: 1;
@@ -86,8 +85,7 @@ export const TextContent = styled.div`
     text-align: center;
     padding: 0 ${spacing(3)};
     font-size: ${fontSize("lg")};
-    background-color: ${colors.blue.c};
-    color: ${colors.white};
+    background-color: ${colors.blue.a};
     border: none;
     box-shadow: none;
   }
@@ -107,9 +105,12 @@ export const StyledWorkButton = styled(BaseButton)<{ $isMobile: boolean }>`
 export const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
+  background-color: ${colors.jade.c};
+  max-height: 350px;
 
   ${media.medium} {
     position: relative;
+    max-height: unset;
   }
 `;
 
@@ -117,14 +118,17 @@ export const StyledImage = styled(Image)`
   position: relative;
   width: 120%;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.7;
+  transform: scaleX(-1);
 
   ${media.medium} {
-    opacity: 0.7;
+    transform: none;
+    left: -30%;
   }
 
   ${media.large} {
-    top: -20%;
+    left: -20%;
+    top: -15%;
   }
 `;
 
@@ -138,7 +142,7 @@ export const ButtonContainer = styled.div`
   z-index: 1;
 
   ${media.medium} {
-    align-items: flex-start;
+    align-items: center;
     position: static;
     padding: ${spacing(3)};
     padding-top: 0;
@@ -147,6 +151,7 @@ export const ButtonContainer = styled.div`
   ${media.large} {
     justify-content: center;
     flex-direction: row;
+    align-items: flex-start;
   }
 `;
 

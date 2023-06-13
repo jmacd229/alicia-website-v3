@@ -18,7 +18,7 @@ const VARIANT_COLOR_MAPPING: Record<
   hover: {
     primary: colors.blue.a,
     secondary: colors.blue.b,
-    tertiary: colors.blue.c,
+    tertiary: colors.jade.b,
   },
 };
 
@@ -26,7 +26,7 @@ const SVG_COLOR_MAPPING: Record<ButtonState, Record<ButtonVariant, string>> = {
   regular: {
     primary: colors.blue.a,
     secondary: colors.grey.a,
-    tertiary: colors.blue.c,
+    tertiary: colors.jade.b,
   },
   hover: {
     primary: colors.grey.a,

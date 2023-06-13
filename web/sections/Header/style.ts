@@ -167,6 +167,7 @@ export const ChevronAnimationContainer = styled.div`
 export const Title = styled.h1<{ collapsed: boolean }>`
   grid-area: logo;
   overflow: hidden;
+  width: 100vw;
   ${titleHeight}
   > svg {
     height: ${({ collapsed }) => (collapsed ? "110%" : "100%")};
