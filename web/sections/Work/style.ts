@@ -128,6 +128,7 @@ export const StyledImage = styled(Image)`
 
   ${media.large} {
     left: -20%;
+    top: -15%;
   }
 `;
 
@@ -141,7 +142,7 @@ export const ButtonContainer = styled.div`
   z-index: 1;
 
   ${media.medium} {
-    align-items: flex-start;
+    align-items: center;
     position: static;
     padding: ${spacing(3)};
     padding-top: 0;
@@ -150,6 +151,7 @@ export const ButtonContainer = styled.div`
   ${media.large} {
     justify-content: center;
     flex-direction: row;
+    align-items: flex-start;
   }
 `;
 
