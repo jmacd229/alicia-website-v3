@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { fontSize, fontStyle } from "styles/font";
+import { fontStyle } from "styles/font";
 import media from "styles/media";
 import colors from "styles/palette";
 import { shadow } from "styles/shadows";

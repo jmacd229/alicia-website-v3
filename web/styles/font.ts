@@ -5,7 +5,7 @@ import { Dancing_Script, Roboto_Slab } from "@next/font/google";
 const dancingScript = Dancing_Script({ subsets: ["latin"], weight: "700" });
 const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
-  weight: ["200", "400", "900"],
+  weight: ["300", "400", "900"],
 });
 
 export type FontSize = keyof typeof FONT_SIZES;
@@ -51,7 +51,7 @@ export const fontStyle = {
   `,
   IMPACT_THIN: css`
     font-family: ${robotoSlab.style.fontFamily};
-    font-weight: 200;
+    font-weight: 300;
     letter-spacing: 1px;
     word-spacing: 3px;
   `,

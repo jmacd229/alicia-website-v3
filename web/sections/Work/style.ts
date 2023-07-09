@@ -14,7 +14,7 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   flex-direction: column;
   align-items: center;
   margin-top: ${spacing(5)};
-  height: 650px;
+  height: 600px;
   overflow: hidden;
 
   ${media.medium} {
@@ -25,7 +25,6 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
 export const WorkTitle = styled.h2`
   text-align: center;
   ${fontStyle.IMPACT_THICK};
-  color: ${colors.grey.c};
 `;
 
 export const MobileTitle = styled(WorkTitle)`
@@ -42,6 +41,7 @@ export const DesktopTitle = styled(WorkTitle)`
   font-size: ${fontSize("xxl")};
   line-height: ${fontSize("xxl")};
   background-color: ${colors.white};
+  color: ${colors.grey.c};
   padding: ${spacing(3)};
   border-top-right-radius: ${spacing(5)};
   border-top-left-radius: ${spacing(5)};
@@ -57,9 +57,9 @@ export const WorkContentContainer = styled.div`
 
   ${media.medium} {
     position: absolute;
-    right: 5%;
+    right: 7%;
     top: 10%;
-    max-width: 60%;
+    max-width: 50%;
     background-color: ${colors.blue.a};
     ${shadow(2)};
     border-radius: ${spacing(5)};
@@ -67,7 +67,7 @@ export const WorkContentContainer = styled.div`
   }
 
   ${media.large} {
-    max-width: 50%;
+    max-width:45%;
     top: 15%;
   }
 `;
@@ -91,12 +91,13 @@ export const TextContent = styled.div`
   }
 
   ${media.large} {
-    padding: ${spacing(2)};
+    padding: ${spacing(3)};
   }
 `;
 
 export const StyledWorkButton = styled(BaseButton)<{ $isMobile: boolean }>`
   display: ${(props) => (props.$isMobile ? "flex" : "none")};
+  font-size: ${fontSize('lg')};
   ${media.medium} {
     display: ${(props) => (props.$isMobile ? "none" : "flex")};
   }
@@ -106,7 +107,7 @@ export const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   background-color: ${colors.jade.c};
-  max-height: 350px;
+  max-height: 250px;
 
   ${media.medium} {
     position: relative;
@@ -116,14 +117,15 @@ export const ImageContainer = styled.div`
 
 export const StyledImage = styled(Image)`
   position: relative;
-  width: 120%;
+  width: 150%;
   height: auto;
   opacity: 0.7;
-  transform: scaleX(-1);
+  top: -5%;
 
   ${media.medium} {
     transform: none;
-    left: -30%;
+    width: 120%;
+    left: -20%;
   }
 
   ${media.large} {
@@ -137,14 +139,18 @@ export const ButtonContainer = styled.div`
   flex-direction: column;
   gap: ${spacing(2)};
   position: absolute;
-  bottom: -100%;
-  left: 5%;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
 
   ${media.medium} {
     align-items: center;
     position: static;
-    padding: ${spacing(3)};
+    padding: ${spacing(3)} 0;
     padding-top: 0;
   }
 

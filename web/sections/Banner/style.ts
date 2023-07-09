@@ -80,7 +80,7 @@ export const StyledImage = styled(Image)`
 export const TextBoxContainer = styled.div`
   flex: 50%;
   top: 6vw;
-  left: ${spacing(4)};
+  left: 5%;
   display: flex;
   max-width: 700px;
   z-index: 1;
