@@ -150,7 +150,7 @@ export const ButtonContainer = styled.div`
   ${media.medium} {
     align-items: center;
     position: static;
-    padding: ${spacing(3)};
+    padding: ${spacing(3)} 0;
     padding-top: 0;
   }
 
