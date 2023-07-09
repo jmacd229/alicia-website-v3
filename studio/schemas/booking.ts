@@ -4,6 +4,12 @@ export default {
   type: "object",
   fields: [
     {
+      title: "Visible",
+      name: "visible",
+      type: "boolean",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "url",
       title: "Booking url",
       type: "url",

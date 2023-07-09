@@ -81,16 +81,22 @@ const Work = ({ work }: WorkProps) => {
               </WorkButton>
             </>
           ) : null}
-          {work.bookLink.map((booking) => (
-            <BookButtonContainer key={booking.location.id}>
-              <WorkButton url={booking.url} isMobile={false} animation="brain">
-                {booking.location.title}
-              </WorkButton>
-              <WorkButton url={booking.url} isMobile={true} animation="brain">
-                {booking.location.title}
-              </WorkButton>
-            </BookButtonContainer>
-          ))}
+          {work.bookLink
+            .filter((booking) => booking.visible)
+            .map((booking) => (
+              <BookButtonContainer key={booking.location.id}>
+                <WorkButton
+                  url={booking.url}
+                  isMobile={false}
+                  animation="brain"
+                >
+                  {booking.location.title}
+                </WorkButton>
+                <WorkButton url={booking.url} isMobile={true} animation="brain">
+                  {booking.location.title}
+                </WorkButton>
+              </BookButtonContainer>
+            ))}
         </ButtonContainer>
       </WorkContentContainer>
       <ImageContainer>
