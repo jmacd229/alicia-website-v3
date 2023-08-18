@@ -3,6 +3,7 @@ import colors from "styles/palette";
 import { fontSize, fontStyle } from "styles/font";
 import spacing from "styles/spacing";
 import media from "styles/media";
+import { StyledButton } from "components/Button/style";
 
 export const FooterContainer = styled.div`
   position: relative;
@@ -10,6 +11,7 @@ export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   padding: 0 ${spacing(2)};
   background-color: ${colors.blue.c};
   border-top: 1px solid ${colors.blue.b};
@@ -23,8 +25,12 @@ export const FooterContainer = styled.div`
     top: ${spacing(2)};
   }
 
-   a {
+  a,
+  button {
+    font-family: "eratolig";
     color: ${colors.white};
+    text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
@@ -36,4 +42,28 @@ export const Author = styled.div`
   ${media.medium} {
     width: unset;
   }
+`;
+
+export const modalStyle = {
+  content: {
+    padding: spacing(5),
+  },
+  overlay: {
+    zIndex: 4,
+    width: "80vw",
+    height: "80vh",
+    top: "10%",
+    left: "10%",
+    overflow: "auto",
+    borderRadius: spacing(5),
+  },
+};
+
+export const CloseButtonContainer = styled.div`
+  position: fixed;
+  bottom: 5%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
