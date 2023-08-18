@@ -14,6 +14,7 @@ import privacy from "./privacy";
 import location from "./location";
 import booking from "./booking";
 import assets from "./assets";
+import active_pop_up, {pop_up} from "./active_pop_up";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -33,4 +34,6 @@ export default [
   location,
   booking,
   assets,
+  active_pop_up,
+  pop_up
 ];

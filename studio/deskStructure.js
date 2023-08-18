@@ -49,5 +49,12 @@ export default (S) =>
                 .child(
                     S.documentList().title('Assets').filter('_type == "assets"')
                 ),
-            ...S.documentTypeListItems().filter(listItem => ['location'].includes(listItem.getId()))
+            ...S.documentTypeListItems().filter(listItem => ['location'].includes(listItem.getId())),
+            S.listItem()
+                .title('Pop Ups')
+                .child(
+                    S.document()
+                        .schemaType('active_pop_up')
+                    // .documentId('232ef992-afd0-4010-b072-1d8da83fe8a3')
+                )
         ])
