@@ -96,4 +96,12 @@ ul {
   margin: 0;
   list-style: none;
 }
+
+.ReactModal__Body--open {
+  background-color: black;
+    overflow: hidden;
+    #__next {
+      opacity: 0.5;
+    }
+}
 `;
