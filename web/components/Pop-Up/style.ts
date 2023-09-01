@@ -32,8 +32,8 @@ export const PopUpContainer = styled.div`
   }
 
   p {
-	margin: 0;
-	font-size: ${fontSize("sm")};
+    margin: 0;
+    font-size: ${fontSize("sm")};
   }
 `;
 
@@ -47,10 +47,11 @@ export const CloseButton = styled.button`
   border-radius: 50%;
   padding: 2px;
   ${shadow(1)};
+  cursor: pointer;
 
   svg {
-	fill: ${colors.grey.c};
-	width: 10px;
-	height: 10px;
+    fill: ${colors.grey.c};
+    width: 10px;
+    height: 10px;
   }
 `;

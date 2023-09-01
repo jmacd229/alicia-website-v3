@@ -32,7 +32,7 @@ const Banner = ({ banner }: BannerProps) => {
       >
         <TextBox>
           <Title
-            fontSize={{cursive: 'xxl', regular: 'xl'}}
+            fontSize={{cursive: 'xl', regular: 'xl'}}
             responsive={false}
             lineBreak={true}
             wrap={true}

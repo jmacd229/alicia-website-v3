@@ -1,43 +1,57 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import { CloseButton, PopUpContainer, PopUpLayout } from "./style";
 import Icon from "components/Icon";
 import { PopUp as PopUpType } from "./types";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextReactComponents } from "@portabletext/react";
+import { getCookie, setCookie } from "cookies";
 
-function setCookie(name: string, value: string) {
-  document.cookie = name + "=" + value + ";";
-}
-
-function getCookie(name: string): string {
-  const cookieName = name + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let cookieArray = decodedCookie.split(";");
-  for (let i = 0; i < cookieArray.length; i++) {
-    let c = cookieArray[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(cookieName) == 0) {
-      return c.substring(cookieName.length, c.length);
-    }
-  }
-  return "";
-}
+const ensureExternalLinksOpenInNewTab: Partial<PortableTextReactComponents> = {
+  marks: {
+    link: ({ children, value }) => {
+      const rel = !value.href.startsWith("/")
+        ? "noreferrer noopener"
+        : undefined;
+      const target = !value.href.startsWith("/") ? "_blank" : undefined;
+      return (
+        <a href={value.href} rel={rel} target={target}>
+          {children}
+        </a>
+      );
+    },
+  },
+};
 
 const PopUp: FC = ({ popUp }: { popUp: PopUpType }): ReactElement => {
-  if (typeof document !== "undefined") {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (
+      typeof document !== "undefined" &&
+      !Boolean(getCookie(`pop-up-${popUp.id}`))
+    ) {
+      setIsVisible(true);
+    }
+  }, []);
+
+  const hidePopUp = () => {
+    setIsVisible(false);
     setCookie(`pop-up-${popUp.id}`, "true");
-    console.log("COOKIE", getCookie(`pop-up-${popUp.id}`));
-  }
-  return (
+  };
+
+  return isVisible ? (
     <PopUpLayout>
       <PopUpContainer>
-        <PortableText value={popUp.content}></PortableText>
-        <CloseButton>
+        <PortableText
+          value={popUp.content}
+          components={ensureExternalLinksOpenInNewTab}
+        ></PortableText>
+        <CloseButton onClick={hidePopUp}>
           <Icon icon="close" alt="dismiss" />
         </CloseButton>
       </PopUpContainer>
     </PopUpLayout>
+  ) : (
+    <></>
   );
 };
 

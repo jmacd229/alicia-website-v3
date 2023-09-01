@@ -14,7 +14,7 @@ export const TitleContainer = styled.h2<{
   justify-content: center;
   text-align: center;
   ${media.medium} {
-    white-space: nowrap;
+    white-space: ${({ $wrap }) => ($wrap ? "normal" : "nowrap")};
   }
 `;
 
