@@ -59,7 +59,7 @@ const PopUp: FC<{ popUp: PopUpType }> = ({ popUp }): ReactElement => {
             value={popUp.content}
             components={ensureExternalLinksOpenInNewTab}
           ></PortableText>
-          <CloseButton onClick={hidePopUp}>
+          <CloseButton onClick={hidePopUp} aria-label="dismiss">
             <Icon icon="close" alt="dismiss" />
           </CloseButton>
         </PopUpContainer>

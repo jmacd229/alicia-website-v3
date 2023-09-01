@@ -1,6 +1,7 @@
 import { animated } from "react-spring";
 import styled from "styled-components";
 import { fontSize } from "styles/font";
+import media from "styles/media";
 import colors from "styles/palette";
 import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
@@ -9,11 +10,15 @@ export const PopUpLayout = styled(animated.div)`
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
+
+  ${media.large} {
+    width: 50%;
+  }
 `;
 
 export const PopUpContainer = styled.div`
@@ -32,7 +37,12 @@ export const PopUpContainer = styled.div`
 
   p {
     margin: 0;
-    font-size: ${fontSize("sm")};
+    font-size: ${fontSize("xs")};
+    text-align: center;
+
+    ${media.medium} {
+      font-size: ${fontSize("sm")};
+    }
   }
 `;
 
