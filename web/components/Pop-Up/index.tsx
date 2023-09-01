@@ -21,7 +21,7 @@ const ensureExternalLinksOpenInNewTab: Partial<PortableTextReactComponents> = {
   },
 };
 
-const PopUp: FC = ({ popUp }: { popUp: PopUpType }): ReactElement => {
+const PopUp: FC<{ popUp: PopUpType }> = ({ popUp }): ReactElement => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
