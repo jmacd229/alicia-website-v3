@@ -11,6 +11,8 @@ import mailgo from "mailgo";
 import Footer from "sections/Footer";
 import Head from "next/head";
 import Script from "next/script";
+import PopUp from "components/Pop-Up";
+import { PopUp as PopUpType } from "components/Pop-Up/types";
 
 const App = ({
   sections,
@@ -19,6 +21,7 @@ const App = ({
   aboutMe,
   work,
   contact,
+  popUp,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (typeof window !== "undefined") {
     mailgo();
@@ -50,6 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <Work work={work} />
       <Contact contact={contact} />
       <Footer />
+      {popUp ? <PopUp popUp={popUp}/> : undefined}
     </>
   );
 };
@@ -59,6 +63,7 @@ export default App;
 export const getStaticProps: GetStaticProps<
   {
     sections: Sections;
+    popUp: PopUpType;
   } & SectionQueries
 > = async () => ({
   props: await getContent(),

@@ -14,6 +14,8 @@ export const SANITY_CLIENT_CONFIG = {
 export const BASE_QUERY =
   '*[_type in ["banner","aboutMe","work","resources","contact"] && visible == true]{link,"type":_type}';
 
+export const POP_UP_QUERY = '*[_type == "active_pop_up"][0]{pop_up ->{content, "id": _id}}.pop_up'
+
 export type Sections = { type: string; link: string }[];
 
 export const SECTION_QUERIES = {

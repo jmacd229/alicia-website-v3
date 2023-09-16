@@ -88,7 +88,7 @@ export const TextBoxContainer = styled.div`
 
   ${media.large} {
     position: absolute;
-    width: 45%;
+    width: 50%;
     min-width: 520px;
     ${shadow(1)}
     border-radius: ${spacing(8)};

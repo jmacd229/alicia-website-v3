@@ -5,6 +5,7 @@ import facebook from "images/icons/facebook.svg";
 import location from "images/icons/location.svg";
 import message from "images/icons/message.svg";
 import sent from "images/icons/sent.svg";
+import close from "images/icons/close.svg";
 
 export const ICONS = {
   email,
@@ -13,7 +14,8 @@ export const ICONS = {
   facebook,
   location,
   message,
-  sent
+  sent,
+  close,
 } as const;
 
 export type IconString = keyof typeof ICONS;
