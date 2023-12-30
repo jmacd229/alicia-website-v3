@@ -1,6 +1,6 @@
 export default {
-    name: "resources",
-    title: "Resources",
+    name: "faqs",
+    title: "FAQs",
     type: "document",
      __experimental_actions: ['update', 'publish'], 
     fields: [
@@ -16,15 +16,15 @@ export default {
         type: "string",
       },
       {
-        name: "image",
-        title: "Background image",
-        type: "image",
+        name: "link",
+        title: "Link Name",
+        type: "string",
       },
       {
-        title: "Categories",
-        name: "categories",
+        title: "Questions",
+        name: "questions",
         type: "array",
-        of: [{type: "category"},
+        of: [{type: "faq"},
         ],
       },
     ],

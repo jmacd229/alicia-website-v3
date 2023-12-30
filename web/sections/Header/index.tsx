@@ -44,6 +44,8 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
   const [animation, setAnimation] = useState<AnimationItem>();
   const animationContainer = useRef<HTMLDivElement>();
 
+console.log(sections);
+
   useEffect(() => {
     if (animationContainer.current) {
       setAnimation(
@@ -89,7 +91,6 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
           <NavList>
             {sections
               ?.filter((section) => section.link && section.type !== "work")
-              .reverse()
               .map((section, index) => (
                 <NavItem
                   key={index}

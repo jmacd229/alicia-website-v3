@@ -55,6 +55,13 @@ export default (S) =>
                 .child(
                     S.document()
                         .schemaType('active_pop_up')
-                    // .documentId('232ef992-afd0-4010-b072-1d8da83fe8a3')
-                )
+                      .documentId('popUps')
+                ),
+                S.listItem()
+                .title('FAQs')
+                .child(
+                    S.document()
+                        .schemaType('faqs')
+                        .documentId('faQs')
+                ),
         ])
