@@ -10,13 +10,16 @@ export const ContactContainer = styled.div`
   position: relative;
   min-height: 90rem;
   overflow: hidden;
+  padding-top: ${spacing(6)};
   grid-template-areas:
     "title"
     "methods"
     "form";
+
   ${media.medium} {
     grid-template-areas: "form methods title";
     grid-template-columns: 1fr 1fr 15rem;
+    padding-top: 0;
   }
 `;
 export const TitleContainer = styled.div`
