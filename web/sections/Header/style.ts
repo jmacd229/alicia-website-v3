@@ -65,7 +65,7 @@ export const NavContainer = styled.div<{ $collapsed: boolean }>`
   border-bottom: 2px solid ${colors.blue.b};
   height: ${({ $collapsed: collapsed }) => (collapsed ? "110%" : "100%")};
   ${shadow(1)}
-  transition: height ${COLLAPSE_ANIMATION}, padding ${COLLAPSE_ANIMATION};
+  transition: all ${COLLAPSE_ANIMATION};
 
   ${media.medium} {
     grid-template-areas: "logo links socials";
@@ -169,6 +169,8 @@ export const Title = styled.h1<{ $collapsed: boolean }>`
   overflow: hidden;
   width: 100vw;
   ${titleHeight}
+
+  transition: height ${COLLAPSE_ANIMATION};
   > svg {
     height: ${({ $collapsed: collapsed }) => (collapsed ? "110%" : "100%")};
     width: auto;
