@@ -1,7 +1,11 @@
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
+export type ButtonVariant = "primary" | "secondary" | "tertiary";
 
-export type ButtonSize = 'regular' | 'large';
+export type ButtonSize = "regular" | "large";
 
-export type ButtonState = 'regular' | 'hover';
+export type ButtonState = "regular" | "hover";
 
-export type ButtonStyleProperties = { variant: ButtonVariant; size: ButtonSize };
+export type ButtonStyleProperties<isTransient = true> = {
+  size: ButtonSize;
+} & (isTransient extends true
+  ? { $variant: ButtonVariant }
+  : { variant: ButtonVariant });

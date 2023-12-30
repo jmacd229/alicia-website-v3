@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
-import media from "./media";
-import { Dancing_Script, Roboto_Slab } from "@next/font/google";
+import { Dancing_Script, Roboto_Slab } from "next/font/google";
 
 const dancingScript = Dancing_Script({ subsets: ["latin"], weight: "700" });
 const robotoSlab = Roboto_Slab({

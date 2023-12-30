@@ -42,38 +42,6 @@ export default createGlobalStyle`
     margin: 0;
   }
 
-  @font-face {
-    font-family: 'eratolig';
-    src: url('/fonts/eratolig-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap
-}
-
-@font-face {
-    font-family: 'Roboto Slab Black';
-    src: url('/fonts/RobotoSlab-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap
-}
-
-@font-face {
-    font-family: 'Roboto Slab';
-    src: url('/fonts/RobotoSlab.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap
-}
-
-@font-face {
-    font-family: 'Source Sans Pro';
-    src: url('/fonts/SourceSansPro.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap
-}
-
 *:focus {
   box-shadow: none !important;
   outline: 3px solid ${colors.highlight};
