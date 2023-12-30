@@ -2,9 +2,8 @@ import banner from "./banner";
 import alt_image from "./alt_image";
 import about_me from "./about_me";
 import work from "./work";
-import resources from "./resources";
-import category from "./category";
-import resource from "./resource";
+import faqs from "./faqs";
+import faq from "./faq";
 import link from "./link";
 import contact from "./contact";
 import contact_method from "./contact_method";
@@ -22,9 +21,8 @@ export default [
   alt_image,
   about_me,
   work,
-  resources,
-  category,
-  resource,
+  faqs,
+  faq,
   link,
   contact,
   contact_method,

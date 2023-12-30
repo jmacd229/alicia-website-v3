@@ -15,9 +15,9 @@ const FONT_SIZES = {
   sm: 1.75,
   regular: 2.25,
   lg: 2.5,
-  xl: 4,
-  xxl: 6.5,
-  "3xl": 9,
+  xl: 3,
+  xxl: 4.5,
+  "3xl": 7,
 };
 
 const FONT_UNIT = "rem";

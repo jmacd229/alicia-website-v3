@@ -14,7 +14,7 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   flex-direction: column;
   align-items: center;
   margin-top: ${spacing(5)};
-  height: 600px;
+  height: 500px;
   overflow: hidden;
 
   ${media.medium} {
@@ -31,6 +31,7 @@ export const MobileTitle = styled(WorkTitle)`
   margin-bottom: ${spacing(1)};
   font-size: ${fontSize("xl")};
   line-height: ${fontSize("xl")};
+  padding: ${spacing(1)};
   ${media.medium} {
     display: none;
   }

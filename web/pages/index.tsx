@@ -13,6 +13,7 @@ import Head from "next/head";
 import Script from "next/script";
 import PopUp from "components/Pop-Up";
 import { PopUp as PopUpType } from "components/Pop-Up/types";
+import FAQ from "sections/FAQ";
 
 const App = ({
   sections,
@@ -22,6 +23,7 @@ const App = ({
   work,
   contact,
   popUp,
+  faqs
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (typeof window !== "undefined") {
     mailgo();
@@ -51,6 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <Banner banner={banner} />
       <About about={aboutMe} />
       <Work work={work} />
+      <FAQ faqs={faqs}/>
       <Contact contact={contact} />
       <Footer />
       {popUp ? <PopUp popUp={popUp}/> : undefined}

@@ -117,10 +117,19 @@ export const Title = styled(MixedFontTitle)`
   border-top-left-radius: ${getTextBorderRadius()};
   border-top-right-radius: ${getTextBorderRadius()};
 
-  > :first-child {
+  > :nth-child(odd) {
+    color: ${colors.blue.c};
+    font-size: ${fontSize('xxl')};
+    line-height: ${fontSize('xxl')};
+  }
+
+  > :nth-child(even) {
     padding: 0;
-    padding-bottom: ${spacing(1)};
-    line-height: ${fontSize('xl')};
+    ${fontStyle.IMPACT};
+    padding-top: ${spacing(1)};
+    font-size: ${fontSize('lg')};
+    /* line-height: ${fontSize('xxl')}; */
+    color: ${colors.black};
   }
 
   ${media.large} {
