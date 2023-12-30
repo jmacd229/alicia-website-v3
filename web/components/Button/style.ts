@@ -36,7 +36,7 @@ const SVG_COLOR_MAPPING: Record<ButtonState, Record<ButtonVariant, string>> = {
 };
 
 const buttonStyle = css<ButtonStyleProperties>`
-  ${({ variant, size }) => css`
+  ${({ $variant: variant, size }) => css`
     display: flex;
     align-items: center;
     border: 3px solid ${colors.white};

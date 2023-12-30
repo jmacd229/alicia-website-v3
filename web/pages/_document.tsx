@@ -44,30 +44,6 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="theme-color" content={colors.grey.a} />
-          <link
-            rel="preload"
-            href="/fonts/eratolig-webfont.woff2"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/RobotoSlab.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/RobotoSlab-Black.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/DancingScript-Medium.ttf"
-            as="font"
-            crossOrigin=""
-          />
         </Head>
         <body>
           <noscript>

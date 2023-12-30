@@ -1,4 +1,4 @@
-import sanityClient from "@sanity/client";
+import {createClient} from "@sanity/client";
 import { mapValues, pick } from "lodash";
 
 import {
@@ -11,7 +11,7 @@ import {
 } from "./constants";
 import { PopUp } from "components/Pop-Up/types";
 
-export const client = sanityClient(SANITY_CLIENT_CONFIG);
+export const client = createClient(SANITY_CLIENT_CONFIG);
 
 const getVisibleSections = async (): Promise<Sections> =>
   await client.fetch(BASE_QUERY);

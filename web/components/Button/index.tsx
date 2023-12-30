@@ -12,7 +12,7 @@ import { AnimationConfig } from "types/animation";
 import { AnimationContainer, StyledButton, StyledLink } from "./style";
 import { ButtonSize, ButtonVariant, ButtonStyleProperties } from "./types";
 
-const DEFAULTS: ButtonStyleProperties = {
+const DEFAULTS: ButtonStyleProperties<false> = {
   variant: "primary",
   size: "regular",
 };
@@ -71,7 +71,7 @@ const BaseButton: FC<
         onFocus={playAnimation}
         onClick={onClick}
         size={size ?? DEFAULTS.size}
-        variant={variant ?? DEFAULTS.variant}
+        $variant={variant ?? DEFAULTS.variant}
         {...rest}
       >
         <span>{children}</span>
@@ -89,7 +89,7 @@ const BaseButton: FC<
         onFocus={playAnimation}
         onClick={onClick}
         size={size ?? DEFAULTS.size}
-        variant={variant ?? DEFAULTS.variant}
+        $variant={variant ?? DEFAULTS.variant}
         {...rest}
       >
         <span>{children}</span>

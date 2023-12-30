@@ -82,8 +82,8 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
   return (
     <>
       <HeaderContainer>
-        <NavContainer collapsed={isNavCollapsed}>
-          <Title collapsed={isNavCollapsed}>
+        <NavContainer $collapsed={isNavCollapsed}>
+          <Title $collapsed={isNavCollapsed}>
             <Logo height="110px" title="Dr. Alicia - Naturopathic Doctor" />
           </Title>
           <NavList>
@@ -93,7 +93,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
                 <NavItem
                   key={index}
                   onClick={() => scrollToSection(section.type)}
-                  collapsed={isNavCollapsed}
+                  $collapsed={isNavCollapsed}
                 >
                   {section.link}
                 </NavItem>
@@ -110,7 +110,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
               </WorkButton>
             )}
             <BackToTopButton
-              collapsed={isNavCollapsed}
+              $collapsed={isNavCollapsed}
               onMouseEnter={playAnimation}
               onFocus={playAnimation}
               onClick={scrollToTop}
@@ -119,7 +119,7 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
               <span>Back to top</span>
             </BackToTopButton>
           </NavList>
-          <Socials collapsed={isNavCollapsed}>
+          <Socials $collapsed={isNavCollapsed}>
             {contactMethods
               .filter((method) => Object.keys(ICONS).includes(method.sanityId))
               .map((method) => (
