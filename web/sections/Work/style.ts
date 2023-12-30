@@ -29,8 +29,9 @@ export const WorkTitle = styled.h2`
 
 export const MobileTitle = styled(WorkTitle)`
   margin-bottom: ${spacing(1)};
-  font-size: ${fontSize("lg")};
-  line-height: ${fontSize("lg")};
+  font-size: ${fontSize("xl")};
+  line-height: ${fontSize("xl")};
+  padding: ${spacing(1)};
   ${media.medium} {
     display: none;
   }
@@ -38,8 +39,8 @@ export const MobileTitle = styled(WorkTitle)`
 
 export const DesktopTitle = styled(WorkTitle)`
   display: none;
-  font-size: ${fontSize("xl")};
-  line-height: ${fontSize("xl")};
+  font-size: ${fontSize("xxl")};
+  line-height: ${fontSize("xxl")};
   background-color: ${colors.white};
   color: ${colors.grey.c};
   padding: ${spacing(3)};

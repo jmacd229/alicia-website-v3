@@ -44,8 +44,6 @@ const Header = ({ sections, contactMethods }: HeaderProps) => {
   const [animation, setAnimation] = useState<AnimationItem>();
   const animationContainer = useRef<HTMLDivElement>();
 
-console.log(sections);
-
   useEffect(() => {
     if (animationContainer.current) {
       setAnimation(

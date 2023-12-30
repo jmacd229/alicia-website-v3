@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { fontStyle } from "styles/font";
+import { fontSize, fontStyle } from "styles/font";
 import media from "styles/media";
 import colors from "styles/palette";
 import { shadow } from "styles/shadows";
@@ -11,7 +11,7 @@ export const FAQContainer = styled.div.attrs({ id: "faqs" })`
   max-height: 550px;
   padding: ${spacing(2)};
   gap: ${spacing(4)};
-  margin-bottom: ${spacing(4)};
+  margin: ${spacing(6)} 0;
 
   ${media.large} {
     flex-direction: row;
