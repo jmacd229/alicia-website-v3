@@ -7,19 +7,25 @@ import spacing from "styles/spacing";
 
 export const FAQContainer = styled.div.attrs({ id: "faqs" })`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   max-height: 550px;
-  padding: ${spacing(2)};
+  padding: ${spacing(8)} ${spacing(2)};
+
+  ${media.large} {
+    padding: ${spacing(6)};
+    max-height: 350px;
+    border-right: 150px solid ${colors.grey.a};
+  }
+`;
+
+export const MaxWidthContainer = styled.div`
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
   gap: ${spacing(4)};
-  margin: ${spacing(6)} 0;
 
   ${media.large} {
     flex-direction: row;
-    padding: ${spacing(6)};
-    max-height: 350px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 0;
   }
 `;
@@ -28,7 +34,6 @@ export const QuestionsContainer = styled.div.attrs({
   role: "list",
   tabIndex: 0,
 })`
-  flex: 2;
   display: flex;
   flex-direction: column;
   border-radius: ${spacing(2)};
@@ -39,17 +44,18 @@ export const QuestionsContainer = styled.div.attrs({
   padding: ${spacing(4)};
 
   ${media.large} {
+    flex: 2;
     margin: 0 ${spacing(4)};
   }
 `;
 
 export const FAQTitle = styled.h2`
-  flex: 1;
   ${fontStyle.IMPACT};
   color: ${colors.grey.c};
   text-align: center;
 
   ${media.large} {
+    flex: 1;
     text-align: left;
   }
 
