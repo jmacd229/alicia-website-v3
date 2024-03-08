@@ -17,11 +17,17 @@ export const FAQContainer = styled.div.attrs({ id: "faqs" })`
     flex-direction: row;
     padding: ${spacing(6)};
     max-height: 350px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0;
   }
 `;
 
-export const QuestionsContainer = styled.div.attrs({ role: "list", tabIndex: 0 })`
+export const QuestionsContainer = styled.div.attrs({
+  role: "list",
+  tabIndex: 0,
+})`
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -46,11 +52,15 @@ export const FAQTitle = styled.h2`
   ${media.large} {
     text-align: left;
   }
+
+  ${media.large} {
+    text-align: right;
+  }
 `;
 
 const SpeechBubble = styled.div`
   position: relative;
-  padding: ${spacing(1)};
+  padding: ${spacing(1.5)};
   border-radius: ${spacing(1)};
   ${shadow(1)}
 `;
@@ -87,12 +97,15 @@ const createMessageIndicator = (
 `;
 
 export const Question = styled(SpeechBubble)`
+  ${fontStyle.IMPACT};
   background-color: ${colors.blue.a};
   ${createMessageIndicator("right", colors.blue.a)}
 `;
 
 export const Answer = styled(SpeechBubble)`
   background-color: ${colors.white};
+  font-size: ${fontSize("sm")};
+  line-height: ${fontSize("regular")};
   ${createMessageIndicator("left", colors.white)}
 `;
 
