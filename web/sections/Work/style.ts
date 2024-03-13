@@ -40,10 +40,10 @@ export const MobileTitle = styled(WorkTitle)`
 export const DesktopTitle = styled(WorkTitle)`
   display: none;
   font-size: ${fontSize("xxl")};
-  line-height: ${fontSize("xxl")};
+  line-height: normal;
   background-color: ${colors.white};
   color: ${colors.grey.c};
-  padding: ${spacing(3)};
+  padding: ${spacing(4)} ${spacing(5)};
   border-top-right-radius: ${spacing(5)};
   border-top-left-radius: ${spacing(5)};
   ${media.medium} {
@@ -62,44 +62,51 @@ export const WorkContentContainer = styled.div`
     right: 7%;
     top: 10%;
     max-width: 50%;
-    background-color: ${colors.blue.a};
+    background-color: ${colors.grey.a};
     ${shadow(2)};
     border-radius: ${spacing(5)};
     z-index: 1;
   }
 
   ${media.large} {
-    max-width:45%;
+    max-width: 45%;
     top: 15%;
   }
 `;
 
 export const TextContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing(2)};
   background-color: ${colors.grey.a};
   color: ${colors.black};
-  padding: ${spacing(2)} ${spacing(3)};
-  padding-top: 0;
+  padding: ${spacing(6)} ${spacing(3)};
   border-top: 1px solid ${colors.grey.b};
   border-bottom: 1px solid ${colors.grey.b};
   ${shadow(2)};
+
+  p {
+    margin: 0;
+    font-size: ${fontSize('lg')};
+  }
 
   ${media.medium} {
     text-align: center;
     padding: 0 ${spacing(3)};
     font-size: ${fontSize("lg")};
-    background-color: ${colors.blue.a};
+    background-color: ${colors.grey.a};
     border: none;
     box-shadow: none;
   }
 
   ${media.large} {
-    padding: ${spacing(3)};
+    padding: ${spacing(4)} ${spacing(3)};
   }
 `;
 
 export const StyledWorkButton = styled(BaseButton)<{ $isMobile: boolean }>`
   display: ${(props) => (props.$isMobile ? "flex" : "none")};
-  font-size: ${fontSize('lg')};
+  font-size: ${fontSize("lg")};
   ${media.medium} {
     display: ${(props) => (props.$isMobile ? "none" : "flex")};
   }

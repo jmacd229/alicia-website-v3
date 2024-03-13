@@ -79,7 +79,7 @@ export const StyledImage = styled(Image)`
 
 export const TextBoxContainer = styled.div`
   flex: 50%;
-  top: 6vw;
+  top: 4vw;
   left: 5%;
   display: flex;
   max-width: 700px;
@@ -116,19 +116,19 @@ export const Title = styled(MixedFontTitle)`
   padding: ${spacing(3)} ${spacing(2)} 0;
   border-top-left-radius: ${getTextBorderRadius()};
   border-top-right-radius: ${getTextBorderRadius()};
+  row-gap: ${spacing(1)};
 
   > :nth-child(odd) {
-    color: ${colors.blue.c};
-    font-size: ${fontSize('xxl')};
-    line-height: ${fontSize('xxl')};
+    color: ${colors.jade.c};
+    font-size: ${fontSize("xxl")};
+    line-height: ${fontSize("xxl")};
   }
 
   > :nth-child(even) {
     padding: 0;
     ${fontStyle.IMPACT};
     padding-top: ${spacing(1)};
-    font-size: ${fontSize('lg')};
-    /* line-height: ${fontSize('xxl')}; */
+    font-size: ${fontSize("lg")};
     color: ${colors.black};
   }
 
@@ -139,11 +139,17 @@ export const Title = styled(MixedFontTitle)`
 `;
 
 export const TextBoxContent = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: ${spacing(1)} ${spacing(2)};
-  font-size: ${fontSize("sm")};
 
   ${media.medium} {
-    padding: ${spacing(1)} ${spacing(4)};
-    padding-top: 0;
+    padding: ${spacing(3)} ${spacing(6)};
+    padding-bottom: ${spacing(5)};
+    gap: ${spacing(3)};
+  }
+
+  p {
+    margin: 0;
   }
 `;

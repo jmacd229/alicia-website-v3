@@ -8,7 +8,7 @@ import spacing from "styles/spacing";
 export const ContactContainer = styled.div`
   display: grid;
   position: relative;
-  min-height: 90rem;
+  min-height: 80rem;
   overflow: hidden;
   padding-top: ${spacing(6)};
   grid-template-areas:

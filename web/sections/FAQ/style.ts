@@ -7,22 +7,33 @@ import spacing from "styles/spacing";
 
 export const FAQContainer = styled.div.attrs({ id: "faqs" })`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   max-height: 550px;
-  padding: ${spacing(2)};
+  padding: ${spacing(8)} ${spacing(2)};
+
+  ${media.large} {
+    padding: ${spacing(6)};
+    max-height: 350px;
+    border-right: 150px solid ${colors.grey.a};
+  }
+`;
+
+export const MaxWidthContainer = styled.div`
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
   gap: ${spacing(4)};
-  margin: ${spacing(6)} 0;
 
   ${media.large} {
     flex-direction: row;
-    padding: ${spacing(6)};
-    max-height: 350px;
     margin-bottom: 0;
   }
 `;
 
-export const QuestionsContainer = styled.div.attrs({ role: "list", tabIndex: 0 })`
-  flex: 2;
+export const QuestionsContainer = styled.div.attrs({
+  role: "list",
+  tabIndex: 0,
+})`
   display: flex;
   flex-direction: column;
   border-radius: ${spacing(2)};
@@ -33,24 +44,29 @@ export const QuestionsContainer = styled.div.attrs({ role: "list", tabIndex: 0 }
   padding: ${spacing(4)};
 
   ${media.large} {
+    flex: 2;
     margin: 0 ${spacing(4)};
   }
 `;
 
 export const FAQTitle = styled.h2`
-  flex: 1;
   ${fontStyle.IMPACT};
   color: ${colors.grey.c};
   text-align: center;
 
   ${media.large} {
+    flex: 1;
     text-align: left;
+  }
+
+  ${media.large} {
+    text-align: right;
   }
 `;
 
 const SpeechBubble = styled.div`
   position: relative;
-  padding: ${spacing(1)};
+  padding: ${spacing(1.5)};
   border-radius: ${spacing(1)};
   ${shadow(1)}
 `;
@@ -87,12 +103,15 @@ const createMessageIndicator = (
 `;
 
 export const Question = styled(SpeechBubble)`
+  ${fontStyle.IMPACT};
   background-color: ${colors.blue.a};
   ${createMessageIndicator("right", colors.blue.a)}
 `;
 
 export const Answer = styled(SpeechBubble)`
   background-color: ${colors.white};
+  font-size: ${fontSize("sm")};
+  line-height: ${fontSize("regular")};
   ${createMessageIndicator("left", colors.white)}
 `;
 

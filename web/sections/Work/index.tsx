@@ -42,7 +42,7 @@ const WorkButton = ({
     $isMobile={isMobile}
     href={url}
     size="large"
-    variant={isMobile ? "secondary" : "primary"}
+    variant="secondary"
     animationConfig={{
       name: animation,
       data: animations[animation],

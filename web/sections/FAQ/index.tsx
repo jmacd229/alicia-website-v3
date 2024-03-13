@@ -6,11 +6,13 @@ import {
   Question,
   Answer,
   QandA,
+  MaxWidthContainer
 } from "./style";
 import { FAQ as FAQModel } from "./query";
 
 const FAQ = ({ faqs }: { faqs: FAQModel }) => faqs ? (
   <FAQContainer>
+    <MaxWidthContainer>
     <FAQTitle>{faqs.title}</FAQTitle>
     <QuestionsContainer>
       {faqs.questions.map(({ question, answer, id }) => (
@@ -20,6 +22,7 @@ const FAQ = ({ faqs }: { faqs: FAQModel }) => faqs ? (
         </QandA>
       ))}
     </QuestionsContainer>
+    </MaxWidthContainer>
   </FAQContainer>
 ) : null;
 
