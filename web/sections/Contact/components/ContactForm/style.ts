@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { fontSize, fontStyle } from "styles/font";
 import media from "styles/media";
 import colors from "styles/palette";
+import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
 
 const ERROR_COLOR = "#A30000";
@@ -13,6 +14,10 @@ export const FormContainer = styled.div`
   flex-direction: column;
   background-color: ${colors.grey.a};
   padding: ${spacing(4)};
+  border-top: 1px solid ${colors.grey.b};
+  border-right:1px solid ${colors.grey.b};
+  border-top-right-radius: 8px;
+  ${shadow(1)}
 
   ${media.medium} {
     padding: ${spacing(4)} ${spacing(8)};
@@ -24,6 +29,7 @@ export const FormTitle = styled.h3`
   align-items: center;
   flex-direction: column;
   text-align: center;
+  max-width: 75rem;
 
   ${fontStyle.IMPACT};
   color: ${colors.grey.c};
@@ -31,12 +37,15 @@ export const FormTitle = styled.h3`
     font-size: ${fontSize("lg")};
     margin: 0;
     > a {
+      ${fontStyle.CURSIVE};
+      text-decoration: none;
+      border-bottom: 1px solid ${colors.blue.c};
       color: ${colors.blue.c};
     }
   }
   margin-bottom: ${spacing(3)};
   svg {
-    fill: ${colors.blue.c};
+    fill: ${colors.blue.b};
     max-width: 48px;
   }
 
@@ -66,7 +75,9 @@ export const Field = styled.label`
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-size: ${fontSize("sm")};
+  font-size: ${fontSize("xs")};
+  color: ${colors.grey.c};
+  gap: 2px;
   > input,
   textarea {
     ${fontStyle.IMPACT};
