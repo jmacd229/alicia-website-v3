@@ -1,16 +1,15 @@
-import React from "react";
+import { IconString } from "components/Icon/constants";
 import MixedFontTitle from "components/MixedFontTitle";
+import ContactForm from "./components/ContactForm";
+import { type Contact } from "./query";
 import {
   ContactContainer,
-  TitleContainer,
-  MethodsContainer,
   Method,
-  StyledIcon,
+  MethodsContainer,
   MethodTitle,
+  StyledIcon,
+  TitleContainer,
 } from "./style";
-import { Contact } from "./query";
-import { IconString } from "components/Icon/constants";
-import ContactForm from "./components/ContactForm";
 
 type ContactProps = {
   contact: Contact;

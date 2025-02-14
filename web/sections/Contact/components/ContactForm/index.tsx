@@ -1,12 +1,12 @@
-import Icon from "components/Icon";
-import { Field, FieldError, Form, FormContainer, FormTitle } from "./style";
-import { PortableText } from "@portabletext/react";
 import { useForm as useFormSpree } from "@formspree/react";
-import BaseButton from "components/Button";
-import { useForm } from "react-hook-form";
+import { PortableText } from "@portabletext/react";
 import submit from "animations/submit.json";
+import BaseButton from "components/Button";
+import Icon from "components/Icon";
 import { FC } from "react";
+import { useForm } from "react-hook-form";
 import { ContactFormData } from "sections/Contact/query";
+import { Field, FieldError, Form, FormContainer, FormTitle } from "./style";
 
 const ContactForm: FC<{ form: ContactFormData }> = ({ form }) => {
   const [state, onSubmit] = useFormSpree("xlekzdyg");
@@ -35,6 +35,7 @@ const ContactForm: FC<{ form: ContactFormData }> = ({ form }) => {
           <Field>
             Name
             <input
+              autoComplete="name"
               aria-invalid={Boolean(errors.name)}
               aria-describedby={Boolean(errors.name) ? "name-error" : null}
               {...register("name", {
@@ -49,6 +50,7 @@ const ContactForm: FC<{ form: ContactFormData }> = ({ form }) => {
           <Field>
             Email
             <input
+              autoComplete="email"
               aria-invalid={Boolean(errors.email)}
               aria-describedby={Boolean(errors.email) ? "email-error" : null}
               {...register("email", {

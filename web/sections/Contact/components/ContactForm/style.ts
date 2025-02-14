@@ -39,8 +39,8 @@ export const FormTitle = styled.h3`
     > a {
       ${fontStyle.CURSIVE};
       text-decoration: none;
-      border-bottom: 1px solid ${colors.blue.c};
-      color: ${colors.blue.c};
+      border-bottom: 1px solid ${colors.jade.b};
+      color: ${colors.jade.b};
     }
   }
   margin-bottom: ${spacing(3)};
