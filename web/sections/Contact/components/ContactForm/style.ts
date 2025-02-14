@@ -15,7 +15,7 @@ export const FormContainer = styled.div`
   background-color: ${colors.grey.a};
   padding: ${spacing(4)};
   border-top: 1px solid ${colors.grey.b};
-  border-right:1px solid ${colors.grey.b};
+  border-right: 1px solid ${colors.grey.b};
   border-top-right-radius: 8px;
   ${shadow(1)}
 

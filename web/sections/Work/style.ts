@@ -87,7 +87,7 @@ export const TextContent = styled.div`
 
   p {
     margin: 0;
-    font-size: ${fontSize('lg')};
+    font-size: ${fontSize("lg")};
   }
 
   ${media.medium} {

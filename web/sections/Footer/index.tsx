@@ -17,7 +17,7 @@ Modal.setAppElement("#__next");
 const Footer = () => {
   const date = packageJson.releaseDate.split("-");
   const [openModal, setOpenModal] = useState<"privacy" | "cookie" | undefined>(
-    undefined
+    undefined,
   );
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const Footer = () => {
         {new Date(
           parseInt(date[0]),
           parseInt(date[1]) - 1,
-          parseInt(date[2])
+          parseInt(date[2]),
         ).toDateString()}
       </div>
       <div>{packageJson.version}</div>

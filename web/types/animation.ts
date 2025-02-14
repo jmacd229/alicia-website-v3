@@ -1,8 +1,7 @@
-import { AnimationItem } from "lottie-web";
-import { MutableRefObject, Ref, } from "react";
+import { RefObject } from "react";
 
 export type AnimationConfig = {
-	name: string,
-	container: MutableRefObject<HTMLDivElement>,
-	data: any,
+  name: string;
+  container: RefObject<HTMLDivElement>;
+  data: any;
 };

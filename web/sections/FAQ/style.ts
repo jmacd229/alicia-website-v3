@@ -73,7 +73,7 @@ const SpeechBubble = styled.div`
 
 const createMessageIndicator = (
   position: "left" | "right",
-  color: string
+  color: string,
 ) => css`
   &::after {
     content: "";

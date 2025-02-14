@@ -1,3 +1,3 @@
 export default {
-	NAVIGATION: 3
-}
+  NAVIGATION: 3,
+};

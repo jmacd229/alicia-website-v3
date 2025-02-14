@@ -4,7 +4,12 @@ import media from "styles/media";
 import colors from "styles/palette";
 import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
-import { ButtonSize, ButtonState, ButtonStyleProperties, ButtonVariant } from "./types";
+import {
+  ButtonSize,
+  ButtonState,
+  ButtonStyleProperties,
+  ButtonVariant,
+} from "./types";
 
 const VARIANT_COLOR_MAPPING: Record<
   ButtonState,
@@ -100,10 +105,10 @@ export const StyledLink = styled.a.attrs({
   ${buttonStyle}
 `;
 
-export const AnimationContainer = styled.div<{size: ButtonSize}>`
+export const AnimationContainer = styled.div<{ size: ButtonSize }>`
   display: none;
   width: 0;
-  margin-left: ${({size}) => size === 'large' ? '-24%' : '-36%'};
+  margin-left: ${({ size }) => (size === "large" ? "-24%" : "-36%")};
   > div {
     width: 96px;
   }

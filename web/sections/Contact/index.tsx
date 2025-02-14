@@ -19,7 +19,7 @@ type ContactProps = {
 const Contact = ({ contact }: ContactProps) => (
   <ContactContainer id="contact">
     <TitleContainer>
-      <MixedFontTitle title={contact.title} wrap={false}/>
+      <MixedFontTitle title={contact.title} wrap={false} />
     </TitleContainer>
     <ContactForm form={contact} />
     <MethodsContainer>

@@ -15,8 +15,8 @@ const MixedFontTitle: FC<{
   lineBreak = false,
   wrap = true,
   fontSize,
-  underline=true,
-  responsive=true,
+  underline = true,
+  responsive = true,
   ...rest
 }): ReactElement => (
   <TitleContainer $wrap={wrap} {...rest}>
@@ -25,8 +25,23 @@ const MixedFontTitle: FC<{
         {i > 0 && !lineBreak && <>&nbsp;</>}
         {
           {
-            cursive: <Cursive $fontSize={fontSize?.cursive ?? '3xl'} $underline={underline} $responsive={responsive}>{text}</Cursive>,
-            regular: <Regular $fontSize={fontSize?.regular ?? '3xl'} $responsive={responsive}>{text}</Regular>,
+            cursive: (
+              <Cursive
+                $fontSize={fontSize?.cursive ?? "3xl"}
+                $underline={underline}
+                $responsive={responsive}
+              >
+                {text}
+              </Cursive>
+            ),
+            regular: (
+              <Regular
+                $fontSize={fontSize?.regular ?? "3xl"}
+                $responsive={responsive}
+              >
+                {text}
+              </Regular>
+            ),
           }[fontType]
         }
       </Fragment>

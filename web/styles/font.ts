@@ -26,7 +26,7 @@ const FONT_SIZE_KEYS = Object.keys(FONT_SIZES) as FontSize[];
 // Modifier allows you to retrieve the next highest or smallest
 export const fontSize = (
   size: FontSize = "regular",
-  modifier?: "larger" | "smaller"
+  modifier?: "larger" | "smaller",
 ) => {
   let modifiedSize = size;
   if (modifier) {

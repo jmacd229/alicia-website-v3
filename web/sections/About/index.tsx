@@ -3,7 +3,12 @@ import { PortableText } from "@portabletext/react";
 import { client } from "network/getContent";
 import { useNextSanityImage } from "next-sanity-image";
 import { About } from "./query";
-import { AboutMeContainer, AboutMeContent, StyledImage, TextContainer } from "./style";
+import {
+  AboutMeContainer,
+  AboutMeContent,
+  StyledImage,
+  TextContainer,
+} from "./style";
 import MixedFontTitle from "components/MixedFontTitle";
 
 type AboutProps = {
@@ -20,7 +25,11 @@ const About = ({ about }: AboutProps) => {
           <div>
             <PortableText value={about.body}></PortableText>
           </div>
-          <StyledImage {...imageProps} alt={about.image.alt} className="profile" />
+          <StyledImage
+            {...imageProps}
+            alt={about.image.alt}
+            className="profile"
+          />
         </TextContainer>
       </AboutMeContent>
     </AboutMeContainer>

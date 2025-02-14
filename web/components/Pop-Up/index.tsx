@@ -1,10 +1,10 @@
-import { FC, ReactElement, useEffect, useState } from "react";
-import { CloseButton, PopUpContainer, PopUpLayout } from "./style";
-import Icon from "components/Icon";
-import { PopUp as PopUpType } from "./types";
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
+import Icon from "components/Icon";
 import { getCookie, setCookie } from "cookies";
+import { FC, ReactElement, useEffect, useState } from "react";
 import { useSpringRef, useTransition } from "react-spring";
+import { CloseButton, PopUpContainer, PopUpLayout } from "./style";
+import { PopUp as PopUpType } from "./types";
 
 const ensureExternalLinksOpenInNewTab: Partial<PortableTextReactComponents> = {
   marks: {
@@ -64,9 +64,7 @@ const PopUp: FC<{ popUp: PopUpType }> = ({ popUp }): ReactElement => {
           </CloseButton>
         </PopUpContainer>
       </PopUpLayout>
-    ) : (
-      <></>
-    )
+    ) : undefined,
   );
 };
 

@@ -28,11 +28,10 @@ const Banner = ({ banner }: BannerProps) => {
           <div>{/* TODO: Implement Video*/}</div>
         )}
       </ImageContainer>
-      <TextBoxContainer
-      >
+      <TextBoxContainer>
         <TextBox>
           <Title
-            fontSize={{cursive: 'xl', regular: 'xl'}}
+            fontSize={{ cursive: "xl", regular: "xl" }}
             responsive={false}
             lineBreak={true}
             wrap={true}

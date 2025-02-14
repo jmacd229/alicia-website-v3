@@ -8,7 +8,7 @@ export const AboutMeContainer = styled.div.attrs({ id: "aboutMe" })`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding:  ${spacing(6)} ${spacing(3)};
+  padding: ${spacing(6)} ${spacing(3)};
 
   ${media.medium} {
     padding: ${spacing(15)};

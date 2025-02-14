@@ -1,21 +1,21 @@
-import React, { ReactNode } from "react";
 import { PortableText } from "@portabletext/react";
-import { client } from "network/getContent";
-import { Work } from "./query";
-import { useNextSanityImage } from "next-sanity-image";
 import brain from "animations/brain.json";
 import virtual from "animations/virtual.json";
+import { client } from "network/getContent";
+import { useNextSanityImage } from "next-sanity-image";
+import { ReactNode } from "react";
+import { type Work } from "./query";
 import {
   BookButtonContainer,
   ButtonContainer,
+  DesktopTitle,
+  ImageContainer,
+  MobileTitle,
   StyledImage,
+  StyledWorkButton,
+  TextContent,
   WorkContainer,
   WorkContentContainer,
-  ImageContainer,
-  TextContent,
-  MobileTitle,
-  DesktopTitle,
-  StyledWorkButton,
 } from "./style";
 
 type WorkProps = {

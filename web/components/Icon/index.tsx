@@ -8,7 +8,7 @@ const Icon: FC<{
   size?: number;
 }> = ({ icon, alt, size = 16, ...rest }): ReactElement => {
   const Element = ICONS[icon];
-  return <Element alt={alt} width={size} height={size} {...rest}/>;
+  return <Element alt={alt} width={size} height={size} {...rest} />;
 };
 
 export default Icon;

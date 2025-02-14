@@ -1,4 +1,4 @@
-import {createClient} from "@sanity/client";
+import { createClient } from "@sanity/client";
 import { mapValues, pick } from "lodash";
 
 import {
@@ -23,12 +23,12 @@ const getContent = async () => {
     ...visibleSections.map(({ type }) => type),
   ]);
   let mergedQuery = JSON.stringify(
-    mapValues(visibleSectionQueries, (_, key) => key.toUpperCase())
+    mapValues(visibleSectionQueries, (_, key) => key.toUpperCase()),
   );
   for (const key in visibleSectionQueries) {
     mergedQuery = mergedQuery.replace(
       `"${key.toUpperCase()}"`,
-      visibleSectionQueries[key]
+      visibleSectionQueries[key],
     );
   }
   const [sectionResponse, popUpResponse] = await Promise.allSettled<
