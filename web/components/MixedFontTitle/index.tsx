@@ -1,7 +1,7 @@
 import { FC, Fragment, ReactElement } from "react";
-import { MixedFontTitle } from "types/title";
-import { Regular, Cursive, TitleContainer } from "./styles";
 import { FontSize } from "styles/font";
+import { type MixedFontTitle } from "types/title";
+import { Cursive, Regular, TitleContainer } from "./styles";
 
 const MixedFontTitle: FC<{
   title: MixedFontTitle;

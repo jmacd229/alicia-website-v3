@@ -1,4 +1,4 @@
-import { animated } from "react-spring";
+import { animated, AnimatedComponent, ElementType } from "react-spring";
 import styled from "styled-components";
 import { fontSize } from "styles/font";
 import media from "styles/media";
@@ -6,7 +6,7 @@ import colors from "styles/palette";
 import { shadow } from "styles/shadows";
 import spacing from "styles/spacing";
 
-export const PopUpLayout = styled(animated.div)`
+export const PopUpLayout = styled<AnimatedComponent<ElementType>>(animated.div)`
   position: fixed;
   bottom: 0;
   right: 0;

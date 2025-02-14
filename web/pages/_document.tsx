@@ -1,10 +1,11 @@
 import Document, {
-  Html,
+  DocumentContext,
   Head,
+  Html,
   Main,
   NextScript,
-  DocumentContext,
 } from "next/document";
+import { JSX } from "react";
 import styled, { ServerStyleSheet } from "styled-components";
 import colors from "styles/palette";
 

@@ -1,15 +1,14 @@
-import React from "react";
 import { PortableText } from "@portabletext/react";
+import MixedFontTitle from "components/MixedFontTitle";
 import { client } from "network/getContent";
 import { useNextSanityImage } from "next-sanity-image";
-import { About } from "./query";
+import { type About } from "./query";
 import {
   AboutMeContainer,
   AboutMeContent,
   StyledImage,
   TextContainer,
 } from "./style";
-import MixedFontTitle from "components/MixedFontTitle";
 
 type AboutProps = {
   about: About;
