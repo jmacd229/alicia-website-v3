@@ -11,7 +11,7 @@ export const FAQContainer = styled.div.attrs({ id: "faqs" })`
   max-height: 550px;
   padding: ${spacing(8)} ${spacing(2)};
 
-  ${media.large} {
+  ${media.largeUP} {
     padding: ${spacing(6)};
     max-height: 350px;
     border-right: 150px solid ${colors.grey.a};
@@ -24,7 +24,7 @@ export const MaxWidthContainer = styled.div`
   flex-direction: column;
   gap: ${spacing(4)};
 
-  ${media.large} {
+  ${media.largeUP} {
     flex-direction: row;
     margin-bottom: 0;
   }
@@ -43,7 +43,7 @@ export const QuestionsContainer = styled.div.attrs({
   ${shadow(1, true)}
   padding: ${spacing(4)};
 
-  ${media.large} {
+  ${media.largeUP} {
     flex: 2;
     margin: 0 ${spacing(4)};
   }
@@ -54,12 +54,12 @@ export const FAQTitle = styled.h2`
   color: ${colors.grey.c};
   text-align: center;
 
-  ${media.large} {
+  ${media.largeUP} {
     flex: 1;
     text-align: left;
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     text-align: right;
   }
 `;
@@ -73,7 +73,7 @@ const SpeechBubble = styled.div`
 
 const createMessageIndicator = (
   position: "left" | "right",
-  color: string
+  color: string,
 ) => css`
   &::after {
     content: "";

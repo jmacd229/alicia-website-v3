@@ -16,7 +16,7 @@ export const ContactContainer = styled.div`
     "methods"
     "form";
 
-  ${media.medium} {
+  ${media.mediumUP} {
     grid-template-areas: "form methods title";
     grid-template-columns: 1fr 1fr 15rem;
     padding-top: 0;
@@ -28,7 +28,7 @@ export const TitleContainer = styled.div`
   justify-content: center;
   position: relative;
   pointer-events: none;
-  ${media.medium} {
+  ${media.mediumUP} {
     background-color: ${colors.grey.a};
     min-height: 100%;
     position: absolute;
@@ -61,7 +61,7 @@ export const MethodsContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  ${media.medium} {
+  ${media.mediumUP} {
     padding-left: ${spacing(10)};
   }
 `;

@@ -1,7 +1,6 @@
-import Lottie, { AnimationItem } from "lottie-web";
+import { AnimationItem } from "lottie-web";
 import {
   FC,
-  HTMLProps,
   ReactElement,
   ReactNode,
   useEffect,
@@ -10,25 +9,23 @@ import {
 } from "react";
 import { AnimationConfig } from "types/animation";
 import { AnimationContainer, StyledButton, StyledLink } from "./style";
-import { ButtonSize, ButtonVariant, ButtonStyleProperties } from "./types";
+import { ButtonSize, ButtonStyleProperties, ButtonVariant } from "./types";
 
 const DEFAULTS: ButtonStyleProperties<false> = {
   variant: "primary",
   size: "regular",
 };
 
-const BaseButton: FC<
-  {
-    variant?: ButtonVariant;
-    size?: ButtonSize;
-    children: ReactNode;
-    href?: string;
-    animationConfig?: Omit<AnimationConfig, "container">;
-    onClick?: () => void;
-    type?: 'submit';
-    disabled?: boolean;
-  } 
-> = ({
+const BaseButton: FC<{
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  children: ReactNode;
+  href?: string;
+  animationConfig?: Omit<AnimationConfig, "container">;
+  onClick?: () => void;
+  type?: "submit";
+  disabled?: boolean;
+}> = ({
   variant,
   size,
   href,
@@ -37,20 +34,22 @@ const BaseButton: FC<
   animationConfig,
   ...rest
 }): ReactElement => {
-  const animationContainer = useRef<HTMLDivElement>();
+  const animationContainer = useRef<HTMLDivElement>(undefined);
   const [animation, setAnimation] = useState<AnimationItem>();
   useEffect(() => {
     if (animationConfig && animationContainer.current && !animation) {
-      setAnimation(
-        Lottie.loadAnimation({
-          name: animationConfig.name,
-          container: animationContainer.current,
-          renderer: "svg",
-          loop: false,
-          autoplay: false,
-          animationData: animationConfig.data,
-        })
-      );
+      import("lottie-web").then((Lottie) => {
+        setAnimation(
+          Lottie.default.loadAnimation({
+            name: animationConfig.name,
+            container: animationContainer.current,
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            animationData: animationConfig.data,
+          }),
+        );
+      });
     }
   }, [animationConfig, animationContainer.current]);
 

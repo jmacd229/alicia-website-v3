@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import colors from "styles/palette";
 import { fontSize, fontStyle } from "styles/font";
-import spacing from "styles/spacing";
 import media from "styles/media";
-import { StyledButton } from "components/Button/style";
+import colors from "styles/palette";
+import spacing from "styles/spacing";
 
 export const FooterContainer = styled.div`
   position: relative;
@@ -39,7 +38,7 @@ export const Author = styled.div`
   ${fontStyle.IMPACT};
   width: 50%;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     width: unset;
   }
 `;

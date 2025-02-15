@@ -2,6 +2,8 @@ import { createGlobalStyle } from "styled-components";
 import { fontSize } from "./font";
 import media from "./media";
 import colors from "./palette";
+import { shadow } from "./shadows";
+import spacing from "./spacing";
 
 export default createGlobalStyle`
 :root {
@@ -27,7 +29,7 @@ export default createGlobalStyle`
   p {
     font-size: ${fontSize("regular")};
 
-    ${media.medium}{
+    ${media.mediumUP}{
       font-size: ${fontSize("regular")};
     }
   }
@@ -53,7 +55,7 @@ h2 {
   font-size: ${fontSize("xxl")};
   line-height: ${fontSize("xxl")};
   
-  ${media.medium} {
+  ${media.mediumUP} {
     font-size: ${fontSize("3xl")};
     line-height: ${fontSize("3xl")};
   }
@@ -71,5 +73,47 @@ ul {
     #__next {
       opacity: 0.5;
     }
+}
+
+.rc-tooltip {
+  font-size: ${fontSize("xs")};
+  font-family: 'Source Sans Pro', sans-serif;
+  background: none;
+  transition: opacity ease-in-out 100ms;
+
+  &.rc-tooltip-hidden {
+    display: block;
+    opacity:0;
+  }
+
+  &.rc-tooltip-placement-bottom .rc-tooltip-arrow {
+    border-bottom-color: ${colors.blue.c};
+  }
+
+  &.rc-tooltip-placement-top .rc-tooltip-arrow {
+    border-top-color: ${colors.blue.c};
+  }
+
+  .rc-tooltip-inner {
+    ${shadow(1)};
+    padding: ${spacing(0.5)} ${spacing(1)};
+    min-height: unset;
+    color: ${colors.white};
+    background-color: ${colors.blue.c};
+    border-radius: ${spacing(2)};
+    font-weight: 600;
+    border: none;
+  }
+}
+
+${media.smallDOWN} {
+  .hide-small {
+    display: none;
+  }
+}
+${media.smallUP} {
+  .only-small {
+    display: none;
+  }
 }
 `;

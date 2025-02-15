@@ -2,31 +2,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "styles/*": [
-        "styles/*"
-      ],
-      "components/*": [
-        "components/*"
-      ],
-      "sections/*": [
-        "sections/*"
-      ],
-      "types/*": [
-        "types/*"
-      ],
-      "images/*": [
-        "public/images/*"
-      ],
-      "animations/*": [
-        "public/animations/*"
-      ]
+      "styles/*": ["styles/*"],
+      "components/*": ["components/*"],
+      "sections/*": ["sections/*"],
+      "types/*": ["types/*"],
+      "images/*": ["public/images/*"],
+      "animations/*": ["public/animations/*"]
     },
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -40,12 +24,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "eslint.config.mjs"]
 }

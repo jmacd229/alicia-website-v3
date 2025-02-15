@@ -15,11 +15,11 @@ export const FormContainer = styled.div`
   background-color: ${colors.grey.a};
   padding: ${spacing(4)};
   border-top: 1px solid ${colors.grey.b};
-  border-right:1px solid ${colors.grey.b};
+  border-right: 1px solid ${colors.grey.b};
   border-top-right-radius: 8px;
   ${shadow(1)}
 
-  ${media.medium} {
+  ${media.mediumUP} {
     padding: ${spacing(4)} ${spacing(8)};
   }
 `;
@@ -39,8 +39,8 @@ export const FormTitle = styled.h3`
     > a {
       ${fontStyle.CURSIVE};
       text-decoration: none;
-      border-bottom: 1px solid ${colors.blue.c};
-      color: ${colors.blue.c};
+      border-bottom: 1px solid ${colors.jade.b};
+      color: ${colors.jade.b};
     }
   }
   margin-bottom: ${spacing(3)};
@@ -49,7 +49,7 @@ export const FormTitle = styled.h3`
     max-width: 48px;
   }
 
-  ${media.medium} {
+  ${media.mediumUP} {
     gap: ${spacing(2)};
     flex-direction: row;
     text-align: left;

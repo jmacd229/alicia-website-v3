@@ -1,12 +1,12 @@
-import styled from "styled-components";
 import Image from "next/image";
+import styled from "styled-components";
 
-import { fontSize, fontStyle } from "styles/font";
-import colors from "styles/palette";
-import spacing from "styles/spacing";
-import { shadow } from "styles/shadows";
-import media from "styles/media";
 import BaseButton from "components/Button";
+import { fontSize, fontStyle } from "styles/font";
+import media from "styles/media";
+import colors from "styles/palette";
+import { shadow } from "styles/shadows";
+import spacing from "styles/spacing";
 
 export const WorkContainer = styled.div.attrs({ id: "work" })`
   display: flex;
@@ -17,7 +17,7 @@ export const WorkContainer = styled.div.attrs({ id: "work" })`
   height: 500px;
   overflow: hidden;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     height: 750px;
   }
 `;
@@ -32,7 +32,7 @@ export const MobileTitle = styled(WorkTitle)`
   font-size: ${fontSize("xl")};
   line-height: ${fontSize("xl")};
   padding: ${spacing(1)};
-  ${media.medium} {
+  ${media.mediumUP} {
     display: none;
   }
 `;
@@ -46,7 +46,7 @@ export const DesktopTitle = styled(WorkTitle)`
   padding: ${spacing(4)} ${spacing(5)};
   border-top-right-radius: ${spacing(5)};
   border-top-left-radius: ${spacing(5)};
-  ${media.medium} {
+  ${media.mediumUP} {
     display: block;
   }
 `;
@@ -57,7 +57,7 @@ export const WorkContentContainer = styled.div`
   position: relative;
   width: 100%;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     position: absolute;
     right: 7%;
     top: 10%;
@@ -68,7 +68,7 @@ export const WorkContentContainer = styled.div`
     z-index: 1;
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     max-width: 45%;
     top: 15%;
   }
@@ -87,10 +87,10 @@ export const TextContent = styled.div`
 
   p {
     margin: 0;
-    font-size: ${fontSize('lg')};
+    font-size: ${fontSize("lg")};
   }
 
-  ${media.medium} {
+  ${media.mediumUP} {
     text-align: center;
     padding: 0 ${spacing(3)};
     font-size: ${fontSize("lg")};
@@ -99,7 +99,7 @@ export const TextContent = styled.div`
     box-shadow: none;
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     padding: ${spacing(4)} ${spacing(3)};
   }
 `;
@@ -107,7 +107,7 @@ export const TextContent = styled.div`
 export const StyledWorkButton = styled(BaseButton)<{ $isMobile: boolean }>`
   display: ${(props) => (props.$isMobile ? "flex" : "none")};
   font-size: ${fontSize("lg")};
-  ${media.medium} {
+  ${media.mediumUP} {
     display: ${(props) => (props.$isMobile ? "none" : "flex")};
   }
 `;
@@ -118,7 +118,7 @@ export const ImageContainer = styled.div`
   background-color: ${colors.jade.c};
   max-height: 250px;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     position: relative;
     max-height: unset;
   }
@@ -131,13 +131,13 @@ export const StyledImage = styled(Image)`
   opacity: 0.7;
   top: -5%;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     transform: none;
     width: 120%;
     left: -20%;
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     left: -20%;
     top: -15%;
   }
@@ -156,14 +156,14 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   z-index: 1;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     align-items: center;
     position: static;
     padding: ${spacing(3)} 0;
     padding-top: 0;
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     justify-content: center;
     flex-direction: row;
     align-items: flex-start;

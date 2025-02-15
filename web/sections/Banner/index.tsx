@@ -1,8 +1,7 @@
-import React from "react";
 import { PortableText } from "@portabletext/react";
 import { client } from "network/getContent";
 import { useNextSanityImage } from "next-sanity-image";
-import { Banner } from "./query";
+import { type Banner } from "./query";
 import {
   BannerContainer,
   ImageContainer,
@@ -28,11 +27,10 @@ const Banner = ({ banner }: BannerProps) => {
           <div>{/* TODO: Implement Video*/}</div>
         )}
       </ImageContainer>
-      <TextBoxContainer
-      >
+      <TextBoxContainer>
         <TextBox>
           <Title
-            fontSize={{cursive: 'xl', regular: 'xl'}}
+            fontSize={{ cursive: "xl", regular: "xl" }}
             responsive={false}
             lineBreak={true}
             wrap={true}

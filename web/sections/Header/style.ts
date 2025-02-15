@@ -1,12 +1,12 @@
-import styled, { css } from "styled-components";
-import colors from "styles/palette";
-import { fontSize, fontStyle } from "styles/font";
-import spacing from "styles/spacing";
-import media from "styles/media";
-import { shadow } from "styles/shadows";
-import zIndex from "styles/zIndex";
-import { underline } from "styles/animations/underline";
 import Button from "components/Button";
+import styled, { css } from "styled-components";
+import { underline } from "styles/animations/underline";
+import { fontSize, fontStyle } from "styles/font";
+import media from "styles/media";
+import colors from "styles/palette";
+import { shadow } from "styles/shadows";
+import spacing from "styles/spacing";
+import zIndex from "styles/zIndex";
 
 const NAV_HEIGHT = { EXPANDED: `125px`, COLLAPSED: "75px" };
 const MOBILE_NAV_HEIGHT = { EXPANDED: `75px`, COLLAPSED: "34px" };
@@ -14,16 +14,11 @@ const MOBILE_NAV_HEIGHT = { EXPANDED: `75px`, COLLAPSED: "34px" };
 const COLLAPSE_ANIMATION = "ease-in-out 150ms";
 const FLIP_ANIMATION = "ease-in-out 250ms";
 
-const calculateBackToTopPosition = (isMobile?: boolean) =>
-  `calc(calc(-${
-    isMobile ? MOBILE_NAV_HEIGHT.COLLAPSED : NAV_HEIGHT.COLLAPSED
-  } / 2) - ${spacing(isMobile ? 2.5 : 3)})`;
-
 const titleHeight = css<{ $collapsed: boolean }>`
   height: ${({ $collapsed: collapsed }) =>
     collapsed ? MOBILE_NAV_HEIGHT.COLLAPSED : MOBILE_NAV_HEIGHT.EXPANDED};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     height: ${({ $collapsed: collapsed }) =>
       collapsed ? NAV_HEIGHT.COLLAPSED : NAV_HEIGHT.EXPANDED};
   }
@@ -32,8 +27,10 @@ const titleHeight = css<{ $collapsed: boolean }>`
 const navPadding = css<{ $collapsed: boolean }>`
   padding: ${spacing(0.5)};
 
-  ${media.medium} {
-    padding: ${({ $collapsed: collapsed }) => spacing(collapsed ? 1 : 2)} ${spacing(4)};
+  ${media.mediumUP} {
+    // prettier-ignore
+    padding: ${({ $collapsed: collapsed }) =>
+      spacing(collapsed ? 1 : 2)} ${spacing(4)};
   }
 `;
 
@@ -42,7 +39,7 @@ export const Anchor = styled.div<{ $collapsed?: boolean }>`
   ${titleHeight}
   ${navPadding}
 
-  ${media.large} {
+  ${media.largeUP} {
     background-color: ${colors.grey.c};
   }
 `;
@@ -56,7 +53,8 @@ export const HeaderContainer = styled.div`
 export const NavContainer = styled.div<{ $collapsed: boolean }>`
   display: grid;
   grid-template-areas: "logo links";
-  grid-template-columns: ${({ $collapsed: collapsed }) => (collapsed ? "15%" : "35%")} auto;
+  grid-template-columns: ${({ $collapsed: collapsed }) =>
+      collapsed ? "15%" : "20%"} auto;
   grid-template-rows: auto;
   align-items: center;
   top: 0;
@@ -67,9 +65,10 @@ export const NavContainer = styled.div<{ $collapsed: boolean }>`
   ${shadow(1)}
   transition: all ${COLLAPSE_ANIMATION};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     grid-template-areas: "logo links socials";
-    grid-template-columns: ${({ $collapsed: collapsed }) => (collapsed ? "20%" : "35%")} auto 10%;
+    grid-template-columns: ${({ $collapsed: collapsed }) =>
+        collapsed ? "15%" : "25%"} auto 10%;
   }
 `;
 
@@ -77,21 +76,28 @@ export const NavList = styled.div.attrs({ role: "navigation" })`
   grid-area: links;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   flex-wrap: wrap;
   position: relative;
   padding: ${spacing(0.5)} 0;
+  row-gap: ${spacing(0.5)};
 
-  ${media.medium} {
-    flex-wrap: nowrap;
+  ${media.mediumUP} {
     padding: 0;
-    gap: 5%;
+    column-gap: 5%;
+    row-gap: ${spacing(2)};
+  }
+
+  ${media.largeUP} {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
   }
 `;
 
-export const NavItem = styled.button<{ $collapsed: boolean }>`
+const navItemStyle = css<{ $collapsed: boolean }>`
   color: ${colors.black};
-  font-size: ${({ $collapsed: collapsed }) => fontSize(collapsed ? "xs" : "sm")};
+  font-size: ${({ $collapsed: collapsed }) =>
+    fontSize(collapsed ? "xs" : "sm")};
   ${fontStyle.IMPACT_THIN};
   padding: 0 ${spacing(0.5)};
   ${underline("jade-a", `font-size ${COLLAPSE_ANIMATION}`)}
@@ -101,20 +107,30 @@ export const NavItem = styled.button<{ $collapsed: boolean }>`
     cursor: pointer;
   }
 
-  ${media.medium} {
+  ${media.mediumUP} {
     padding: ${spacing(0.5)} ${spacing(1)};
-    font-size: ${({ $collapsed: collapsed }) => fontSize(collapsed ? "regular" : "lg")};
+    font-size: ${({ $collapsed: collapsed }) =>
+      fontSize(collapsed ? "regular" : "lg")};
   }
+`;
+
+export const NavButton = styled.button<{ $collapsed: boolean }>`
+  ${navItemStyle}
+`;
+
+export const NavLink = styled.a<{ $collapsed: boolean }>`
+  ${navItemStyle}
+  text-decoration: none;
 `;
 
 export const BackToTopButton = styled.button.attrs<{ $collapsed: boolean }>(
   ({ $collapsed: collapsed }) => ({
     disabled: !collapsed,
     "aria-hidden": !collapsed,
-  })
+  }),
 )<{ $collapsed: boolean }>`
   position: absolute;
-  bottom: ${calculateBackToTopPosition(true)};
+  right: ${spacing(2)};
   border-bottom-left-radius: ${spacing(2)};
   border-bottom-right-radius: ${spacing(2)};
   ${shadow(1)}
@@ -146,16 +162,18 @@ export const BackToTopButton = styled.button.attrs<{ $collapsed: boolean }>(
           transform: perspective(600px) rotateX(180deg);
         `}
 
-  ${media.medium} {
-    bottom: ${calculateBackToTopPosition()};
-    padding: ${spacing(0.5)} ${spacing(3)};
+  ${media.mediumUP} {
+    padding: 0 ${spacing(1.5)} ${spacing(0.25)} ${spacing(0.5)};
     span {
       display: block;
     }
   }
 
-  transition: transform ${FLIP_ANIMATION}, opacity ${FLIP_ANIMATION},
-    top ${COLLAPSE_ANIMATION}, background-color linear 150ms;
+  transition:
+    transform ${FLIP_ANIMATION},
+    opacity ${FLIP_ANIMATION},
+    top ${COLLAPSE_ANIMATION},
+    background-color linear 150ms;
 `;
 
 export const ChevronAnimationContainer = styled.div`
@@ -193,24 +211,26 @@ export const Socials = styled.div<{ $collapsed: boolean }>`
     }
   }
 
-  ${media.medium} {
+  ${media.mediumUP} {
     display: flex;
   }
 `;
 
 export const WorkButton = styled(Button).attrs({ variant: "secondary" })`
-  height: 32px;
-  margin-left: ${spacing(1)};
+  height: 28px;
   font-size: ${fontSize("sm")};
   line-height: ${fontSize("sm")};
-  padding: 0 ${spacing(1)};
+  padding: 0 ${spacing(0.5)};
   border-width: 2px;
+  margin-left: ${spacing(1)};
+  text-align: center;
+  white-space: nowrap;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     height: 48px;
-    margin-left: 0;
     font-size: ${fontSize("regular")};
     padding: ${spacing(1)} ${spacing(2)};
+    margin-left: 0;
     border-width: 3px;
   }
 `;

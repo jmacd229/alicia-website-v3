@@ -1,10 +1,14 @@
-import React from "react";
 import { PortableText } from "@portabletext/react";
+import MixedFontTitle from "components/MixedFontTitle";
 import { client } from "network/getContent";
 import { useNextSanityImage } from "next-sanity-image";
-import { About } from "./query";
-import { AboutMeContainer, AboutMeContent, StyledImage, TextContainer } from "./style";
-import MixedFontTitle from "components/MixedFontTitle";
+import { type About } from "./query";
+import {
+  AboutMeContainer,
+  AboutMeContent,
+  StyledImage,
+  TextContainer,
+} from "./style";
 
 type AboutProps = {
   about: About;
@@ -20,7 +24,11 @@ const About = ({ about }: AboutProps) => {
           <div>
             <PortableText value={about.body}></PortableText>
           </div>
-          <StyledImage {...imageProps} alt={about.image.alt} className="profile" />
+          <StyledImage
+            {...imageProps}
+            alt={about.image.alt}
+            className="profile"
+          />
         </TextContainer>
       </AboutMeContent>
     </AboutMeContainer>

@@ -8,16 +8,16 @@ export const AboutMeContainer = styled.div.attrs({ id: "aboutMe" })`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding:  ${spacing(6)} ${spacing(3)};
+  padding: ${spacing(6)} ${spacing(3)};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     padding: ${spacing(15)};
   }
 `;
 
 export const AboutMeContent = styled.div`
   width: 100%;
-  ${media.medium} {
+  ${media.mediumUP} {
     max-width: 900px;
   }
 `;
@@ -29,7 +29,7 @@ export const TextContainer = styled.div`
   padding: ${spacing(1)} 0;
   border-bottom: 3px solid ${colors.blue.c};
 
-  ${media.large} {
+  ${media.largeUP} {
     flex-direction: row;
     padding: ${spacing(3)} 0;
   }
@@ -39,7 +39,7 @@ export const StyledImage = styled(Image)`
   max-width: 300px;
   height: auto;
 
-  ${media.large} {
+  ${media.largeUP} {
     margin-left: ${spacing(5)};
   }
 `;
