@@ -80,11 +80,12 @@ export const NavList = styled.div.attrs({ role: "navigation" })`
   flex-wrap: wrap;
   position: relative;
   padding: ${spacing(0.5)} 0;
-  row-gap: ${spacing(2)};
+  row-gap: ${spacing(0.5)};
 
   ${media.medium} {
     padding: 0;
     column-gap: 5%;
+    row-gap: ${spacing(2)};
   }
 
   ${media.large} {
@@ -216,18 +217,16 @@ export const Socials = styled.div<{ $collapsed: boolean }>`
 `;
 
 export const WorkButton = styled(Button).attrs({ variant: "secondary" })`
-  height: 32px;
-  margin-left: ${spacing(1)};
+  height: 28px;
   font-size: ${fontSize("sm")};
   line-height: ${fontSize("sm")};
-  padding: 0 ${spacing(1)};
+  padding: 0 ${spacing(0.5)};
   border-width: 2px;
   text-align: center;
   white-space: nowrap;
 
   ${media.medium} {
     height: 48px;
-    margin-left: 0;
     font-size: ${fontSize("regular")};
     padding: ${spacing(1)} ${spacing(2)};
     border-width: 3px;
