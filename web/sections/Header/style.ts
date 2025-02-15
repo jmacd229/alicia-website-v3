@@ -18,7 +18,7 @@ const titleHeight = css<{ $collapsed: boolean }>`
   height: ${({ $collapsed: collapsed }) =>
     collapsed ? MOBILE_NAV_HEIGHT.COLLAPSED : MOBILE_NAV_HEIGHT.EXPANDED};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     height: ${({ $collapsed: collapsed }) =>
       collapsed ? NAV_HEIGHT.COLLAPSED : NAV_HEIGHT.EXPANDED};
   }
@@ -27,7 +27,7 @@ const titleHeight = css<{ $collapsed: boolean }>`
 const navPadding = css<{ $collapsed: boolean }>`
   padding: ${spacing(0.5)};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     // prettier-ignore
     padding: ${({ $collapsed: collapsed }) =>
       spacing(collapsed ? 1 : 2)} ${spacing(4)};
@@ -39,7 +39,7 @@ export const Anchor = styled.div<{ $collapsed?: boolean }>`
   ${titleHeight}
   ${navPadding}
 
-  ${media.large} {
+  ${media.largeUP} {
     background-color: ${colors.grey.c};
   }
 `;
@@ -65,7 +65,7 @@ export const NavContainer = styled.div<{ $collapsed: boolean }>`
   ${shadow(1)}
   transition: all ${COLLAPSE_ANIMATION};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     grid-template-areas: "logo links socials";
     grid-template-columns: ${({ $collapsed: collapsed }) =>
         collapsed ? "15%" : "25%"} auto 10%;
@@ -82,13 +82,13 @@ export const NavList = styled.div.attrs({ role: "navigation" })`
   padding: ${spacing(0.5)} 0;
   row-gap: ${spacing(0.5)};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     padding: 0;
     column-gap: 5%;
     row-gap: ${spacing(2)};
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     flex-wrap: nowrap;
     justify-content: flex-end;
   }
@@ -107,7 +107,7 @@ const navItemStyle = css<{ $collapsed: boolean }>`
     cursor: pointer;
   }
 
-  ${media.medium} {
+  ${media.mediumUP} {
     padding: ${spacing(0.5)} ${spacing(1)};
     font-size: ${({ $collapsed: collapsed }) =>
       fontSize(collapsed ? "regular" : "lg")};
@@ -162,7 +162,7 @@ export const BackToTopButton = styled.button.attrs<{ $collapsed: boolean }>(
           transform: perspective(600px) rotateX(180deg);
         `}
 
-  ${media.medium} {
+  ${media.mediumUP} {
     padding: 0 ${spacing(1.5)} ${spacing(0.25)} ${spacing(0.5)};
     span {
       display: block;
@@ -211,7 +211,7 @@ export const Socials = styled.div<{ $collapsed: boolean }>`
     }
   }
 
-  ${media.medium} {
+  ${media.mediumUP} {
     display: flex;
   }
 `;
@@ -222,13 +222,15 @@ export const WorkButton = styled(Button).attrs({ variant: "secondary" })`
   line-height: ${fontSize("sm")};
   padding: 0 ${spacing(0.5)};
   border-width: 2px;
+  margin-left: ${spacing(1)};
   text-align: center;
   white-space: nowrap;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     height: 48px;
     font-size: ${fontSize("regular")};
     padding: ${spacing(1)} ${spacing(2)};
+    margin-left: 0;
     border-width: 3px;
   }
 `;

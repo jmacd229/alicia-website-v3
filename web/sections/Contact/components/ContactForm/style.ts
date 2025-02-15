@@ -19,7 +19,7 @@ export const FormContainer = styled.div`
   border-top-right-radius: 8px;
   ${shadow(1)}
 
-  ${media.medium} {
+  ${media.mediumUP} {
     padding: ${spacing(4)} ${spacing(8)};
   }
 `;
@@ -49,7 +49,7 @@ export const FormTitle = styled.h3`
     max-width: 48px;
   }
 
-  ${media.medium} {
+  ${media.mediumUP} {
     gap: ${spacing(2)};
     flex-direction: row;
     text-align: left;

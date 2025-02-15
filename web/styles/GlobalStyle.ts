@@ -29,7 +29,7 @@ export default createGlobalStyle`
   p {
     font-size: ${fontSize("regular")};
 
-    ${media.medium}{
+    ${media.mediumUP}{
       font-size: ${fontSize("regular")};
     }
   }
@@ -55,7 +55,7 @@ h2 {
   font-size: ${fontSize("xxl")};
   line-height: ${fontSize("xxl")};
   
-  ${media.medium} {
+  ${media.mediumUP} {
     font-size: ${fontSize("3xl")};
     line-height: ${fontSize("3xl")};
   }
@@ -103,6 +103,17 @@ ul {
     border-radius: ${spacing(2)};
     font-weight: 600;
     border: none;
+  }
+}
+
+${media.smallDOWN} {
+  .hide-small {
+    display: none;
+  }
+}
+${media.smallUP} {
+  .only-small {
+    display: none;
   }
 }
 `;

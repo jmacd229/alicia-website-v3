@@ -50,11 +50,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </Head>
       <GlobalStyle />
-      <Header
-        sections={sections}
-        contactMethods={header.contactMethods}
-        loginLink={header.login}
-      />
+      <Header sections={sections} {...header} />
       <Banner banner={banner} />
       <About about={aboutMe} />
       <Work work={work} />

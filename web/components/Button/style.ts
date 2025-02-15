@@ -62,7 +62,7 @@ const buttonStyle = css<ButtonStyleProperties>`
       ? css`
           height: 32px;
           padding: 0 ${spacing(1)};
-          ${media.medium} {
+          ${media.mediumUP} {
             padding: 0 ${spacing(4)};
             height: 64px;
           }
@@ -70,7 +70,7 @@ const buttonStyle = css<ButtonStyleProperties>`
       : css`
           height: 48px;
           padding: 0 ${spacing(3)};
-          ${media.medium} {
+          ${media.mediumUP} {
             padding: 0 ${spacing(4)};
             height: 64px;
           }
@@ -113,7 +113,7 @@ export const AnimationContainer = styled.div<{ size: ButtonSize }>`
     width: 96px;
   }
 
-  ${media.medium} {
+  ${media.mediumUP} {
     display: block;
   }
 `;

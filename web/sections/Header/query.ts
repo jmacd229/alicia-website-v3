@@ -1,11 +1,13 @@
 export default `{
-  "login": *[_type == "login"][0]{visible,title,tooltip,link},
-  "contactMethods": *[_type == "contact"][0]{methods[]{sanityId,label,title,url}}.methods
+  "loginLink": *[_type == "login"][0]{visible,title,tooltip,link},
+  "contactMethods": *[_type == "contact"][0]{methods[]{sanityId,label,title,url}}.methods,
+  "mobileWorkButtonText" : *[_type == "work"][0]{mobile_link}.mobile_link,
 }`;
 
 export type ContactResponse = {
-  login: LoginLink;
+  loginLink: LoginLink;
   contactMethods: ContactMethod[];
+  mobileWorkButtonText?: string;
 };
 
 export type LoginLink = {

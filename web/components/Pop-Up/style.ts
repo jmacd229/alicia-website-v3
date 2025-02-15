@@ -16,7 +16,7 @@ export const PopUpLayout = styled<AnimatedComponent<ElementType>>(animated.div)`
   justify-content: center;
   z-index: 2;
 
-  ${media.large} {
+  ${media.largeUP} {
     width: 50%;
   }
 `;
@@ -40,7 +40,7 @@ export const PopUpContainer = styled.div`
     font-size: ${fontSize("xs")};
     text-align: center;
 
-    ${media.medium} {
+    ${media.mediumUP} {
       font-size: ${fontSize("sm")};
     }
   }

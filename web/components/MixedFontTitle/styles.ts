@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { fontStyle, fontSize, FontSize } from "styles/font";
+import { fontSize, FontSize, fontStyle } from "styles/font";
 import media from "styles/media";
 import colors from "styles/palette";
 import spacing from "styles/spacing";
@@ -13,7 +13,7 @@ export const TitleContainer = styled.h2<{
   align-items: center;
   justify-content: center;
   text-align: center;
-  ${media.medium} {
+  ${media.mediumUP} {
     white-space: ${({ $wrap }) => ($wrap ? "normal" : "nowrap")};
   }
 `;
@@ -26,7 +26,7 @@ const fontSizeStyle = css<{
     fontSize($fontSize, $responsive ? "smaller" : undefined)};
   line-height: ${({ $fontSize, $responsive }) =>
     fontSize($fontSize, $responsive ? "smaller" : undefined)};
-  ${media.medium} {
+  ${media.mediumUP} {
     font-size: ${({ $fontSize }) => fontSize($fontSize)};
     line-height: ${({ $fontSize }) => fontSize($fontSize)};
   }

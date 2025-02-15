@@ -25,11 +25,11 @@ export const BannerContainer = styled.div`
   background-color: ${colors.grey.a};
   border-bottom: ${spacing(8)} solid ${colors.blue.b};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     flex-direction: row;
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     height: ${BANNER_HEIGHT};
     flex-direction: row;
     align-items: flex-start;
@@ -44,7 +44,7 @@ export const ImageContainer = styled.div`
   border-bottom: 6px solid ${colors.blue.b};
   overflow: hidden;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     width: 100%;
     ${BORDER_STYLE(colors.blue.b)}
     flex: 50%;
@@ -52,7 +52,7 @@ export const ImageContainer = styled.div`
     border-radius: ${spacing(3)};
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     margin-left: 0;
     border: none;
     border-radius: 0;
@@ -65,11 +65,11 @@ export const StyledImage = styled(Image)`
   border-radius: 0;
   opacity: 0.8;
 
-  ${media.medium} {
+  ${media.mediumUP} {
     border-radius: ${spacing(3)};
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     position: absolute;
     border-radius: 0;
     width: 120%;
@@ -86,7 +86,7 @@ export const TextBoxContainer = styled.div`
   z-index: 1;
   justify-content: center;
 
-  ${media.large} {
+  ${media.largeUP} {
     position: absolute;
     width: 50%;
     min-width: 520px;
@@ -102,11 +102,11 @@ export const TextBox = styled.div`
   width: 100%;
   background-color: ${colors.grey.a};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     border: none;
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     ${BORDER_STYLE(colors.blue.b)};
     border-radius: ${getTextBorderRadius()};
   }
@@ -132,7 +132,7 @@ export const Title = styled(MixedFontTitle)`
     color: ${colors.black};
   }
 
-  ${media.large} {
+  ${media.largeUP} {
     padding: ${spacing(3)};
     background-color: ${colors.white};
   }
@@ -143,7 +143,7 @@ export const TextBoxContent = styled.div`
   flex-direction: column;
   padding: ${spacing(1)} ${spacing(2)};
 
-  ${media.medium} {
+  ${media.mediumUP} {
     padding: ${spacing(3)} ${spacing(6)};
     padding-bottom: ${spacing(5)};
     gap: ${spacing(3)};

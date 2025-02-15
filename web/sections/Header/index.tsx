@@ -9,7 +9,7 @@ import Tooltip from "rc-tooltip";
 import { useEffect, useRef, useState } from "react";
 import { animateScroll } from "react-scroll";
 import { SCROLL_HEIGHT_FOR_BACK_TO_TOP } from "./constants";
-import { LoginLink, type ContactMethod } from "./query";
+import { ContactResponse } from "./query";
 import {
   Anchor,
   BackToTopButton,
@@ -37,11 +37,14 @@ function scrollToSection(id: string) {
 
 type HeaderProps = {
   sections: Sections;
-  contactMethods: ContactMethod[];
-  loginLink: LoginLink;
-};
+} & ContactResponse;
 
-const Header = ({ sections, contactMethods, loginLink }: HeaderProps) => {
+const Header = ({
+  sections,
+  contactMethods,
+  loginLink,
+  mobileWorkButtonText,
+}: HeaderProps) => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(false);
   const [animation, setAnimation] = useState<AnimationItem | undefined>();
   const animationContainer = useRef<HTMLDivElement>(undefined);
@@ -124,7 +127,8 @@ const Header = ({ sections, contactMethods, loginLink }: HeaderProps) => {
                   data: brain,
                 }}
               >
-                {workSection.link}
+                <span className="only-small">{mobileWorkButtonText}</span>
+                <span className="hide-small">{workSection.link}</span>
               </WorkButton>
             )}
           </NavList>
